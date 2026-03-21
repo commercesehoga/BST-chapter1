@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>english one word</title>
+<title>English One Word Substitution — Mock Test</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 body * { box-sizing: border-box; }
@@ -13,7 +13,6 @@ body * { box-sizing: border-box; }
   display: flex !important; flex-direction: row !important;
   width: 100% !important; height: calc(100vh - 120px) !important;
 }
-/* ✅ FIX 1: Sidebar width increased slightly to accommodate 5-col palette */
 .palette-sidebar {
   width: 260px !important; min-width: 260px !important;
   display: flex !important; flex-direction: column !important;
@@ -50,7 +49,7 @@ body { display: block !important; }
 :root{
   --p1:#4a2f7a; --p2:#6b46b0; --p3:#8b68cc; --p4:#b89ee0; --p5:#ede8f9; --p6:#f7f4fd;
   --accent:#c084fc;
-  --nv:#9e9e9e; --na:#e05c5c; --ans:#3aaa6e; --mk:#d97706; --mka:#0891b2;
+  --nv:#ffffff; --na:#e05c5c; --ans:#3aaa6e; --mk:#6b46b0; --mka:#6b46b0;
   --bg:var(--p6); --card:#fff; --border:var(--p4); --text:#2d1b55; --muted:#6e5d8c;
   --set-a:#6b46b0; --set-b:#0891b2; --set-c:#d97706; --set-d:#3aaa6e;
 }
@@ -130,7 +129,7 @@ body { display: block !important; }
 .set-selector-header p{font-size:10.5px;opacity:.65;margin-top:1px;}
 .set-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px;}
 .set-card{border:2px solid;border-radius:9px;padding:9px 10px;cursor:pointer;transition:all .25s cubic-bezier(0.22,1,0.36,1);text-align:center;position:relative;}
-.set-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.18);transition:all .25s cubic-bezier(0.22,1,0.36,1);}
+.set-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.18);}
 .set-card.selected::after{content:'✓';position:absolute;top:5px;right:8px;font-size:12px;font-weight:800;}
 .set-card-a{border-color:var(--set-a);background:#f5f0ff;}.set-card-a.selected{background:#ede4ff;box-shadow:0 0 0 2px var(--set-a);}.set-card-a .set-icon,.set-card-a .set-name,.set-card-a.selected::after{color:var(--set-a);}
 .set-card-b{border-color:var(--set-b);background:#f0faff;}.set-card-b.selected{background:#dcf4ff;box-shadow:0 0 0 2px var(--set-b);}.set-card-b .set-icon,.set-card-b .set-name,.set-card-b.selected::after{color:var(--set-b);}
@@ -277,7 +276,6 @@ body { display: block !important; }
 .btn-nav.submit-btn{background:#dc2626;color:#fff;border-color:#dc2626;margin-left:auto;}
 .btn-nav.submit-btn:hover{background:#b91c1c;}
 
-/* ✅ FIX 2: Palette sidebar — wider, 5-column grid, proper button sizing */
 .palette-sidebar{
   width:260px;flex-shrink:0;background:#fff;
   border-left:1px solid var(--p4);overflow-y:auto;display:flex;flex-direction:column;
@@ -289,14 +287,14 @@ body { display: block !important; }
 .palette-title{background:var(--p5);padding:7px 12px;font-size:11.5px;font-weight:700;color:var(--p1);border-bottom:1px solid var(--p4);flex-shrink:0;}
 .palette-grid-wrap{padding:10px 12px;}
 
-/* ✅ KEY FIX: 5 columns for 25 questions = perfect 5×5 grid */
+/* 5 columns × 10 rows = 50 questions */
 .palette-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:6px;
   margin-bottom:10px;
 }
-.palette-btn{transition:background-color .25s ease,transform .15s cubic-bezier(0.22,1,0.36,1),box-shadow .2s ease;
+.palette-btn{
   width:100%;
   aspect-ratio:1/1;
   border-radius:50%;
@@ -315,7 +313,11 @@ body { display: block !important; }
 }
 .palette-btn:hover{transform:scale(1.15);box-shadow:0 3px 10px rgba(0,0,0,.25);}
 .palette-btn.active-q{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--p2);}
-.s-nv{background:var(--nv);}.s-na{background:var(--na);}.s-ans{background:var(--ans);}.s-mk{background:var(--mk);}.s-mka{background:var(--mka);}
+.s-nv{background:#fff;border:2px solid #bbb;color:#555;}
+.s-na{background:var(--na);}
+.s-ans{background:var(--ans);}
+.s-mk{background:var(--mk);}
+.s-mka{background:linear-gradient(135deg,var(--mk) 50%,var(--ans) 50%);}
 .palette-legend{padding:0 12px 9px;}
 .pl-title{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;}
 .pl-item{display:flex;align-items:center;gap:6px;margin-bottom:5px;font-size:10.5px;color:var(--muted);}
@@ -440,7 +442,6 @@ body { display: block !important; }
 .pqr-your.correct{background:#d1fae5;color:#065f46;}.pqr-your.wrong{background:#fee2e2;color:#991b1b;}.pqr-your.skip{background:#f3f4f6;color:#6b7280;}
 .print-footer{text-align:center;font-size:10px;color:#888;margin-top:20px;padding-top:10px;border-top:1px solid #ddd;}
 
-/* ✅ FIX 3: Mobile responsive — keep 5 columns on mobile too */
 @media(max-width:820px){
   .palette-sidebar{width:100%;height:210px;border-left:none;border-top:1px solid var(--p4);}
   .test-body{flex-direction:column;height:auto;overflow:visible;}
@@ -451,38 +452,23 @@ body { display: block !important; }
   .start-left{width:100%;}
 }
 
-/* ── PAGE TRANSITIONS ── */
-.page{
-  animation:none;
-}
-.page.active{
-  animation:fadeIn .3s ease;
-}
-#start-page.active{
-  animation:none;/* start page has its own children animations */
-}
-
-/* ── IMPROVED BUTTON INTERACTIONS ── */
+.page{ animation:none; }
+.page.active{ animation:fadeIn .3s ease; }
+#start-page.active{ animation:none; }
 .btn-nav{transition:all .2s cubic-bezier(0.22,1,0.36,1);}
 .btn-nav:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15);}
 .btn-nav:active{transform:translateY(0) scale(0.97);}
 .btn-start{transition:all .25s cubic-bezier(0.22,1,0.36,1);}
 .btn-primary{transition:all .25s cubic-bezier(0.22,1,0.36,1);}
 .btn-primary.enabled:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(74,47,122,.4);}
-
-/* ── SCORE CIRCLE ENTRY ── */
 .score-circle{animation:popIn .6s .1s cubic-bezier(0.22,1,0.36,1) both;}
-
-/* ── REVIEW CARD ENTRY ── */
 .review-q-card{animation:slideUp .35s cubic-bezier(0.22,1,0.36,1) both;}
 
-/* ── PALETTE BTN ACTIVE PULSE ── */
 @keyframes activePulse{
   0%,100%{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--p2);}
   50%{box-shadow:0 0 0 2px #fff,0 0 0 6px var(--p2),0 0 14px rgba(107,70,176,.4);}
 }
 .palette-btn.active-q{animation:activePulse 1.8s ease-in-out infinite;}
-
 </style>
 </head>
 <body>
@@ -492,7 +478,7 @@ body { display: block !important; }
   <div class="print-page">
     <div class="print-header">
       <h1>NTA CBT Mock Test — Score Card</h1>
-      <p>CUET (UG) 2024 | History | <span id="pr-set-label">Set A</span></p>
+      <p>English — One Word Substitution | <span id="pr-set-label">Set 1</span></p>
     </div>
     <div class="print-candidate-box">
       <div class="pci">Candidate: <strong id="pr-name">—</strong></div>
@@ -501,7 +487,7 @@ body { display: block !important; }
       <div class="pci">Time Taken: <strong id="pr-time">—</strong></div>
     </div>
     <div class="print-score-row">
-      <div class="print-score-box psb-score"><div class="psb-val" id="pr-score">0</div><div class="psb-lbl" style="color:#4a2f7a;">Score /100</div></div>
+      <div class="print-score-box psb-score"><div class="psb-val" id="pr-score">0</div><div class="psb-lbl" style="color:#4a2f7a;">Score /250</div></div>
       <div class="print-score-box psb-correct"><div class="psb-val" id="pr-correct">0</div><div class="psb-lbl" style="color:#065f46;">Correct</div></div>
       <div class="print-score-box psb-wrong"><div class="psb-val" id="pr-wrong">0</div><div class="psb-lbl" style="color:#991b1b;">Wrong</div></div>
       <div class="print-score-box psb-acc"><div class="psb-val" id="pr-acc">0%</div><div class="psb-lbl" style="color:#0e7490;">Accuracy</div></div>
@@ -527,11 +513,11 @@ body { display: block !important; }
         </div>
         <div class="start-card-body">
           <div class="exam-info-grid">
-            <div class="info-box"><div class="label">Exam</div><div class="value">CUET (UG) – 2024</div></div>
-            <div class="info-box"><div class="label">Subject</div><div class="value">History</div></div>
-            <div class="info-box"><div class="label">Questions</div><div class="value">25 per Set</div></div>
-            <div class="info-box"><div class="label">Duration</div><div class="value">30 Minutes</div></div>
-            <div class="info-box"><div class="label">Max Marks</div><div class="value">100</div></div>
+            <div class="info-box"><div class="label">Exam</div><div class="value">English Mock</div></div>
+            <div class="info-box"><div class="label">Subject</div><div class="value">English</div></div>
+            <div class="info-box"><div class="label">Questions</div><div class="value">50 per Set</div></div>
+            <div class="info-box"><div class="label">Duration</div><div class="value">60 Minutes</div></div>
+            <div class="info-box"><div class="label">Max Marks</div><div class="value">250</div></div>
             <div class="info-box"><div class="label">Negative</div><div class="value">–1 / Wrong</div></div>
           </div>
           <div class="form-group"><label>Candidate Name</label><input type="text" id="candidate-name" placeholder="Enter your full name"/></div>
@@ -544,18 +530,18 @@ body { display: block !important; }
       <div class="set-selector-card">
         <div class="set-selector-header">
           <div class="ssh-title">📋 Choose Your Question Paper Set</div>
-          <p>Each set has 25 unique History questions. Try all 4 sets!</p>
+          <p>Each set has 50 unique English questions. Try all 4 sets!</p>
         </div>
         <div class="set-grid">
-          <div class="set-card set-card-a" id="sc-A" onclick="selectSet('A')"><div class="set-icon">📜</div><div class="set-name">Set A</div><div class="set-desc">Ancient India</div><div class="set-q-count">25 Questions</div></div>
-          <div class="set-card set-card-b" id="sc-B" onclick="selectSet('B')"><div class="set-icon">🏰</div><div class="set-name">Set B</div><div class="set-desc">Medieval India</div><div class="set-q-count">25 Questions</div></div>
-          <div class="set-card set-card-c" id="sc-C" onclick="selectSet('C')"><div class="set-icon">🏛</div><div class="set-name">Set C</div><div class="set-desc">Modern India</div><div class="set-q-count">25 Questions</div></div>
-          <div class="set-card set-card-d" id="sc-D" onclick="selectSet('D')"><div class="set-icon">🇮🇳</div><div class="set-name">Set D</div><div class="set-desc">Freedom Movement</div><div class="set-q-count">25 Questions</div></div>
+          <div class="set-card set-card-a" id="sc-A" onclick="selectSet('A')"><div class="set-icon">📝</div><div class="set-name">Set 1</div><div class="set-desc">English Set 1</div><div class="set-q-count">50 Questions</div></div>
+          <div class="set-card set-card-b" id="sc-B" onclick="selectSet('B')"><div class="set-icon">📝</div><div class="set-name">Set 2</div><div class="set-desc">English Set 2</div><div class="set-q-count">50 Questions</div></div>
+          <div class="set-card set-card-c" id="sc-C" onclick="selectSet('C')"><div class="set-icon">📝</div><div class="set-name">Set 3</div><div class="set-desc">English Set 3</div><div class="set-q-count">50 Questions</div></div>
+          <div class="set-card set-card-d" id="sc-D" onclick="selectSet('D')"><div class="set-icon">📝</div><div class="set-name">Set 4</div><div class="set-desc">English Set 4</div><div class="set-q-count">50 Questions</div></div>
         </div>
       </div>
       <div class="history-panel">
         <div class="history-panel-header"><h3>📊 Past Attempts</h3><p>Set-wise performance overview</p></div>
-        <div class="bar-chart-wrap"><div class="bar-chart-title">Best Score Per Set (out of 100)</div><div class="bar-chart" id="bar-chart"></div></div>
+        <div class="bar-chart-wrap"><div class="bar-chart-title">Best Score Per Set (out of 250)</div><div class="bar-chart" id="bar-chart"></div></div>
         <div class="history-panel-body" id="history-panel-body"><div class="history-empty">No attempts yet.<br/>Complete a test to see history here.</div></div>
       </div>
     </div>
@@ -575,7 +561,7 @@ body { display: block !important; }
         <div id="inst-info" style="opacity:.75;margin-top:2px;"></div>
       </div>
     </div>
-    <div class="sub-header">CUET (UG) – 2024 : History &nbsp;|&nbsp; <span id="inst-set-label">Set A</span> &nbsp;|&nbsp; Instructions</div>
+    <div class="sub-header">English — One Word Substitution &nbsp;|&nbsp; <span id="inst-set-label">Set 1</span> &nbsp;|&nbsp; Instructions</div>
   </div>
   <div class="instruction-body">
     <div class="instruction-card">
@@ -595,19 +581,19 @@ body { display: block !important; }
     <div class="instruction-card">
       <div class="instruction-card-title">🎨 Question Palette Legend</div>
       <div class="legend-grid">
-        <div class="legend-item"><div class="legend-bubble" style="background:var(--nv)">1</div>Not Visited</div>
+        <div class="legend-item"><div class="legend-bubble" style="background:#fff;border:2px solid #bbb;color:#555;">1</div>Not Visited</div>
         <div class="legend-item"><div class="legend-bubble" style="background:var(--na)">2</div>Not Answered</div>
         <div class="legend-item"><div class="legend-bubble" style="background:var(--ans)">3</div>Answered</div>
         <div class="legend-item"><div class="legend-bubble" style="background:var(--mk)">4</div>Marked for Review</div>
-        <div class="legend-item"><div class="legend-bubble" style="background:var(--mka)">5</div>Answered &amp; Marked</div>
+        <div class="legend-item"><div class="legend-bubble" style="background:linear-gradient(135deg,var(--mk) 50%,var(--ans) 50%)">5</div>Answered &amp; Marked</div>
       </div>
     </div>
     <div class="instruction-card">
       <div class="instruction-card-title">📝 Marking Scheme</div>
       <div class="instruction-card-body">
         <ul>
-          <li><strong>+4 marks</strong> for each correct answer &nbsp;|&nbsp; <strong>–1 mark</strong> for each wrong answer &nbsp;|&nbsp; <strong>0</strong> for unattempted.</li>
-          <li>Total: <strong>25 questions</strong> &nbsp;|&nbsp; Max: <strong>100 marks</strong> &nbsp;|&nbsp; Duration: <strong>30 minutes</strong>.</li>
+          <li><strong>+5 marks</strong> for each correct answer &nbsp;|&nbsp; <strong>–1 mark</strong> for each wrong answer &nbsp;|&nbsp; <strong>0</strong> for unattempted.</li>
+          <li>Total: <strong>50 questions</strong> &nbsp;|&nbsp; Max: <strong>250 marks</strong> &nbsp;|&nbsp; Duration: <strong>60 minutes</strong>.</li>
         </ul>
       </div>
     </div>
@@ -635,7 +621,7 @@ body { display: block !important; }
     <div class="top-bar">
       <div class="logo-area">
         <div class="logo-circle" style="width:36px;height:36px;font-size:10px;">NTA</div>
-        <div class="brand"><h1>NTA CBT — CUET (UG) 2024 <span class="set-pill" id="test-set-pill">Set A</span></h1></div>
+        <div class="brand"><h1>NTA CBT — English <span class="set-pill" id="test-set-pill">Set 1</span></h1></div>
       </div>
       <div style="flex:1;padding:0 14px;font-size:11.5px;color:#fff;">
         <div>Candidate: <strong id="test-name"></strong></div>
@@ -643,16 +629,16 @@ body { display: block !important; }
       </div>
       <div class="timer-box" id="timer-box">
         <div class="timer-label">Time Remaining</div>
-        <div class="timer-value" id="timer-display">30:00</div>
+        <div class="timer-value" id="timer-display">60:00</div>
       </div>
     </div>
-    <div class="section-tabs"><div class="section-tab active" id="section-tab-label">Section A — History</div></div>
+    <div class="section-tabs"><div class="section-tab active" id="section-tab-label">Section A — English</div></div>
   </div>
   <div class="test-body">
     <div class="question-area">
       <div class="question-top-bar">
-        <div class="q-info" id="q-info-label">Question No. 1 of 25</div>
-        <div class="marks-info">Marks: <span class="pos">+4</span> &nbsp;|&nbsp; Negative: <span class="neg">–1</span></div>
+        <div class="q-info" id="q-info-label">Question No. 1 of 50</div>
+        <div class="marks-info">Marks: <span class="pos">+5</span> &nbsp;|&nbsp; Negative: <span class="neg">–1</span></div>
       </div>
       <div class="question-content" id="question-content"></div>
       <div class="bottom-nav">
@@ -673,17 +659,17 @@ body { display: block !important; }
       <div class="palette-grid-wrap"><div class="palette-grid" id="palette-grid"></div></div>
       <div class="palette-legend">
         <div class="pl-title">Legend</div>
-        <div class="pl-item"><div class="pl-dot" style="background:var(--nv)">—</div>Not Visited</div>
+        <div class="pl-item"><div class="pl-dot" style="background:#fff;border:2px solid #bbb;color:#555;">—</div>Not Visited</div>
         <div class="pl-item"><div class="pl-dot" style="background:var(--na)">—</div>Not Answered</div>
         <div class="pl-item"><div class="pl-dot" style="background:var(--ans)">—</div>Answered</div>
         <div class="pl-item"><div class="pl-dot" style="background:var(--mk)">—</div>Marked for Review</div>
-        <div class="pl-item"><div class="pl-dot" style="background:var(--mka)">—</div>Answered &amp; Marked</div>
+        <div class="pl-item"><div class="pl-dot" style="background:linear-gradient(135deg,var(--mk) 50%,var(--ans) 50%)">—</div>Answered &amp; Marked</div>
       </div>
       <div class="palette-stats">
         <div class="stat-row"><span class="s-lbl">Answered</span><span class="s-v c-ans" id="stat-ans">0</span></div>
         <div class="stat-row"><span class="s-lbl">Not Answered</span><span class="s-v c-na"  id="stat-na">0</span></div>
         <div class="stat-row"><span class="s-lbl">Marked</span><span class="s-v c-mk"  id="stat-mk">0</span></div>
-        <div class="stat-row"><span class="s-lbl">Not Visited</span><span class="s-v c-nv"  id="stat-nv">25</span></div>
+        <div class="stat-row"><span class="s-lbl">Not Visited</span><span class="s-v c-nv"  id="stat-nv">50</span></div>
       </div>
     </div>
   </div>
@@ -721,9 +707,9 @@ body { display: block !important; }
 <!-- RESULT PAGE -->
 <div id="result-page" class="page">
   <div class="result-card">
-    <div class="result-header"><h2>🎉 Test Submitted!</h2><p>CUET (UG) 2024 — History &nbsp;|&nbsp; <span id="res-set-label">Set A</span></p></div>
+    <div class="result-header"><h2>🎉 Test Submitted!</h2><p>English — One Word Substitution &nbsp;|&nbsp; <span id="res-set-label">Set 1</span></p></div>
     <div class="result-body">
-      <div class="score-circle"><div class="score-num" id="res-score">0</div><div class="score-total">out of 100</div></div>
+      <div class="score-circle"><div class="score-num" id="res-score">0</div><div class="score-total">out of 250</div></div>
       <div class="result-stats-grid">
         <div class="result-stat rs-correct"><div class="rs-val" id="res-correct">0</div><div class="rs-lbl" style="color:#065f46;">✓ Correct</div></div>
         <div class="result-stat rs-wrong">  <div class="rs-val" id="res-wrong">0</div>  <div class="rs-lbl" style="color:#991b1b;">✗ Wrong</div></div>
@@ -741,15 +727,15 @@ body { display: block !important; }
 
 <!-- REVIEW PAGE -->
 <div id="review-page" class="page">
-  <div class="review-header"><h2>📋 Answer Review Sheet</h2><p id="review-subtitle">CUET (UG) 2024 — History | Set A</p></div>
+  <div class="review-header"><h2>📋 Answer Review Sheet</h2><p id="review-subtitle">English — One Word Substitution | Set 1</p></div>
   <div class="review-summary-bar">
     <div class="rs-chip correct">✓ Correct: <span id="rv-correct">0</span></div>
     <div class="rs-chip wrong">✗ Wrong: <span id="rv-wrong">0</span></div>
     <div class="rs-chip skipped">— Skipped: <span id="rv-skip">0</span></div>
-    <div class="rs-chip score">🎯 Score: <span id="rv-score">0</span>/100</div>
+    <div class="rs-chip score">🎯 Score: <span id="rv-score">0</span>/250</div>
   </div>
   <div class="review-filters">
-    <button class="filter-btn active" onclick="setFilter('all',this)">All (25)</button>
+    <button class="filter-btn active" onclick="setFilter('all',this)">All (50)</button>
     <button class="filter-btn" id="fb-correct" onclick="setFilter('correct',this)">✓ Correct</button>
     <button class="filter-btn" id="fb-wrong"   onclick="setFilter('wrong',this)">✗ Wrong</button>
     <button class="filter-btn" id="fb-skip"    onclick="setFilter('skip',this)">— Skipped</button>
@@ -757,7 +743,7 @@ body { display: block !important; }
   <div class="review-body" id="review-body"></div>
   <div class="next-set-section">
     <h4>🚀 Ready for Another Set?</h4>
-    <p>You've completed <strong id="nss-set-done">Set A</strong>. Try a different set!</p>
+    <p>You've completed <strong id="nss-set-done">Set 1</strong>. Try a different set!</p>
     <div class="next-set-grid" id="next-set-grid"></div>
   </div>
   <div class="review-footer">
@@ -776,81 +762,231 @@ body { display: block !important; }
 // ══ QUESTION BANK ══
 const QUESTION_SETS = {
   A:[
-{"q":"A place where animals are slaughtered for consumption as food","opts":["Abattoir","Arsenal","Asylum","Archive"],"ans":0},{"q":"A shortened form of a word or phrase","opts":["Analogy","Abbreviation","Anagram","Acronym"],"ans":1},{"q":"The head of a monastery","opts":["Ascetic","Apostle","Abbot","Altruist"],"ans":2},{"q":"To give up one’s authority or throne","opts":["Abdicate","Abrogate","Abscond","Acquit"],"ans":0},{"q":"Deviation from the right course","opts":["Aberration","Abolish","Abridge","Absurd"],"ans":0},{"q":"A state of temporary suspension or inactivity","opts":["Abeyance","Ablution","Absolution","Abyss"],"ans":0},{"q":"The act of washing oneself, especially as a religious rite","opts":["Ablution","Alchemy","Amnesty","Anatomy"],"ans":0},{"q":"To formally put an end to a system, practice, or institution","opts":["Abnegate","Abolish","Abridge","Adulterate"],"ans":1},{"q":"Relating to the original inhabitants of a place","opts":["Aboriginal","Aerial","Ancient","Aquatic"],"ans":0},{"q":"To shorten a piece of writing without losing the sense","opts":["Abridge","Accelerate","Adhere","Appreciate"],"ans":0},{"q":"To cancel or do away with a law or agreement","opts":["Abrogate","Abscond","Acquit","Adulterate"],"ans":0},{"q":"To go away suddenly and secretly in order to escape from somewhere","opts":["Abscond","Accelerate","Amble","Annihilate"],"ans":0},{"q":"Wildly unreasonable, illogical or ridiculous","opts":["Absurd","Acerbic","Adorable","Aggressive"],"ans":0},{"q":"A deep and seemingly bottomless pit or hole","opts":["Abyss","Attic","Arsenal","Aquarium"],"ans":0},{"q":"To increase the speed","opts":["Accelerate","Abridge","Ameliorate","Anticipate"],"ans":0},{"q":"A person who helps another commit a crime; a partner in crime","opts":["Accomplice","Acrobat","Addict","Advocate"],"ans":0},{"q":"Sharp and bitter in speech or temperament","opts":["Acerbic","Adventurous","Aesthetic","Amicable"],"ans":0},{"q":"The scientific study of sound","opts":["Acoustics","Aesthetics","Anatomy","Anthropology"],"ans":0},{"q":"To decide and state officially in court that somebody is not guilty of a crime","opts":["Acquit","Adhere","Appreciate","Ascribe"],"ans":0},{"q":"A person who performs difficult gymnastic feats for entertainment","opts":["Acrobat","Aeronaut","Amateur","Ambassador"],"ans":0},{"q":"An extreme fear of heights","opts":["Acrophobia","Aerophobia","Agoraphobia","Aquaphobia"],"ans":0},{"q":"The ability to make good judgements and take quick decisions","opts":["Acumen","Agenda","Alimony","Amnesty"],"ans":0},{"q":"A person who is unable to stop using a harmful substance","opts":["Addict","Aesthete","Agnostic","Alien"],"ans":0},{"q":"The period between the beginning of puberty and adulthood","opts":["Adolescence","Anniversary","Antiquity","Eternity"],"ans":0},{"q":"Extremely attractive and lovable","opts":["Adorable","Aggressive","Ambiguous","Apathetic"],"ans":0},{"q":"To make impure by adding inferior substances","opts":["Adulterate","Aggrandize","Ameliorate","Annihilate"],"ans":0},{"q":"Willing to take risks and try new ideas","opts":["Adventurous","Aesthetic","Amicable","Anonymous"],"ans":0},{"q":"Existing or living in the air","opts":["Aerial","Aquatic","Arable","Archaic"],"ans":0},{"q":"Concerned with beauty or the appreciation of beauty","opts":["Aesthetic","Agnostic","Ambidextrous","Amoral"],"ans":0},{"q":"A list of items to be discussed at a meeting","opts":["Agenda","Alimony","Almanac","Anthology"],"ans":0},{"q":"Hostile and ready to attack or quarrel","opts":["Aggressive","Ambivalent","Amenable","Apathetic"],"ans":0},{"q":"One who is not sure about God’s existence","opts":["Agnostic","Altruist","Amateur","Anarchist"],"ans":0},{"q":"Extreme mental or physical suffering","opts":["Agony","Apathy","Arrogance","Asylum"],"ans":0},{"q":"An extreme fear of open or public places","opts":["Agoraphobia","Algophobia","Claustrophobia","Hydrophobia"],"ans":0},{"q":"A person from a foreign country; a fictional being from another world","opts":["Alien","Alumnus","Ambassador","Anthropologist"],"ans":0},{"q":"The money paid regularly to a former spouse after divorce","opts":["Alimony","Annuity","Honorarium","Remuneration"],"ans":0},{"q":"The repetition of the same initial sound in nearby words","opts":["Alliteration","Allegory","Analogy","Anomaly"],"ans":0},{"q":"A combination of two or more metals mixed together","opts":["Alloy","Alluvium","Amalgam","Arsenal"],"ans":0},{"q":"An annual calendar containing astronomical data and important dates","opts":["Almanac","Album","Anthology","Archive"],"ans":0},{"q":"A table or flat surface where offerings are made to a deity","opts":["Altar","Attic","Auditorium","Aviary"],"ans":0},{"q":"An instrument that measures altitude","opts":["Altimeter","Ammeter","Barometer","Thermometer"],"ans":0},{"q":"A person who selflessly works for the welfare of others","opts":["Altruist","Amateur","Ambassador","Antagonist"],"ans":0},{"q":"Former students of a school, college or university","opts":["Alumni","Amateurs","Ancestors","Aristocrats"],"ans":0},{"q":"One who engages in an activity for pleasure rather than as a profession","opts":["Amateur","Ambassador","Apostate","Arbitrator"],"ans":0},{"q":"A diplomatic representative of one’s country in another country","opts":["Ambassador","Anarchist","Apostle","Assassin"],"ans":0},{"q":"Able to use both the left and right hands equally well","opts":["Ambidextrous","Ambiguous","Ambivalent","Amenable"],"ans":0},{"q":"Open to more than one interpretation","opts":["Ambiguous","Amicable","Amoral","Authentic"],"ans":0},{"q":"Having mixed or conflicting feelings about something","opts":["Ambivalent","Amenable","Amicable","Apathetic"],"ans":0},{"q":"To walk slowly and in a relaxed way","opts":["Amble","Accelerate","Abscond","Ascend"],"ans":0},{"q":"Characterized by friendliness and absence of discord","opts":["Amicable","Acerbic","Aggressive","Arrogant"],"ans":0}
-
+    {q:"A place where animals are slaughtered for consumption as food",opts:["Abattoir","Arsenal","Asylum","Archive"],ans:0},
+    {q:"A shortened form of a word or phrase",opts:["Analogy","Abbreviation","Anagram","Acronym"],ans:1},
+    {q:"The head of a monastery",opts:["Ascetic","Apostle","Abbot","Altruist"],ans:2},
+    {q:"To give up one's authority or throne",opts:["Abdicate","Abrogate","Abscond","Acquit"],ans:0},
+    {q:"Deviation from the right course",opts:["Aberration","Abolish","Abridge","Absurd"],ans:0},
+    {q:"A state of temporary suspension or inactivity",opts:["Abeyance","Ablution","Absolution","Abyss"],ans:0},
+    {q:"The act of washing oneself, especially as a religious rite",opts:["Ablution","Alchemy","Amnesty","Anatomy"],ans:0},
+    {q:"To formally put an end to a system, practice, or institution",opts:["Abnegate","Abolish","Abridge","Adulterate"],ans:1},
+    {q:"Relating to the original inhabitants of a place",opts:["Aboriginal","Aerial","Ancient","Aquatic"],ans:0},
+    {q:"To shorten a piece of writing without losing the sense",opts:["Abridge","Accelerate","Adhere","Appreciate"],ans:0},
+    {q:"To cancel or do away with a law or agreement",opts:["Abrogate","Abscond","Acquit","Adulterate"],ans:0},
+    {q:"To go away suddenly and secretly in order to escape from somewhere",opts:["Abscond","Accelerate","Amble","Annihilate"],ans:0},
+    {q:"Wildly unreasonable, illogical or ridiculous",opts:["Absurd","Acerbic","Adorable","Aggressive"],ans:0},
+    {q:"A deep and seemingly bottomless pit or hole",opts:["Abyss","Attic","Arsenal","Aquarium"],ans:0},
+    {q:"To increase the speed",opts:["Accelerate","Abridge","Ameliorate","Anticipate"],ans:0},
+    {q:"A person who helps another commit a crime; a partner in crime",opts:["Accomplice","Acrobat","Addict","Advocate"],ans:0},
+    {q:"Sharp and bitter in speech or temperament",opts:["Acerbic","Adventurous","Aesthetic","Amicable"],ans:0},
+    {q:"The scientific study of sound",opts:["Acoustics","Aesthetics","Anatomy","Anthropology"],ans:0},
+    {q:"To decide and state officially in court that somebody is not guilty of a crime",opts:["Acquit","Adhere","Appreciate","Ascribe"],ans:0},
+    {q:"A person who performs difficult gymnastic feats for entertainment",opts:["Acrobat","Aeronaut","Amateur","Ambassador"],ans:0},
+    {q:"An extreme fear of heights",opts:["Acrophobia","Aerophobia","Agoraphobia","Aquaphobia"],ans:0},
+    {q:"The ability to make good judgements and take quick decisions",opts:["Acumen","Agenda","Alimony","Amnesty"],ans:0},
+    {q:"A person who is unable to stop using a harmful substance",opts:["Addict","Aesthete","Agnostic","Alien"],ans:0},
+    {q:"The period between the beginning of puberty and adulthood",opts:["Adolescence","Anniversary","Antiquity","Eternity"],ans:0},
+    {q:"Extremely attractive and lovable",opts:["Adorable","Aggressive","Ambiguous","Apathetic"],ans:0},
+    {q:"To make impure by adding inferior substances",opts:["Adulterate","Aggrandize","Ameliorate","Annihilate"],ans:0},
+    {q:"Willing to take risks and try new ideas",opts:["Adventurous","Aesthetic","Amicable","Anonymous"],ans:0},
+    {q:"Existing or living in the air",opts:["Aerial","Aquatic","Arable","Archaic"],ans:0},
+    {q:"Concerned with beauty or the appreciation of beauty",opts:["Aesthetic","Agnostic","Ambidextrous","Amoral"],ans:0},
+    {q:"A list of items to be discussed at a meeting",opts:["Agenda","Alimony","Almanac","Anthology"],ans:0},
+    {q:"Hostile and ready to attack or quarrel",opts:["Aggressive","Ambivalent","Amenable","Apathetic"],ans:0},
+    {q:"One who is not sure about God's existence",opts:["Agnostic","Altruist","Amateur","Anarchist"],ans:0},
+    {q:"Extreme mental or physical suffering",opts:["Agony","Apathy","Arrogance","Asylum"],ans:0},
+    {q:"An extreme fear of open or public places",opts:["Agoraphobia","Algophobia","Claustrophobia","Hydrophobia"],ans:0},
+    {q:"A person from a foreign country; a fictional being from another world",opts:["Alien","Alumnus","Ambassador","Anthropologist"],ans:0},
+    {q:"The money paid regularly to a former spouse after divorce",opts:["Alimony","Annuity","Honorarium","Remuneration"],ans:0},
+    {q:"The repetition of the same initial sound in nearby words",opts:["Alliteration","Allegory","Analogy","Anomaly"],ans:0},
+    {q:"A combination of two or more metals mixed together",opts:["Alloy","Alluvium","Amalgam","Arsenal"],ans:0},
+    {q:"An annual calendar containing astronomical data and important dates",opts:["Almanac","Album","Anthology","Archive"],ans:0},
+    {q:"A table or flat surface where offerings are made to a deity",opts:["Altar","Attic","Auditorium","Aviary"],ans:0},
+    {q:"An instrument that measures altitude",opts:["Altimeter","Ammeter","Barometer","Thermometer"],ans:0},
+    {q:"A person who selflessly works for the welfare of others",opts:["Altruist","Amateur","Ambassador","Antagonist"],ans:0},
+    {q:"Former students of a school, college or university",opts:["Alumni","Amateurs","Ancestors","Aristocrats"],ans:0},
+    {q:"One who engages in an activity for pleasure rather than as a profession",opts:["Amateur","Ambassador","Apostate","Arbitrator"],ans:0},
+    {q:"A diplomatic representative of one's country in another country",opts:["Ambassador","Anarchist","Apostle","Assassin"],ans:0},
+    {q:"Able to use both the left and right hands equally well",opts:["Ambidextrous","Ambiguous","Ambivalent","Amenable"],ans:0},
+    {q:"Open to more than one interpretation",opts:["Ambiguous","Amicable","Amoral","Authentic"],ans:0},
+    {q:"Having mixed or conflicting feelings about something",opts:["Ambivalent","Amenable","Amicable","Apathetic"],ans:0},
+    {q:"To walk slowly and in a relaxed way",opts:["Amble","Accelerate","Abscond","Ascend"],ans:0},
+    {q:"Characterized by friendliness and absence of discord",opts:["Amicable","Acerbic","Aggressive","Arrogant"],ans:0},
+  ],
+  B:[
+    {q:"The science of the bodily structure of living organisms",opts:["Anatomy","Biology","Botany","Zoology"],ans:0},
+    {q:"A person who presents a radio or television programme",opts:["Anchor","Announcer","Actor","Animator"],ans:0},
+    {q:"Belonging to the very distant past",opts:["Ancient","Antique","Archaic","Obsolete"],ans:0},
+    {q:"An excessive or obsessive attraction towards men",opts:["Andromania","Anthomania","Ergomania","Mythomania"],ans:0},
+    {q:"A short, interesting or amusing story about a real person or event",opts:["Anecdote","Antidote","Allegory","Epic"],ans:0},
+    {q:"The inability to feel pleasure in normally pleasurable activities",opts:["Anhedonia","Amnesia","Insomnia","Apathy"],ans:0},
+    {q:"Resembling a weak old woman",opts:["Anile","Senile","Fragile","Docile"],ans:0},
+    {q:"A strong dislike or hostility",opts:["Animosity","Affection","Amity","Apathy"],ans:0},
+    {q:"To destroy completely",opts:["Annihilate","Ameliorate","Appreciate","Articulate"],ans:0},
+    {q:"The date on which an event happened in some previous year",opts:["Anniversary","Millennium","Century","Decade"],ans:0},
+    {q:"A note added to a text or diagram to explain or provide additional information",opts:["Annotation","Abbreviation","Alliteration","Acronym"],ans:0},
+    {q:"A fixed sum paid annually",opts:["Annuity","Alimony","Honorarium","Bonus"],ans:0},
+    {q:"A deviation from what is normal or expected",opts:["Anomaly","Analogy","Amnesty","Anarchy"],ans:0},
+    {q:"Having an unknown or withheld name or identity",opts:["Anonymous","Unanimous","Ambiguous","Ambidextrous"],ans:0},
+    {q:"An eating disorder marked by an obsessive desire to lose weight by refusing to eat",opts:["Anorexia","Insomnia","Amnesia","Dyslexia"],ans:0},
+    {q:"The main opponent or villain in a story",opts:["Antagonist","Protagonist","Accomplice","Arbitrator"],ans:0},
+    {q:"Extremely old-fashioned",opts:["Antediluvian","Contemporary","Modern","Nascent"],ans:0},
+    {q:"A collection of literary works by different authors published together",opts:["Anthology","Almanac","Archive","Album"],ans:0},
+    {q:"One who studies the evolution and development of human societies and cultures",opts:["Anthropologist","Archaeologist","Sociologist","Dermatologist"],ans:0},
+    {q:"The study of human societies, cultures, and their development",opts:["Anthropology","Archaeology","Demography","Entomology"],ans:0},
+    {q:"The practice of attributing human qualities to animals or objects",opts:["Anthropomorphism","Pantheism","Altruism","Imperialism"],ans:0},
+    {q:"To expect or look forward to",opts:["Anticipate","Appreciate","Articulate","Annihilate"],ans:0},
+    {q:"A medicine to counteract the effect of poison",opts:["Antidote","Anecdote","Antibiotic","Analgesic"],ans:0},
+    {q:"A strong feeling of dislike or aversion",opts:["Antipathy","Sympathy","Empathy","Telepathy"],ans:0},
+    {q:"A person who studies or collects antiques",opts:["Antiquarian","Librarian","Historian","Cartographer"],ans:0},
+    {q:"The exact opposite",opts:["Antithesis","Hypothesis","Synthesis","Parenthesis"],ans:0},
+    {q:"A substance in blood that neutralises toxins",opts:["Antitoxin","Antiseptic","Antigen","Antibody"],ans:0},
+    {q:"A word opposite in meaning to another word",opts:["Antonym","Synonym","Homonym","Acronym"],ans:0},
+    {q:"A policy of racial segregation and discrimination",opts:["Apartheid","Anarchy","Autocracy","Aristocracy"],ans:0},
+    {q:"A set of rooms forming one residence in a building",opts:["Apartment","Attic","Basement","Cabin"],ans:0},
+    {q:"Showing or feeling no interest, enthusiasm, or concern",opts:["Apathetic","Pathetic","Sympathetic","Energetic"],ans:0},
+    {q:"A lack of interest, enthusiasm, or concern",opts:["Apathy","Empathy","Telepathy","Antipathy"],ans:0},
+    {q:"Loss of ability to understand or express speech, due to brain damage",opts:["Aphasia","Amnesia","Insomnia","Dyslexia"],ans:0},
+    {q:"A place where bees are kept",opts:["Apiary","Aviary","Aquarium","Arsenal"],ans:0},
+    {q:"To express regret for something that one has done wrong",opts:["Apologise","Appreciate","Anticipate","Annihilate"],ans:0},
+    {q:"The act of abandoning one's religious or political beliefs",opts:["Apostasy","Amnesty","Heresy","Blasphemy"],ans:0},
+    {q:"A person who renounces religious or political beliefs",opts:["Apostate","Apostle","Ascetic","Agnostic"],ans:0},
+    {q:"A person who is sent to spread a religious message or doctrine",opts:["Apostle","Apostate","Atheist","Arbitrator"],ans:0},
+    {q:"Causing shock or dismay",opts:["Appalling","Appealing","Alluring","Amusing"],ans:0},
+    {q:"To belong to or be connected with something",opts:["Appertain","Ascertain","Abstain","Retain"],ans:0},
+    {q:"A person who formally requests something, especially a job",opts:["Applicant","Appellee","Arbitrator","Accomplice"],ans:0},
+    {q:"An estimation of a thing's worth",opts:["Appraisal","Approval","Proposal","Refusal"],ans:0},
+    {q:"To rise in value",opts:["Appreciate","Depreciate","Deviate","Accelerate"],ans:0},
+    {q:"A person who works for an expert to learn a trade",opts:["Apprentice","Amateur","Architect","Artisan"],ans:0},
+    {q:"An extreme fear of water",opts:["Aquaphobia","Acrophobia","Aerophobia","Agoraphobia"],ans:0},
+    {q:"A glass tank where fish and water plants are kept",opts:["Aquarium","Apiary","Aviary","Arsenal"],ans:0},
+    {q:"Living or growing in or near water",opts:["Aquatic","Aerial","Arable","Amphibian"],ans:0},
+    {q:"Suitable for growing crops",opts:["Arable","Edible","Inevitable","Legible"],ans:0},
+    {q:"An extreme fear of spiders",opts:["Arachnophobia","Claustrophobia","Hydrophobia","Algophobia"],ans:0},
+    {q:"Based on chance rather than on reason or a plan",opts:["Arbitrary","Compulsory","Voluntary","Necessary"],ans:0},
   ],
   C:[
-    {q:"The Battle of Plassey (1757) was fought between:",opts:["Siraj-ud-Daula and the East India Company","Mir Qasim and the British","Hyder Ali and the British","Tipu Sultan and the British"],ans:0},
-    {q:"The Regulating Act was passed in the year:",opts:["1757","1765","1773","1784"],ans:2},
-    {q:"Who was the first Viceroy of India?",opts:["Lord Dalhousie","Lord Canning","Lord Mayo","Lord Ripon"],ans:1},
-    {q:"The Subsidiary Alliance system was introduced by:",opts:["Lord Cornwallis","Lord Wellesley","Lord Dalhousie","Lord Hastings"],ans:1},
-    {q:"The Permanent Settlement was introduced in 1793 by:",opts:["Lord Wellesley","Lord Cornwallis","Lord Bentinck","Warren Hastings"],ans:1},
-    {q:"The doctrine of 'Lapse' was introduced by:",opts:["Lord Wellesley","Lord Dalhousie","Lord Bentinck","Lord Cornwallis"],ans:1},
-    {q:"The Treaty of Srirangapatna was signed in which year?",opts:["1789","1792","1799","1800"],ans:1},
-    {q:"The Ryotwari settlement was introduced by:",opts:["Thomas Munro","Lord Cornwallis","Lord Wellesley","John Lawrence"],ans:0},
-    {q:"The Vernacular Press Act of 1878 was introduced by:",opts:["Lord Lytton","Lord Ripon","Lord Curzon","Lord Dufferin"],ans:0},
-    {q:"The Indian National Congress was founded in the year:",opts:["1875","1880","1885","1890"],ans:2},
-    {q:"Who was the first President of the Indian National Congress?",opts:["Dadabhai Naoroji","W. C. Bonnerjee","Bal Gangadhar Tilak","Surendranath Banerjea"],ans:1},
-    {q:"Who introduced the Vernacular Press Act of 1878?",opts:["Lord Lytton","Lord Ripon","Lord Curzon","Lord Dufferin"],ans:0},
-    {q:"The Partition of Bengal was annulled in:",opts:["1905","1906","1911","1919"],ans:2},
-    {q:"The Jallianwala Bagh massacre occurred on:",opts:["13 April 1919","19 April 1919","13 March 1919","10 April 1920"],ans:0},
-    {q:"The Rowlatt Act (1919) aimed to:",opts:["Grant women voting rights","Suppress revolutionary activities","Establish provincial autonomy","Introduce dyarchy"],ans:1},
-    {q:"The Champaran Satyagraha (1917) was related to:",opts:["Salt tax","Indigo cultivation","Land revenue","Textile workers"],ans:1},
-    {q:"The Simon Commission visited India in:",opts:["1926","1927","1928","1929"],ans:2},
-    {q:"Who founded the Brahmo Samaj?",opts:["Swami Vivekananda","Dayananda Saraswati","Raja Ram Mohan Roy","Keshub Chunder Sen"],ans:2},
-    {q:"The Arya Samaj was founded by:",opts:["Raja Ram Mohan Roy","Dayananda Saraswati","Swami Vivekananda","Annie Besant"],ans:1},
-    {q:"The Ilbert Bill controversy (1883) was related to:",opts:["Press freedom","Indian judges trying European criminals","Land revenue","Army recruitment"],ans:1},
-    {q:"The Indian Councils Act of 1909 is also known as the:",opts:["Morley-Minto Reforms","Montagu-Chelmsford Reforms","Simon Commission Report","Government of India Act"],ans:0},
-    {q:"Who was known as 'Frontier Gandhi'?",opts:["Khan Abdul Ghaffar Khan","Lala Lajpat Rai","Bal Gangadhar Tilak","Bipin Chandra Pal"],ans:0},
-    {q:"The first session of the Indian National Congress was held in:",opts:["Calcutta","Bombay","Madras","Allahabad"],ans:1},
-    {q:"The Poona Pact (1932) was signed between:",opts:["Gandhi and Jinnah","Gandhi and Ambedkar","Nehru and Ambedkar","Congress and Muslim League"],ans:1},
-    {q:"Lord Curzon's partition of Bengal was primarily aimed at:",opts:["Administrative efficiency","Dividing Hindus and Muslims","Creating a new province","Reducing terrorism"],ans:1},
+    {q:"A person appointed by two parties to settle a dispute",opts:["Arbitrator","Accomplice","Antagonist","Apostle"],ans:0},
+    {q:"A person who studies human history through excavation of sites",opts:["Anthropologist","Archaeologist","Antiquarian","Astrologer"],ans:1},
+    {q:"The study of human history and prehistory through the excavation of sites",opts:["Anthropology","Archaeology","Anatomy","Epistemology"],ans:1},
+    {q:"Very old and no longer in use",opts:["Archaic","Ancient","Antediluvian","Contemporary"],ans:0},
+    {q:"A large body of water with many islands",opts:["Abyss","Archipelago","Aquarium","Alluvium"],ans:1},
+    {q:"The place where public, government or historical records are kept",opts:["Apiary","Arsenal","Archive","Attic"],ans:2},
+    {q:"A feeling of intense passion or enthusiasm",opts:["Agony","Apathy","Ardour","Arrogance"],ans:2},
+    {q:"A place or scene of activity, debate, or conflict",opts:["Arena","Arsenal","Asylum","Auditorium"],ans:0},
+    {q:"A secret or disguised language used by a particular group",opts:["Argot","Alliteration","Acronym","Allegory"],ans:0},
+    {q:"A government by the nobles or the highest social class",opts:["Autocracy","Aristocracy","Anarchy","Apartheid"],ans:1},
+    {q:"A feeling of excessive self-importance or superiority",opts:["Arrogance","Altruism","Apathy","Agony"],ans:0},
+    {q:"A place where weapons and military equipment are stored",opts:["Arsenal","Archive","Apiary","Aviary"],ans:0},
+    {q:"The crime of deliberately setting fire to property",opts:["Arson","Apostasy","Sabotage","Sacrilege"],ans:0},
+    {q:"A person who deliberately sets fire to property",opts:["Arsonist","Assailant","Assassin","Anarchist"],ans:0},
+    {q:"Able to express ideas clearly and fluently",opts:["Articulate","Ambiguous","Ambidextrous","Anonymous"],ans:0},
+    {q:"The ability to speak clearly and express ideas effectively",opts:["Articulation","Alliteration","Annotation","Acoustics"],ans:0},
+    {q:"An object made by humans, usually of historical or cultural significance",opts:["Artifact","Antidote","Anecdote","Altar"],ans:0},
+    {q:"One who practises one of the fine arts",opts:["Artist","Artisan","Acrobat","Amateur"],ans:0},
+    {q:"One who practises severe self-discipline and abstains from bodily pleasures",opts:["Ascetic","Altruist","Agnostic","Atheist"],ans:0},
+    {q:"To attribute a cause or characteristic to something",opts:["Ascribe","Appreciate","Anticipate","Annihilate"],ans:0},
+    {q:"With suspicion, doubt, or disapproval",opts:["Askance","Amicably","Arbitrary","Appalling"],ans:0},
+    {q:"A person who physically attacks another",opts:["Assailant","Accomplice","Apostate","Arbitrator"],ans:0},
+    {q:"A person who kills somebody, especially for political reasons",opts:["Assassin","Arsonist","Antagonist","Amateur"],ans:0},
+    {q:"To agree to a request, an idea, or a suggestion",opts:["Assent","Acquit","Abdicate","Abrogate"],ans:0},
+    {q:"Politely firm and confident",opts:["Assertive","Aggressive","Apathetic","Amicable"],ans:0},
+    {q:"Greatly surprised or amazed",opts:["Astonished","Appalling","Adorable","Acerbic"],ans:0},
+    {q:"One who studies celestial positions to predict future events",opts:["Astrologer","Astronomer","Astronaut","Anthropologist"],ans:0},
+    {q:"The study of celestial positions to predict future events",opts:["Astrology","Astronomy","Archaeology","Anatomy"],ans:0},
+    {q:"A person trained to travel in a spacecraft",opts:["Astronaut","Astronomer","Astrologer","Acrobat"],ans:0},
+    {q:"One who studies celestial bodies",opts:["Astronomer","Astrologer","Astronaut","Archaeologist"],ans:0},
+    {q:"The scientific study of celestial bodies",opts:["Astronomy","Astrology","Anatomy","Anthropology"],ans:0},
+    {q:"A place of refuge or safety; an institution for the mentally ill",opts:["Asylum","Arsenal","Apiary","Aquarium"],ans:0},
+    {q:"One who does not believe in the existence of God",opts:["Atheist","Agnostic","Ascetic","Altruist"],ans:0},
+    {q:"An action of making amends for a wrong or injury",opts:["Atonement","Absolution","Amnesty","Alimony"],ans:0},
+    {q:"A space or room just below the roof of a building",opts:["Attic","Apartment","Arsenal","Archive"],ans:0},
+    {q:"That can be heard clearly",opts:["Audible","Opaque","Illegible","Edible"],ans:0},
+    {q:"An official inspection of an organization's or individual's financial accounts",opts:["Audit","Appraisal","Analysis","Autopsy"],ans:0},
+    {q:"One who officially examines financial accounts or records",opts:["Auditor","Accountant","Arbitrator","Applicant"],ans:0},
+    {q:"A large hall used for public gatherings, concerts, or performances",opts:["Auditorium","Asylum","Arena","Attic"],ans:0},
+    {q:"Strict and plain in manner or lifestyle",opts:["Austere","Authentic","Arbitrary","Astounding"],ans:0},
+    {q:"Something that is genuine; made in the traditional or original way",opts:["Authentic","Archaic","Ancient","Aerial"],ans:0},
+    {q:"A person who writes books",opts:["Author","Auditor","Antiquarian","Anchor"],ans:0},
+    {q:"A book written by a person about their own life",opts:["Autobiography","Biography","Anthology","Almanac"],ans:0},
+    {q:"A government by one person having absolute power",opts:["Autocracy","Aristocracy","Anarchy","Apartheid"],ans:0},
+    {q:"A ruler who has complete power",opts:["Autocrat","Aristocrat","Anarchist","Arbitrator"],ans:0},
+    {q:"The signature of a famous person, often given to an admirer",opts:["Autograph","Epitaph","Anecdote","Acronym"],ans:0},
+    {q:"The right of self-governance",opts:["Autonomy","Autocracy","Aristocracy","Anarchy"],ans:0},
+    {q:"An examination of a dead body to determine the cause of death",opts:["Autopsy","Anatomy","Biopsy","Audit"],ans:0},
+    {q:"A mass of snow, ice and rocks falling rapidly down a mountainside",opts:["Avalanche","Alluvium","Abyss","Archipelago"],ans:0},
+    {q:"Using or showing new, experimental, or unconventional ideas; ahead of its time",opts:["Avant-Garde","Antediluvian","Archaic","Ancient"],ans:0},
   ],
   D:[
-    {q:"The Non-Cooperation Movement was launched in:",opts:["1919","1920","1921","1922"],ans:1},
-    {q:"The Non-Cooperation Movement was suspended after the:",opts:["Chauri Chaura incident","Jallianwala Bagh massacre","Simon Commission protest","Dandi March"],ans:0},
-    {q:"The Chauri Chaura incident took place in:",opts:["1919","1920","1921","1922"],ans:3},
-    {q:"The Dandi March was launched to protest against:",opts:["The Rowlatt Act","The salt tax","British land policies","The partition of Bengal"],ans:1},
-    {q:"The Quit India Movement was launched in the year:",opts:["1940","1941","1942","1945"],ans:2},
-    {q:"Who authored the book 'Discovery of India'?",opts:["Mahatma Gandhi","B. R. Ambedkar","Jawaharlal Nehru","Subhas Chandra Bose"],ans:2},
-    {q:"Who was known as 'Punjab Kesari'?",opts:["Bhagat Singh","Bal Gangadhar Tilak","Lala Lajpat Rai","Ranjit Singh"],ans:2},
-    {q:"Consider the following events:\n1. Soldiers revolted at Meerut.\n2. Bahadur Shah Zafar was declared the leader.\n3. Awadh was captured by the British.\n4. Relief of Lucknow was painted by Thomas Jones Barker.\nWrite these events in correct chronological order:",opts:["1, 2, 3, 4","2, 1, 3, 4","3, 1, 2, 4","4, 3, 2, 1"],ans:2},
-    {q:"Which leader of the Revolt of 1857 was based in Lucknow?",opts:["Nana Sahib","Begum Hazrat Mahal","Rani Lakshmibai","Tantia Tope"],ans:1},
-    {q:"The Indian Independence Act was passed in:",opts:["June 1947","July 1947","August 1947","September 1947"],ans:1},
-    {q:"The Cabinet Mission came to India in:",opts:["1944","1945","1946","1947"],ans:2},
-    {q:"Bhagat Singh was hanged in:",opts:["1929","1930","1931","1932"],ans:2},
-    {q:"The Indian National Army (INA) was founded by:",opts:["Subhas Chandra Bose","Mohan Singh","Rash Behari Bose","Jawaharlal Nehru"],ans:2},
-    {q:"The demand for Pakistan was first formally made in:",opts:["1930","1935","1940","1942"],ans:2},
-    {q:"Who gave the slogan 'Do or Die' during the Quit India Movement?",opts:["Nehru","Patel","Gandhi","Subhas Chandra Bose"],ans:2},
-    {q:"The Lucknow Pact (1916) was between:",opts:["Congress and Muslim League","Congress and Hindu Mahasabha","Muslim League and the British","Congress and the British"],ans:0},
-    {q:"The 'Swadeshi Movement' was launched in response to:",opts:["The Rowlatt Act","The partition of Bengal 1905","The Jallianwala Bagh massacre","The Simon Commission"],ans:1},
-    {q:"Who said 'Swaraj is my birthright and I shall have it'?",opts:["Mahatma Gandhi","Jawaharlal Nehru","Bal Gangadhar Tilak","Subhas Chandra Bose"],ans:2},
-    {q:"The Khilafat Movement was in support of:",opts:["Ottoman Caliph","Indian Muslims' rights","Pan-Islamic unity in India","Partition of India"],ans:0},
-    {q:"Mahatma Gandhi returned to India from South Africa in:",opts:["1912","1913","1915","1917"],ans:2},
-    {q:"The Nehru Report (1928) was drafted to propose:",opts:["Dominion status for India","Complete independence","Separate electorates","Federal structure"],ans:0},
-    {q:"Who presided over the Karachi Session of Congress (1931)?",opts:["Gandhi","Nehru","Sardar Patel","Subhas Chandra Bose"],ans:2},
-    {q:"The 'August Offer' of 1940 was made by:",opts:["Lord Mountbatten","Lord Wavell","Lord Linlithgow","Lord Curzon"],ans:2},
-    {q:"Subhas Chandra Bose escaped from India in:",opts:["1939","1940","1941","1942"],ans:2},
-    {q:"India became a republic on:",opts:["15 August 1947","26 November 1949","26 January 1950","2 October 1950"],ans:2},
-  ]
+    {q:"Extreme greed for wealth or material gain",opts:["Avarice","Asceticism","Altruism","Autonomy"],ans:0},
+    {q:"Having an extreme desire for wealth",opts:["Apathetic","Avaricious","Altruistic","Amicable"],ans:1},
+    {q:"A place for keeping birds in a confined space",opts:["Apiary","Aquarium","Aviary","Arsenal"],ans:2},
+    {q:"The operation and flying of aircraft",opts:["Aviation","Anatomy","Acoustics","Anthropology"],ans:0},
+    {q:"The killing of birds",opts:["Fratricide","Avicide","Homicide","Regicide"],ans:1},
+    {q:"Keen interest or enthusiasm",opts:["Apathy","Agony","Avidity","Alimony"],ans:2},
+    {q:"A statement accepted as true without proof",opts:["Axiom","Anecdote","Antidote","Analogy"],ans:0},
+    {q:"An unmarried man",opts:["Bachelor","Benedict","Bigot","Bohemian"],ans:0},
+    {q:"A place where bread and cakes are made",opts:["Bakery","Brewery","Apiary","Abattoir"],ans:0},
+    {q:"Having no hair on the scalp",opts:["Bald","Bland","Bold","Bereft"],ans:0},
+    {q:"Senseless or foolish talk or writing",opts:["Banter","Balderdash","Ballad","Blasphemy"],ans:1},
+    {q:"A large bundle bound for storage or transport",opts:["Barrel","Bouquet","Bale","Bevy"],ans:2},
+    {q:"A poem that tells a story and has a regular rhythm and rhyme scheme",opts:["Ballad","Elegy","Epic","Ode"],ans:0},
+    {q:"To pass or exchange back and forth, especially words or ideas",opts:["Bask","Bandy","Banter","Bark"],ans:1},
+    {q:"One who is unable to pay his debts",opts:["Bankrupt","Benefactor","Usurer","Miser"],ans:0},
+    {q:"A playful and friendly exchange of teasing remarks",opts:["Banter","Balderdash","Blasphemy","Bellow"],ans:0},
+    {q:"A poet who composes and recites epic or lyrical poetry",opts:["Bard","Anchor","Author","Artist"],ans:0},
+    {q:"The outer protective layer of a tree; to make a sharp loud sound",opts:["Bleat","Bellow","Bark","Banter"],ans:2},
+    {q:"An instrument used for measuring atmospheric pressure",opts:["Barometer","Altimeter","Ammeter","Thermometer"],ans:0},
+    {q:"A place where soldiers are stationed",opts:["Asylum","Barracks","Arsenal","Archive"],ans:1},
+    {q:"A wooden drum in which beer or oil is stored",opts:["Barrel","Bale","Receptacle","Battery"],ans:0},
+    {q:"To revel in and make the most of something pleasing",opts:["Bask","Bandy","Boast","Bellow"],ans:0},
+    {q:"A group of guns or missile launchers operated together at one place",opts:["Battery","Barracks","Arsenal","Armoury"],ans:0},
+    {q:"A short sword fixed onto the end of a gun",opts:["Bayonet","Dagger","Blade","Arrow"],ans:0},
+    {q:"Something of monstrous size or power",opts:["Behemoth","Dwarf","Midget","Boomerang"],ans:0},
+    {q:"One who is fond of fighting",opts:["Bellicose","Amicable","Altruist","Assertive"],ans:0},
+    {q:"A deep roaring sound, as made by a bull or crocodile",opts:["Bellow","Bleat","Bark","Hoot"],ans:0},
+    {q:"One who helps others by giving money or other aid",opts:["Benefactor","Beneficiary","Beggar","Bankrupt"],ans:0},
+    {q:"A person who gains as a result of something",opts:["Benefactor","Beneficiary","Martyr","Accomplice"],ans:1},
+    {q:"Deprived of or lacking something",opts:["Bereft","Bald","Bizarre","Blind"],ans:0},
+    {q:"A person who is engaged to be married",opts:["Bachelor","Betrothed","Bigot","Bohemian"],ans:1},
+    {q:"A drink, especially one other than water",opts:["Beverage","Nectar","Ambrosia","Antidote"],ans:0},
+    {q:"A large group of people or things, especially girls or birds",opts:["Bevy","Battery","Bouquet","Horde"],ans:0},
+    {q:"A list of the books referred to in a scholarly work",opts:["Bibliography","Biography","Anthology","Almanac"],ans:0},
+    {q:"An obsessive desire to acquire and possess books",opts:["Bibliomania","Ergomania","Mythomania","Theomania"],ans:0},
+    {q:"A person who loves or collects books",opts:["Bibliophile","Antiquarian","Misanthrope","Philatelist"],ans:0},
+    {q:"A 200th anniversary of an event",opts:["Bicentennial","Biennial","Millennium","Anniversary"],ans:0},
+    {q:"Happening every two years",opts:["Biennial","Bicentennial","Bimonthly","Annual"],ans:0},
+    {q:"A person intolerant of different opinions, especially in religion or politics",opts:["Bigot","Ascetic","Agnostic","Arbitrator"],ans:0},
+    {q:"Able to speak two languages",opts:["Bilingual","Multilingual","Polyglot","Linguist"],ans:0},
+    {q:"Happening every two months or twice a month",opts:["Bimonthly","Biennial","Bicentennial","Annual"],ans:0},
+    {q:"Capable of being decomposed by natural biological processes",opts:["Biodegradable","Edible","Arable","Inevitable"],ans:0},
+    {q:"The story of a person's life written by someone else",opts:["Biography","Autobiography","Anthology","Bibliography"],ans:0},
+    {q:"The study of living organisms",opts:["Biology","Botany","Zoology","Anatomy"],ans:0},
+    {q:"The removal and examination of tissue from a living body to diagnose disease",opts:["Biopsy","Autopsy","Anatomy","Surgery"],ans:0},
+    {q:"Very strange or unusual",opts:["Bizarre","Banal","Bombastic","Bald"],ans:0},
+    {q:"A region of space with gravity so strong that nothing, not even light, can escape",opts:["Black hole","Abyss","Asteroid","Constellation"],ans:0},
+    {q:"The act of speaking disrespectfully about sacred or religious things",opts:["Blasphemy","Sacrilege","Apostasy","Heresy"],ans:0},
+    {q:"The sound made by a sheep or goat",opts:["Bleat","Bellow","Bark","Hiss"],ans:0},
+    {q:"A person who cannot see",opts:["Blind","Bald","Bereft","Mute"],ans:0},
+  ],
 };
 
 const SET_INFO={
-  A:{label:'Set A',desc:'Ancient India',icon:'📜',pill:'set-pill-a',color:'var(--set-a)'},
-  B:{label:'Set B',desc:'Medieval India',icon:'🏰',pill:'set-pill-b',color:'var(--set-b)'},
-  C:{label:'Set C',desc:'Modern India',icon:'🏛',pill:'set-pill-c',color:'var(--set-c)'},
-  D:{label:'Set D',desc:'Freedom Movement',icon:'🇮🇳',pill:'set-pill-d',color:'var(--set-d)'},
+  A:{label:'Set 1',icon:'📝',pill:'set-pill-a',color:'var(--set-a)',desc:'English Set 1'},
+  B:{label:'Set 2',icon:'📝',pill:'set-pill-b',color:'var(--set-b)',desc:'English Set 2'},
+  C:{label:'Set 3',icon:'📝',pill:'set-pill-c',color:'var(--set-c)',desc:'English Set 3'},
+  D:{label:'Set 4',icon:'📝',pill:'set-pill-d',color:'var(--set-d)',desc:'English Set 4'},
 };
 
 // STATE
-let selectedSet=null,QUESTIONS=[],qState=new Array(25).fill(0),qAnswers=new Array(25).fill(-1);
-let currentQ=0,timerInterval=null,timeLeft=30*60,tenMinWarned=false;
+let selectedSet=null,QUESTIONS=[],qState=[],qAnswers=[];
+let currentQ=0,timerInterval=null,timeLeft=60*60,fiveMinWarned=false;
 let candidateName='',rollNumber='',lastResults=null,currentFilter='all',testStartTime=null;
 let fsExitCount=0,fsAutoSubmitTimer=null,fsCountdown=5;
-const TOTAL=25;
+const TOTAL=50;
 
 // ── LOCAL STORAGE ──
-const LS_KEY='nta_mock_attempts_v4';
+const LS_KEY='nta_english_mock_v1';
 function loadAttempts(){try{return JSON.parse(localStorage.getItem(LS_KEY))||[];}catch{return[];}}
 function saveAttempt(a){const arr=loadAttempts();arr.unshift(a);if(arr.length>20)arr.pop();localStorage.setItem(LS_KEY,JSON.stringify(arr));}
 function clearAttempts(){if(confirm('Delete all past attempts?')){localStorage.removeItem(LS_KEY);renderHistory();}}
@@ -862,19 +998,19 @@ function renderHistory(){
   const bestScore={A:null,B:null,C:null,D:null};
   attempts.forEach(a=>{if(bestScore[a.set]===null||a.score>bestScore[a.set])bestScore[a.set]=a.score;});
   chart.innerHTML=['A','B','C','D'].map(s=>{
-    const si=SET_INFO[s];const best=bestScore[s];const pct=best!==null?Math.max(2,Math.round(best/100*100)):0;const label=best!==null?best+'/100':'\u2014';
-    return`<div class="bar-row"><div class="bar-set-label">${si.icon} ${s}</div><div class="bar-track">${best!==null?`<div class="bar-fill bar-fill-${s.toLowerCase()}" style="width:${pct}%"></div>`:''}</div><div class="bar-score-label">${label}</div></div>`;
+    const si=SET_INFO[s];const best=bestScore[s];const pct=best!==null?Math.max(2,Math.round(best/250*100)):0;const label=best!==null?best+'/250':'—';
+    return`<div class="bar-row"><div class="bar-set-label">${si.icon} ${si.label}</div><div class="bar-track">${best!==null?`<div class="bar-fill bar-fill-${s.toLowerCase()}" style="width:${pct}%"></div>`:''}</div><div class="bar-score-label">${label}</div></div>`;
   }).join('');
-  if(!['A','B','C','D'].some(s=>bestScore[s]!==null))chart.innerHTML='<div class="bar-no-attempts">No scores yet \u2014 complete a test!</div>';
+  if(!['A','B','C','D'].some(s=>bestScore[s]!==null))chart.innerHTML='<div class="bar-no-attempts">No scores yet — complete a test!</div>';
   if(!attempts.length){body.innerHTML='<div class="history-empty">No attempts yet.<br/>Complete a test to see history here.</div>';return;}
-  body.innerHTML=attempts.map(a=>`<div class="attempt-card"><div class="ac-top"><div class="ac-name">${a.name}</div><div class="ac-date">${a.date}</div></div><div><span class="ac-set-badge badge-${a.set.toLowerCase()}">${SET_INFO[a.set].icon} ${SET_INFO[a.set].label} \u2014 ${SET_INFO[a.set].desc}</span></div><div class="ac-score">${a.score} <span style="font-size:12px;opacity:.55">/ 100</span></div><div class="ac-meta"><span class="ac-badge correct">\u2713 ${a.correct}</span><span class="ac-badge wrong">\u2717 ${a.wrong}</span><span class="ac-badge skip">\u2014 ${a.skip}</span><span class="ac-badge acc">\u26a1 ${a.accuracy}%</span></div></div>`).join('')+`<button class="history-clear-btn" onclick="clearAttempts()">\uD83D\uDDD1 Clear All History</button>`;
+  body.innerHTML=attempts.map(a=>`<div class="attempt-card"><div class="ac-top"><div class="ac-name">${a.name}</div><div class="ac-date">${a.date}</div></div><div><span class="ac-set-badge badge-${a.set.toLowerCase()}">${SET_INFO[a.set].icon} ${SET_INFO[a.set].label} — ${SET_INFO[a.set].desc}</span></div><div class="ac-score">${a.score} <span style="font-size:12px;opacity:.55">/ 250</span></div><div class="ac-meta"><span class="ac-badge correct">✓ ${a.correct}</span><span class="ac-badge wrong">✗ ${a.wrong}</span><span class="ac-badge skip">— ${a.skip}</span><span class="ac-badge acc">⚡ ${a.accuracy}%</span></div></div>`).join('')+`<button class="history-clear-btn" onclick="clearAttempts()">🗑 Clear All History</button>`;
 }
 
 function selectSet(s){
   selectedSet=s;
   document.querySelectorAll('.set-card').forEach(c=>c.classList.remove('selected'));
   document.getElementById(`sc-${s}`).classList.add('selected');
-  const btn=document.getElementById('btn-proceed');btn.disabled=false;btn.textContent=`Start with ${SET_INFO[s].label} (${SET_INFO[s].desc}) \u2192`;
+  const btn=document.getElementById('btn-proceed');btn.disabled=false;btn.textContent=`Start with ${SET_INFO[s].label} (${SET_INFO[s].desc}) →`;
 }
 
 // ── PAGE NAVIGATION ──
@@ -890,8 +1026,9 @@ function goToInstructions(){
   rollNumber=document.getElementById('roll-number').value.trim()||'MOCK000001';
   document.getElementById('inst-name').textContent=candidateName;
   document.getElementById('inst-info').textContent='Roll No: '+rollNumber+' | '+SET_INFO[selectedSet].label;
-  document.getElementById('inst-set-label').textContent=SET_INFO[selectedSet].icon+' '+SET_INFO[selectedSet].label+' \u2014 '+SET_INFO[selectedSet].desc;
+  document.getElementById('inst-set-label').textContent=SET_INFO[selectedSet].icon+' '+SET_INFO[selectedSet].label+' — '+SET_INFO[selectedSet].desc;
   document.getElementById('declaration-check').checked=false;
+  document.getElementById('custom-cb-visual').classList.remove('checked');
   document.getElementById('proceed-btn').classList.remove('enabled');
   showPage('instruction-page');
 }
@@ -920,13 +1057,13 @@ function clearFsAutoSubmit(){if(fsAutoSubmitTimer){clearInterval(fsAutoSubmitTim
 // ── START TEST ──
 function startTest(){
   QUESTIONS=QUESTION_SETS[selectedSet];
-  qState=new Array(TOTAL).fill(0);qAnswers=new Array(TOTAL).fill(-1);currentQ=0;timeLeft=30*60;tenMinWarned=false;fsExitCount=0;testStartTime=new Date();
+  qState=new Array(TOTAL).fill(0);qAnswers=new Array(TOTAL).fill(-1);currentQ=0;timeLeft=60*60;fiveMinWarned=false;fsExitCount=0;testStartTime=new Date();
   const si=SET_INFO[selectedSet];
   document.getElementById('test-name').textContent=candidateName;document.getElementById('test-roll').textContent=rollNumber;
   document.getElementById('palette-name').textContent=candidateName;document.getElementById('palette-roll').textContent='Roll: '+rollNumber;
   document.getElementById('palette-avatar').textContent=candidateName.charAt(0).toUpperCase()||'?';
   const pill=document.getElementById('test-set-pill');pill.textContent=si.icon+' '+si.label;pill.className='set-pill '+si.pill;
-  document.getElementById('section-tab-label').textContent='Section A \u2014 History | '+si.label;
+  document.getElementById('section-tab-label').textContent='Section A — English | '+si.label;
   buildPalette();markVisited(0);renderQuestion();startTimer();showPage('test-page');setTimeout(enterFullscreen,300);
 }
 
@@ -938,7 +1075,7 @@ function startTimer(){
     const m=String(Math.floor(timeLeft/60)).padStart(2,'0'),s=String(timeLeft%60).padStart(2,'0');
     document.getElementById('timer-display').textContent=m+':'+s;
     document.getElementById('timer-box').classList.toggle('urgent',timeLeft<=120);
-    if(timeLeft===300&&!tenMinWarned){tenMinWarned=true;document.getElementById('time-warning').style.display='block';setTimeout(()=>document.getElementById('time-warning').style.display='none',6000);}
+    if(timeLeft===300&&!fiveMinWarned){fiveMinWarned=true;document.getElementById('time-warning').style.display='block';setTimeout(()=>document.getElementById('time-warning').style.display='none',6000);}
     if(timeLeft<=0){clearInterval(timerInterval);submitTest();}
   },1000);
 }
@@ -1001,14 +1138,16 @@ function submitTest(){
   document.getElementById('fs-banner').style.display='none';document.getElementById('time-warning').style.display='none';
   let correct=0,wrong=0,skip=0;
   QUESTIONS.forEach((q,i)=>{const a=qAnswers[i];if(a===-1)skip++;else if(a===q.ans)correct++;else wrong++;});
-  const score=correct*4-wrong;const accuracy=correct+wrong>0?Math.round(correct/(correct+wrong)*100):0;
+  // +5 correct, -1 wrong
+  const score=correct*5-wrong;
+  const accuracy=correct+wrong>0?Math.round(correct/(correct+wrong)*100):0;
   const endTime=new Date();const timeTakenSec=Math.round((endTime-testStartTime)/1000);const timeTakenStr=Math.floor(timeTakenSec/60)+'m '+(timeTakenSec%60)+'s';
   lastResults={correct,wrong,skip,score,accuracy,set:selectedSet,timeTaken:timeTakenStr};
   const now=new Date();const dateStr=now.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
   saveAttempt({name:candidateName,roll:rollNumber,set:selectedSet,score,correct,wrong,skip,accuracy,date:dateStr,answers:[...qAnswers]});
   populatePrintPage(correct,wrong,skip,score,accuracy,dateStr,timeTakenStr);
   const si=SET_INFO[selectedSet];
-  document.getElementById('res-set-label').textContent=si.icon+' '+si.label+' \u2014 '+si.desc;
+  document.getElementById('res-set-label').textContent=si.icon+' '+si.label+' — '+si.desc;
   document.getElementById('res-score').textContent=score;document.getElementById('res-correct').textContent=correct;
   document.getElementById('res-wrong').textContent=wrong;document.getElementById('res-skip').textContent=skip;
   document.getElementById('res-acc').textContent=accuracy+'%';
@@ -1018,16 +1157,16 @@ function submitTest(){
 // ── PRINT / PDF ──
 function populatePrintPage(correct,wrong,skip,score,accuracy,dateStr,timeTaken){
   const si=SET_INFO[selectedSet];
-  document.getElementById('pr-set-label').textContent=si.icon+' '+si.label+' \u2014 '+si.desc;
+  document.getElementById('pr-set-label').textContent=si.icon+' '+si.label+' — '+si.desc;
   document.getElementById('pr-name').textContent=candidateName;document.getElementById('pr-roll').textContent=rollNumber;
   document.getElementById('pr-date').textContent=dateStr;document.getElementById('pr-time').textContent=timeTaken;
   document.getElementById('pr-score').textContent=score;document.getElementById('pr-correct').textContent=correct;
   document.getElementById('pr-wrong').textContent=wrong;document.getElementById('pr-acc').textContent=accuracy+'%';
   const L=['A','B','C','D'];let tableHtml='';
   QUESTIONS.forEach((q,i)=>{
-    const ua=qAnswers[i],ca=q.ans;const youAns=ua===-1?'\u2014':L[ua]+') '+q.opts[ua].substring(0,22)+(q.opts[ua].length>22?'\u2026':'');
-    const corrAns=L[ca]+') '+q.opts[ca].substring(0,22)+(q.opts[ca].length>22?'\u2026':'');const cls=ua===-1?'skip':ua===ca?'correct':'wrong';
-    const shortQ=q.q.split('\n')[0].substring(0,60)+(q.q.split('\n')[0].length>60?'\u2026':'');
+    const ua=qAnswers[i],ca=q.ans;const youAns=ua===-1?'—':L[ua]+') '+q.opts[ua].substring(0,22)+(q.opts[ua].length>22?'…':'');
+    const corrAns=L[ca]+') '+q.opts[ca].substring(0,22)+(q.opts[ca].length>22?'…':'');const cls=ua===-1?'skip':ua===ca?'correct':'wrong';
+    const shortQ=q.q.split('\n')[0].substring(0,60)+(q.q.split('\n')[0].length>60?'…':'');
     tableHtml+=`<div class="print-q-row"><div class="pqr-num">Q${i+1}</div><div class="pqr-q">${shortQ}</div><div class="pqr-your ${cls}">${youAns}</div><div class="pqr-correct">${corrAns}</div></div>`;
   });
   document.getElementById('pr-answer-table').innerHTML=tableHtml;
@@ -1037,12 +1176,12 @@ function downloadPDF(){window.print();}
 // ── REVIEW ──
 function showReview(){
   const{correct,wrong,skip,score,set}=lastResults;const si=SET_INFO[set];
-  document.getElementById('review-subtitle').textContent=`CUET (UG) 2024 \u2014 History | ${si.icon} ${si.label} \u2014 ${si.desc} | ${candidateName}`;
+  document.getElementById('review-subtitle').textContent=`English — One Word Substitution | ${si.icon} ${si.label} — ${si.desc} | ${candidateName}`;
   document.getElementById('rv-correct').textContent=correct;document.getElementById('rv-wrong').textContent=wrong;
   document.getElementById('rv-skip').textContent=skip;document.getElementById('rv-score').textContent=score;
-  document.getElementById('fb-correct').textContent='\u2713 Correct ('+correct+')';
-  document.getElementById('fb-wrong').textContent='\u2717 Wrong ('+wrong+')';
-  document.getElementById('fb-skip').textContent='\u2014 Skipped ('+skip+')';
+  document.getElementById('fb-correct').textContent='✓ Correct ('+correct+')';
+  document.getElementById('fb-wrong').textContent='✗ Wrong ('+wrong+')';
+  document.getElementById('fb-skip').textContent='— Skipped ('+skip+')';
   currentFilter='all';document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.filter-btn')[0].classList.add('active');
   renderReviewCards('all');renderNextSetSuggestion();showPage('review-page');
@@ -1054,7 +1193,7 @@ function renderNextSetSuggestion(){
   grid.innerHTML=['A','B','C','D'].map(s=>{
     const info=SET_INFO[s];const isDone=s===done;const wasAttempted=attemptedSets.has(s)&&s!==done;
     const cls=isDone?'next-set-btn done':`next-set-btn nsb-${s.toLowerCase()}`;
-    const label=isDone?info.icon+' '+info.label+' (Current)':wasAttempted?info.icon+' '+info.label+' \u21a9 Retry':info.icon+' '+info.label+' \u2014 '+info.desc;
+    const label=isDone?info.icon+' '+info.label+' (Current)':wasAttempted?info.icon+' '+info.label+' ↩ Retry':info.icon+' '+info.label+' — '+info.desc;
     if(isDone)return`<button class="${cls}" disabled>${label}</button>`;
     return`<button class="${cls}" onclick="switchToSet('${s}')">${label}</button>`;
   }).join('');
@@ -1065,9 +1204,9 @@ function renderReviewCards(filter){
   const L=['A','B','C','D'];let html='';
   QUESTIONS.forEach((q,i)=>{
     const ua=qAnswers[i],ca=q.ans;let rc,badge;
-    if(ua===-1){rc='r-skipped';badge='<span class="rq-badge skipped">\u2014 Skipped</span>';}
-    else if(ua===ca){rc='r-correct';badge='<span class="rq-badge correct">\u2713 Correct (+4)</span>';}
-    else{rc='r-wrong';badge='<span class="rq-badge wrong">\u2717 Wrong (\u20131)</span>';}
+    if(ua===-1){rc='r-skipped';badge='<span class="rq-badge skipped">— Skipped</span>';}
+    else if(ua===ca){rc='r-correct';badge='<span class="rq-badge correct">✓ Correct (+5)</span>';}
+    else{rc='r-wrong';badge='<span class="rq-badge wrong">✗ Wrong (–1)</span>';}
     if(filter==='correct'&&rc!=='r-correct')return;
     if(filter==='wrong'&&rc!=='r-wrong')return;
     if(filter==='skip'&&rc!=='r-skipped')return;
@@ -1075,7 +1214,7 @@ function renderReviewCards(filter){
     if(lines.length>1){qh+='<ol style="margin:5px 0 5px 18px;line-height:1.85;">';for(let k=1;k<lines.length;k++)qh+=`<li>${lines[k]}</li>`;qh+='</ol>';}
     const opts=q.opts.map((o,j)=>{
       let cls='',ic='plain-icon',it='';
-      if(j===ca&&ua===ca){cls='is-user-correct';ic='correct-icon';it='\u2713';}else if(j===ca){cls='is-correct';ic='correct-icon';it='\u2713';}else if(j===ua){cls='is-user-wrong';ic='wrong-icon';it='\u2717';}
+      if(j===ca&&ua===ca){cls='is-user-correct';ic='correct-icon';it='✓';}else if(j===ca){cls='is-correct';ic='correct-icon';it='✓';}else if(j===ua){cls='is-user-wrong';ic='wrong-icon';it='✗';}
       return`<div class="rqc-option ${cls}"><div class="opt-icon ${ic}">${it||L[j]}</div><span><strong>${L[j]})</strong> ${o}</span></div>`;
     }).join('');
     html+=`<div class="review-q-card ${rc}"><div class="rqc-header"><span class="rq-num">Question ${i+1}</span>${badge}</div><div class="rqc-body"><div class="rqc-q-text">${qh}</div><div class="rqc-options">${opts}</div>${ua!==-1?`<div style="font-size:11px;color:var(--muted);margin-top:7px;">Your: <strong>${L[ua]}) ${q.opts[ua]}</strong> &nbsp;|&nbsp; Correct: <strong>${L[ca]}) ${q.opts[ca]}</strong></div>`:''}</div></div>`;
