@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUET English 12 May Paper — by Wondermayank</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7C3AED;
+    --purple-mid: #A78BFA;
+    --purple-light: #C4B5FD;
+    --purple-bg: #F5F0FF;
+    --blue: #60A5FA;
+    --blue-light: #B9D9DC;
+    --blue-bg: #EFF8FF;
+    --white: #FFFFFF;
+    --glass: rgba(255,255,255,0.72);
+    --glass-border: rgba(167,139,250,0.18);
+    --text: #1e1b4b;
+    --text-muted: #6b7280;
+    --shadow: 0 8px 32px rgba(124,58,237,0.10);
+    --shadow-card: 0 4px 24px rgba(96,165,250,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg, #f8f5ff 0%, #eff8ff 50%, #f0f7ff 100%);
+    min-height: 100vh;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 56px 24px 40px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 360px;
+    background: radial-gradient(ellipse, rgba(167,139,250,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(124,58,237,0.08);
+    border: 1px solid rgba(124,58,237,0.18);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-badge svg { width: 14px; height: 14px; }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 6vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #7C3AED 0%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-size: 15px; color: var(--text-muted);
+    font-weight: 400; margin-bottom: 28px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin-bottom: 32px;
+  }
+  .pill {
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+    backdrop-filter: blur(8px);
+  }
+  .pill-purple { background: rgba(196,181,253,0.3); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); }
+  .pill-blue   { background: rgba(185,217,220,0.3); color: #0369a1; border: 1px solid rgba(96,165,250,0.3); }
+
+  /* ── QUICK LINKS ── */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 480px; margin: 0 auto 36px;
+    padding: 0 16px;
+  }
+  .ql-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 14px 10px;
+    text-align: center;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-card);
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .ql-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(124,58,237,0.15); }
+  .ql-icon {
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .ql-icon-purple { background: linear-gradient(135deg, #C4B5FD, #A78BFA); }
+  .ql-icon-blue   { background: linear-gradient(135deg, #B9D9DC, #60A5FA); }
+  .ql-icon-green  { background: linear-gradient(135deg, #bbf7d0, #34d399); }
+  .ql-card span { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.2; }
+
+  /* ── ANALYTICS ── */
+  .analytics-section {
+    padding: 0 16px 32px;
+    max-width: 520px; margin: 0 auto;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--purple-mid); text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .analytics-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(239,248,255,0.75));
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 32px rgba(96,165,250,0.12);
+    margin-bottom: 16px;
+  }
+  .analytics-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 18px;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .diff-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin-bottom: 20px;
+  }
+  .diff-box {
+    border-radius: 14px; padding: 14px 12px;
+    text-align: center;
+  }
+  .diff-easy   { background: rgba(187,247,208,0.4); border: 1px solid rgba(52,211,153,0.3); }
+  .diff-medium { background: rgba(254,243,199,0.5); border: 1px solid rgba(251,191,36,0.3); }
+  .diff-hard   { background: rgba(254,202,202,0.4); border: 1px solid rgba(248,113,113,0.3); }
+  .diff-box .val {
+    font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+    display: block;
+  }
+  .diff-easy .val   { color: #059669; }
+  .diff-medium .val { color: #d97706; }
+  .diff-hard .val   { color: #dc2626; }
+  .diff-box .lbl    { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .overall-verdict {
+    background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(96,165,250,0.08));
+    border-radius: 14px; padding: 14px 16px;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+  }
+  .verdict-icon { width: 40px; height: 40px; flex-shrink: 0; }
+  .verdict-text { font-size: 13px; font-weight: 500; line-height: 1.5; }
+  .verdict-text strong { color: var(--purple); }
+
+  /* Bar chart */
+  .bar-chart { margin-top: 4px; }
+  .bar-row {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .bar-label { font-size: 11px; width: 90px; flex-shrink: 0; color: var(--text-muted); font-weight: 500; }
+  .bar-track { flex: 1; height: 10px; background: rgba(167,139,250,0.12); border-radius: 100px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 100px; transition: width 1s ease; }
+  .bar-easy   { background: linear-gradient(90deg, #34d399, #6ee7b7); }
+  .bar-medium { background: linear-gradient(90deg, #fbbf24, #fde68a); }
+  .bar-hard   { background: linear-gradient(90deg, #f87171, #fca5a5); }
+  .bar-mixed  { background: linear-gradient(90deg, #a78bfa, #c4b5fd); }
+  .bar-val { font-size: 11px; font-weight: 600; width: 26px; text-align: right; color: var(--text); }
+
+  /* ── CONTENT SECTIONS ── */
+  .content-section {
+    padding: 0 16px 8px;
+    max-width: 520px; margin: 0 auto;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px; margin-top: 24px;
+  }
+  .section-icon {
+    width: 32px; height: 32px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+  }
+  .q-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(124,58,237,0.06);
+  }
+  .q-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--purple-mid);
+    letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .q-text { font-size: 14px; font-weight: 500; margin-bottom: 10px; line-height: 1.5; color: var(--text); }
+  .q-answer {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: linear-gradient(90deg, rgba(124,58,237,0.07), rgba(96,165,250,0.07));
+    border: 1px solid rgba(124,58,237,0.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 13px; font-weight: 600; color: var(--purple);
+  }
+  .q-answer svg { width: 14px; height: 14px; }
+  .match-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px;
+  }
+  .match-item {
+    background: rgba(196,181,253,0.15);
+    border-radius: 10px; padding: 8px 10px;
+    font-size: 12px; font-weight: 500;
+    border: 1px solid rgba(167,139,250,0.2);
+  }
+  .match-word { color: var(--purple); font-weight: 700; }
+  .match-sep  { color: var(--text-muted); margin: 0 3px; }
+  .match-def  { color: var(--text); }
+  .phrasalverb-blank {
+    display: inline-block;
+    background: rgba(96,165,250,0.12);
+    border-bottom: 2px solid var(--blue);
+    padding: 1px 12px; border-radius: 4px;
+    color: #0369a1; font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* ── GRAMMAR SPECIAL ── */
+  .grammar-block {
+    background: linear-gradient(135deg, rgba(239,248,255,0.9), rgba(245,240,255,0.7));
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 16px; padding: 14px 16px; margin-bottom: 10px;
+  }
+  .grammar-tag {
+    display: inline-block;
+    background: rgba(96,165,250,0.15);
+    color: #0369a1;
+    border-radius: 6px; padding: 2px 8px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sentence-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .sentence-label { font-size: 10px; font-weight: 700; color: var(--text-muted); min-width: 36px; margin-top: 2px; }
+  .sentence-text  { font-size: 13px; line-height: 1.5; }
+  .highlight-word { color: var(--purple); font-weight: 700; border-bottom: 1px dashed var(--purple-mid); }
+
+  /* ── SPELLING ── */
+  .spelling-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
+  .spell-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(167,139,250,0.2);
+    border-radius: 12px; padding: 10px 12px;
+  }
+  .spell-chip svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .spell-word { font-size: 13px; font-weight: 600; }
+
+  /* ── REARRANGEMENT ── */
+  .rearr-box { margin-top: 8px; }
+  .rearr-sentences { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
+  .rearr-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: rgba(239,248,255,0.6);
+    border-radius: 10px; padding: 8px 10px;
+    border: 1px solid rgba(96,165,250,0.15);
+  }
+  .rearr-letter {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    color: var(--blue); min-width: 16px;
+  }
+  .rearr-text { font-size: 13px; }
+  .order-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .order-chip {
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: white; font-family: 'Space Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(124,58,237,0.25);
+  }
+  .order-arrow { color: var(--purple-mid); font-size: 14px; display: flex; align-items: center; }
+
+  /* ── FOOTER LINKS ── */
+  .footer-links {
+    padding: 24px 16px 12px;
+    max-width: 520px; margin: 0 auto;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .footer-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px; padding: 11px 12px;
+    text-decoration: none; color: var(--text);
+    font-size: 12px; font-weight: 500;
+    backdrop-filter: blur(8px);
+    transition: border-color .2s, transform .15s;
+  }
+  .footer-link:hover { border-color: var(--purple-mid); transform: translateY(-1px); }
+  .footer-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: linear-gradient(135deg, rgba(245,240,255,0.9), rgba(239,248,255,0.8));
+    border-top: 1px solid rgba(167,139,250,0.15);
+    padding: 20px 16px;
+    max-width: 520px; margin: 0 auto;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+  .footer-policy { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; margin-bottom: 12px; }
+  .footer-policy a { font-size: 11px; color: var(--text-muted); text-decoration: none; }
+  .footer-policy a:hover { color: var(--purple); }
+  .footer-copy { font-size: 11px; color: #9ca3af; }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero { animation: fadeUp .6s ease both; }
+  .analytics-section { animation: fadeUp .7s ease both .1s; }
+  .content-section { animation: fadeUp .7s ease both .15s; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167,139,250,0.25), transparent);
+    margin: 6px 16px 20px;
+    max-width: 488px;
+    margin-left: auto; margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+    CUET UG 2026
+  </div>
+  <h1>English — 12 May<br>Morning Shift Paper</h1>
+  <p class="hero-sub">Complete paper analysis with answers · by Wondermayank</p>
+  <div class="hero-pills">
+    <span class="pill pill-purple">Vocabulary</span>
+    <span class="pill pill-blue">Grammar</span>
+    <span class="pill pill-purple">Phrasal Verbs</span>
+    <span class="pill pill-blue">Figures of Speech</span>
+    <span class="pill pill-purple">Rearrangement</span>
+    <span class="pill pill-blue">Spelling</span>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="quick-links">
+  <a class="ql-card" href="https://commercesehoga.github.io/cuet" target="_blank">
+    <div class="ql-icon ql-icon-purple">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+        <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+      </svg>
+    </div>
+    <span>Free Mock Tests</span>
+  </a>
+  <a class="ql-card" href="https://wondermayank.github.io" target="_blank">
+    <div class="ql-icon ql-icon-blue">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+        <circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/>
+      </svg>
+    </div>
+    <span>Wondermayank</span>
+  </a>
+  <a class="ql-card" href="https://commercesehoga.blogspot.com" target="_blank">
+    <div class="ql-icon ql-icon-green">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      </svg>
+    </div>
+    <span>Free Notes</span>
+  </a>
+</div>
+
+<!-- ANALYTICS -->
+<div class="analytics-section">
+  <p class="section-label">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+    Paper Analysis
+  </p>
+  <div class="analytics-card">
+    <div class="analytics-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      How Was The Paper?
+    </div>
+
+    <!-- Verdict -->
+    <div class="overall-verdict">
+      <svg class="verdict-icon" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="38" fill="url(#vg)" opacity="0.15"/>
+        <circle cx="40" cy="40" r="28" fill="url(#vg)" opacity="0.25"/>
+        <path d="M26 42l8 8 20-20" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="vg" x1="0" y1="0" x2="80" y2="80">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="100%" stop-color="#60A5FA"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="verdict-text">
+        <strong>Overall: Moderate–Easy</strong><br>
+        Grammar was heavy but manageable. Vocabulary was basic. RC passages were easy. Focus on basics to score well.
+      </div>
+    </div>
+
+    <!-- Difficulty count -->
+    <div class="diff-grid">
+      <div class="diff-box diff-easy">
+        <span class="val">60%</span>
+        <span class="lbl">Easy</span>
+      </div>
+      <div class="diff-box diff-medium">
+        <span class="val">30%</span>
+        <span class="lbl">Moderate</span>
+      </div>
+    </div>
+    <div style="margin-bottom:14px;" class="diff-grid" style="grid-template-columns:1fr;">
+      <div class="diff-box diff-hard" style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;">
+        <span class="lbl" style="text-align:left;">Tricky / Hard</span>
+        <span class="val" style="font-size:22px;">10%</span>
+      </div>
+    </div>
+
+    <!-- Bar chart by section -->
+    <div class="bar-chart">
+      <div class="section-label" style="margin-bottom:10px;">Section-wise Difficulty</div>
+      <div class="bar-row">
+        <span class="bar-label">Vocabulary</span>
+        <div class="bar-track"><div class="bar-fill bar-easy" style="width:80%"></div></div>
+        <span class="bar-val">Easy</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">RC Passages</span>
+        <div class="bar-track"><div class="bar-fill bar-easy" style="width:85%"></div></div>
+        <span class="bar-val">Easy</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Rearrangement</span>
+        <div class="bar-track"><div class="bar-fill bar-easy" style="width:75%"></div></div>
+        <span class="bar-val">Easy</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Phrasal Verbs</span>
+        <div class="bar-track"><div class="bar-fill bar-medium" style="width:55%"></div></div>
+        <span class="bar-val">Mod.</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Grammar</span>
+        <div class="bar-track"><div class="bar-fill bar-medium" style="width:48%"></div></div>
+        <span class="bar-val">Mod.</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Poetic Devices</span>
+        <div class="bar-track"><div class="bar-fill bar-hard" style="width:28%"></div></div>
+        <span class="bar-val">Hard</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Phobias</span>
+        <div class="bar-track"><div class="bar-fill bar-mixed" style="width:65%"></div></div>
+        <span class="bar-val">Mix</span>
+      </div>
+    </div>
+
+    <!-- Key takeaways -->
+    <div style="margin-top:16px; background:rgba(124,58,237,0.06); border-radius:12px; padding:12px 14px; border:1px solid rgba(124,58,237,0.1);">
+      <div style="font-size:12px; font-weight:700; color:var(--purple); margin-bottom:8px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Key Observations
+      </div>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          RC passages easy — factual + narrative, answers identifiable
+        </li>
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          Grammar heavy — prepositions, voice, tenses, question tags
+        </li>
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          Poetic devices had one tricky question
+        </li>
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          Vocabulary basic — taciturn, sporadic, dipsomaniac
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- VOCABULARY -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#C4B5FD,#A78BFA)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+    </div>
+    <h2>Vocabulary Questions</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">What is the meaning of <strong>"Taciturn"</strong>?</div>
+    <span class="q-answer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+      Silent by nature
+    </span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">What is the meaning of <strong>"Sporadic"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Occasional</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 03</div>
+    <div class="q-text">What is the meaning of <strong>"Tumultuous"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Noisy and chaotic</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 04</div>
+    <div class="q-text">What is the meaning of <strong>"Ostentatious"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Showy</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 05</div>
+    <div class="q-text">What is the meaning of <strong>"Nefarious"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Wicked</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 06</div>
+    <div class="q-text">What is a <strong>"Pangram"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>A sentence with every letter of the alphabet</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 07</div>
+    <div class="q-text">What is the meaning of <strong>"Anonymous"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Unknown</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MATCH THE FOLLOWING -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#B9D9DC,#60A5FA)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+    </div>
+    <h2>Match the Following</h2>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">Match words with their meanings</div>
+    <div class="match-grid">
+      <div class="match-item"><span class="match-word">Taciturn</span><span class="match-sep">—</span><span class="match-def">Silent</span></div>
+      <div class="match-item"><span class="match-word">Sporadic</span><span class="match-sep">—</span><span class="match-def">Occasional</span></div>
+      <div class="match-item"><span class="match-word">Ostentatious</span><span class="match-sep">—</span><span class="match-def">Showy</span></div>
+      <div class="match-item"><span class="match-word">Nefarious</span><span class="match-sep">—</span><span class="match-def">Evil</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PHRASAL VERBS -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#fde68a,#fbbf24)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <h2>Phrasal Verb Questions</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">The meeting was <span class="phrasalverb-blank">called off</span> due to heavy rain.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Called off</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">We should not <span class="phrasalverb-blank">leave out</span> important details while writing notes.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Leave out</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 03</div>
+    <div class="q-text">The issue suddenly <span class="phrasalverb-blank">cropped up</span> during the discussion.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Cropped up</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 04</div>
+    <div class="q-text">She finally <span class="phrasalverb-blank">got over</span> her fear of public speaking.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Got over</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FIGURES OF SPEECH -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#fca5a5,#f87171)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <h2>Figures of Speech</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">Identify the figure of speech: <em>"Her smile was like sunshine."</em></div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Simile</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">Identify the figure of speech: <em>"Time is a thief."</em></div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Metaphor</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 03</div>
+    <div class="q-text">Identify the figure of speech: <em>"The stars danced in the sky."</em></div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Personification</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- REARRANGEMENT -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#6ee7b7,#34d399)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+    </div>
+    <h2>Rearrangement</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">Rearrange in correct order:</div>
+    <div class="rearr-box">
+      <div class="rearr-sentences">
+        <div class="rearr-item"><span class="rearr-letter">P.</span><span class="rearr-text">He opened the letter carefully.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">Q.</span><span class="rearr-text">He smiled after reading it.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">R.</span><span class="rearr-text">The postman arrived early morning.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">S.</span><span class="rearr-text">Ravi waited anxiously.</span></div>
+      </div>
+      <div class="order-chips">
+        <div class="order-chip">R</div><span class="order-arrow">›</span>
+        <div class="order-chip">S</div><span class="order-arrow">›</span>
+        <div class="order-chip">P</div><span class="order-arrow">›</span>
+        <div class="order-chip">Q</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">Rearrange in correct order:</div>
+    <div class="rearr-box">
+      <div class="rearr-sentences">
+        <div class="rearr-item"><span class="rearr-letter">P.</span><span class="rearr-text">The teacher entered the class.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">Q.</span><span class="rearr-text">Students stood up immediately.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">R.</span><span class="rearr-text">The bell rang loudly.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">S.</span><span class="rearr-text">Silence spread everywhere.</span></div>
+      </div>
+      <div class="order-chips">
+        <div class="order-chip">R</div><span class="order-arrow">›</span>
+        <div class="order-chip">P</div><span class="order-arrow">›</span>
+        <div class="order-chip">Q</div><span class="order-arrow">›</span>
+        <div class="order-chip">S</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- GRAMMAR -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#A78BFA,#7C3AED)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+    </div>
+    <h2>Grammar</h2>
+  </div>
+
+  <div class="grammar-block">
+    <div class="grammar-tag">Adjective Order · OSASCOMP</div>
+    <div class="q-num" style="margin-bottom:6px;">Q 01 — Choose the correct sentence</div>
+    <div class="sentence-row">
+      <span class="sentence-label">Ans:</span>
+      <span class="sentence-text">She bought a <span class="highlight-word">beautiful small red</span> bag.</span>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Opinion → Size → Colour is the correct adjective order</div>
+  </div>
+
+  <div class="grammar-block">
+    <div class="grammar-tag">Active & Passive Voice</div>
+    <div class="q-num" style="margin-bottom:8px;">Q 01 — Change to Passive</div>
+    <div class="sentence-row">
+      <span class="sentence-label">Active:</span>
+      <span class="sentence-text">They completed the project.</span>
+    </div>
+    <div class="sentence-row">
+      <span class="sentence-label">Passive:</span>
+      <span class="sentence-text"><span class="highlight-word">The project was completed by them.</span></span>
+    </div>
+    <div style="margin-top:12px;" class="q-num">Q 02 — Change to Active</div>
+    <div class="sentence-row" style="margin-top:6px;">
+      <span class="sentence-label">Passive:</span>
+      <span class="sentence-text">The song was sung by Arijit.</span>
+    </div>
+    <div class="sentence-row">
+      <span class="sentence-label">Active:</span>
+      <span class="sentence-text"><span class="highlight-word">Arijit sang the song.</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SPELLING -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#B9D9DC,#60A5FA)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    </div>
+    <h2>Spelling Error Questions</h2>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 01 · Q 02 · Q 03 — Identify correct spelling</div>
+    <div class="spelling-grid">
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Depreciation</span>
+      </div>
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Aggregate</span>
+      </div>
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Notorious</span>
+      </div>
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Manoeuvre</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- QUICK RESOURCE LINKS -->
+<div class="footer-links">
+  <p class="section-label">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    Useful Resources
+  </p>
+  <div class="footer-grid">
+    <a class="footer-link" href="https://commercesehoga.github.io/cuet" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.2"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+      Free Mock Tests
+    </a>
+    <a class="footer-link" href="https://wondermayank.github.io" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+      Wondermayank
+    </a>
+    <a class="footer-link" href="https://commercesehoga.blogspot.com" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Free Notes Blog
+    </a>
+    <a class="footer-link" href="https://wondermayank.github.io/help" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      Support / Donate
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">by Wondermayank · ThunderStudy</div>
+  <div class="footer-policy">
+    <a href="https://wondermayank.github.io/terms" target="_blank">Terms</a>
+    <a href="https://wondermayank.github.io/privacy" target="_blank">Privacy</a>
+    <a href="https://wondermayank.github.io/disclaimer" target="_blank">Disclaimer</a>
+    <a href="https://wondermayank.github.io/help" target="_blank">Help & Donate</a>
+  </div>
+  <div class="footer-copy">CUET English 12 May 2026 · Morning Shift Analysis · Not an official NTA resource</div>
+</footer>
+
+</body>
+</html>
