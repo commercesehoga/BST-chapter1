@@ -1,1381 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11 May 2026 English Paper CUET | By Wondermayank • Thunderstudy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #60a5fa;
-            --primary-dark: #3b82f6;
-            --primary-light: #dbeafe;
-            --secondary: #93c5fd;
-            --accent: #0ea5e9;
-            --bg: #f0f9ff;
-            --bg-card: #ffffff;
-            --text: #1e3a5f;
-            --text-light: #475569;
-            --text-muted: #94a3b8;
-            --border: #bfdbfe;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --grammar-bg: #eff6ff;
-            --grammar-border: #93c5fd;
-            --grammar-text: #1e40af;
-            --vocab-bg: #fefce8;
-            --vocab-border: #fde047;
-            --vocab-text: #854d0e;
-            --rc-bg: #fdf4ff;
-            --rc-border: #e879f9;
-            --rc-text: #86198f;
-            --idiom-bg: #fce7f3;
-            --idiom-border: #f9a8d4;
-            --idiom-text: #9d174d;
-            --lit-bg: #d1fae5;
-            --lit-border: #6ee7b7;
-            --lit-text: #065f46;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        .bg-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(14, 165, 233, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(147, 197, 253, 0.04) 0%, transparent 70%);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #0ea5e9 100%);
-            color: white;
-            padding: 3rem 1rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 20px,
-                rgba(255,255,255,0.02) 20px,
-                rgba(255,255,255,0.02) 40px
-            );
-            animation: shimmer 20s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-        }
-
-        .header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .author-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .author-tag .avatar {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #60a5fa, #0ea5e9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-        }
-
-        .wave-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .wave-divider svg {
-            display: block;
-            width: 100%;
-            height: 60px;
-        }
-
-        .nav-bar {
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
-            padding: 0 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(59, 130, 246, 0.08);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 0;
-        }
-
-        .nav-logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .section {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 30px rgba(59, 130, 246, 0.06);
-            border: 1px solid var(--border);
-            animation: fadeInUp 0.6s ease both;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-light);
-        }
-
-        .section-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .section-desc {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--bg-card), var(--primary-light));
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .question-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .question-card {
-            background: linear-gradient(to right, var(--bg-card), #f8fafc);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .question-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            border-radius: 4px 0 0 4px;
-        }
-
-        .question-card:hover {
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.12);
-            transform: translateX(5px);
-        }
-
-        .question-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 1rem;
-        }
-
-        .question-text .word {
-            background: linear-gradient(135deg, var(--primary-light), #e0f2fe);
-            padding: 0.15rem 0.5rem;
-            border-radius: 6px;
-            color: var(--primary-dark);
-            border: 1px solid var(--border);
-        }
-
-        .options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.6rem;
-        }
-
-        .option {
-            padding: 0.7rem 1rem;
-            border-radius: 10px;
-            border: 1.5px solid var(--border);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .option:hover {
-            border-color: var(--primary);
-            background: var(--primary-light);
-        }
-
-        .option.correct {
-            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-            border-color: var(--success);
-            color: #166534;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .option.correct::after {
-            content: '✓';
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-weight: 800;
-        }
-
-        .no-options {
-            background: #f1f5f9;
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-style: italic;
-            border-left: 3px solid var(--text-muted);
-        }
-
-        .answer-note {
-            margin-top: 0.8rem;
-            padding: 0.6rem 1rem;
-            background: linear-gradient(135deg, #dcfce7, #d1fae5);
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: #166534;
-            font-weight: 600;
-            border: 1px solid #86efac;
-        }
-
-        .category-badge {
-            display: inline-block;
-            padding: 0.25rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-vocab { background: var(--vocab-bg); color: var(--vocab-text); border: 1px solid var(--vocab-border); }
-        .badge-grammar { background: var(--grammar-bg); color: var(--grammar-text); border: 1px solid var(--grammar-border); }
-        .badge-idiom { background: var(--idiom-bg); color: var(--idiom-text); border: 1px solid var(--idiom-border); }
-        .badge-rc { background: var(--rc-bg); color: var(--rc-text); border: 1px solid var(--rc-border); }
-        .badge-lit { background: var(--lit-bg); color: var(--lit-text); border: 1px solid var(--lit-border); }
-
-        .analysis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .analysis-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .analysis-card h3 {
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .topic-tag {
-            display: inline-block;
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin: 0.3rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .topic-tag:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .topic-tag.grammar {
-            background: #fef3c7;
-            color: #92400e;
-            border-color: #fcd34d;
-        }
-
-        .topic-tag.vocab {
-            background: #dbeafe;
-            color: #1e40af;
-            border-color: #93c5fd;
-        }
-
-        .topic-tag.idiom {
-            background: #fce7f3;
-            color: #9d174d;
-            border-color: #f9a8d4;
-        }
-
-        .topic-tag.literary {
-            background: #d1fae5;
-            color: #065f46;
-            border-color: #6ee7b7;
-        }
-
-        .topic-tag.rc {
-            background: #ede9fe;
-            color: #5b21b6;
-            border-color: #a78bfa;
-        }
-
-        .memory-section {
-            background: linear-gradient(135deg, #fefce8, #fef9c3);
-            border: 1px solid #fde047;
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .memory-section h4 {
-            color: #854d0e;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .memory-item {
-            background: white;
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            margin-bottom: 0.5rem;
-            border-left: 3px solid #fbbf24;
-            font-size: 0.95rem;
-        }
-
-        .links-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .link-card {
-            background: linear-gradient(135deg, var(--bg-card), var(--primary-light));
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid var(--border);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-        }
-
-        .link-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-            border-color: var(--primary);
-        }
-
-        .link-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.8rem;
-        }
-
-        .link-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .link-card p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .link-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .link-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #1e3a5f, #1e40af);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer p {
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1.2rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 { font-size: 1.8rem; }
-            .options { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .section { padding: 1.5rem; }
-        }
-
-        .fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 99;
-            text-decoration: none;
-        }
-
-        .fab:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        .summary-box {
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-            border: 1px solid #93c5fd;
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .summary-box h3 {
-            color: #1e40af;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .summary-item {
-            background: white;
-            padding: 1rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .summary-item .count {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-        }
-
-        .summary-item .label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUET English 12 May Paper — by Wondermayank</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7C3AED;
+    --purple-mid: #A78BFA;
+    --purple-light: #C4B5FD;
+    --purple-bg: #F5F0FF;
+    --blue: #60A5FA;
+    --blue-light: #B9D9DC;
+    --blue-bg: #EFF8FF;
+    --white: #FFFFFF;
+    --glass: rgba(255,255,255,0.72);
+    --glass-border: rgba(167,139,250,0.18);
+    --text: #1e1b4b;
+    --text-muted: #6b7280;
+    --shadow: 0 8px 32px rgba(124,58,237,0.10);
+    --shadow-card: 0 4px 24px rgba(96,165,250,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg, #f8f5ff 0%, #eff8ff 50%, #f0f7ff 100%);
+    min-height: 100vh;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 56px 24px 40px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 360px;
+    background: radial-gradient(ellipse, rgba(167,139,250,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(124,58,237,0.08);
+    border: 1px solid rgba(124,58,237,0.18);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-badge svg { width: 14px; height: 14px; }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 6vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #7C3AED 0%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-size: 15px; color: var(--text-muted);
+    font-weight: 400; margin-bottom: 28px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin-bottom: 32px;
+  }
+  .pill {
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+    backdrop-filter: blur(8px);
+  }
+  .pill-purple { background: rgba(196,181,253,0.3); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); }
+  .pill-blue   { background: rgba(185,217,220,0.3); color: #0369a1; border: 1px solid rgba(96,165,250,0.3); }
+
+  /* ── QUICK LINKS ── */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 480px; margin: 0 auto 36px;
+    padding: 0 16px;
+  }
+  .ql-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 14px 10px;
+    text-align: center;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-card);
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .ql-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(124,58,237,0.15); }
+  .ql-icon {
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .ql-icon-purple { background: linear-gradient(135deg, #C4B5FD, #A78BFA); }
+  .ql-icon-blue   { background: linear-gradient(135deg, #B9D9DC, #60A5FA); }
+  .ql-icon-green  { background: linear-gradient(135deg, #bbf7d0, #34d399); }
+  .ql-card span { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.2; }
+
+  /* ── ANALYTICS ── */
+  .analytics-section {
+    padding: 0 16px 32px;
+    max-width: 520px; margin: 0 auto;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--purple-mid); text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .analytics-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(239,248,255,0.75));
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 32px rgba(96,165,250,0.12);
+    margin-bottom: 16px;
+  }
+  .analytics-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 18px;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .diff-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin-bottom: 20px;
+  }
+  .diff-box {
+    border-radius: 14px; padding: 14px 12px;
+    text-align: center;
+  }
+  .diff-easy   { background: rgba(187,247,208,0.4); border: 1px solid rgba(52,211,153,0.3); }
+  .diff-medium { background: rgba(254,243,199,0.5); border: 1px solid rgba(251,191,36,0.3); }
+  .diff-hard   { background: rgba(254,202,202,0.4); border: 1px solid rgba(248,113,113,0.3); }
+  .diff-box .val {
+    font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+    display: block;
+  }
+  .diff-easy .val   { color: #059669; }
+  .diff-medium .val { color: #d97706; }
+  .diff-hard .val   { color: #dc2626; }
+  .diff-box .lbl    { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .overall-verdict {
+    background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(96,165,250,0.08));
+    border-radius: 14px; padding: 14px 16px;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+  }
+  .verdict-icon { width: 40px; height: 40px; flex-shrink: 0; }
+  .verdict-text { font-size: 13px; font-weight: 500; line-height: 1.5; }
+  .verdict-text strong { color: var(--purple); }
+
+  /* Bar chart */
+  .bar-chart { margin-top: 4px; }
+  .bar-row {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .bar-label { font-size: 11px; width: 90px; flex-shrink: 0; color: var(--text-muted); font-weight: 500; }
+  .bar-track { flex: 1; height: 10px; background: rgba(167,139,250,0.12); border-radius: 100px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 100px; transition: width 1s ease; }
+  .bar-easy   { background: linear-gradient(90deg, #34d399, #6ee7b7); }
+  .bar-medium { background: linear-gradient(90deg, #fbbf24, #fde68a); }
+  .bar-hard   { background: linear-gradient(90deg, #f87171, #fca5a5); }
+  .bar-mixed  { background: linear-gradient(90deg, #a78bfa, #c4b5fd); }
+  .bar-val { font-size: 11px; font-weight: 600; width: 26px; text-align: right; color: var(--text); }
+
+  /* ── CONTENT SECTIONS ── */
+  .content-section {
+    padding: 0 16px 8px;
+    max-width: 520px; margin: 0 auto;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px; margin-top: 24px;
+  }
+  .section-icon {
+    width: 32px; height: 32px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+  }
+  .q-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(124,58,237,0.06);
+  }
+  .q-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--purple-mid);
+    letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .q-text { font-size: 14px; font-weight: 500; margin-bottom: 10px; line-height: 1.5; color: var(--text); }
+  .q-answer {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: linear-gradient(90deg, rgba(124,58,237,0.07), rgba(96,165,250,0.07));
+    border: 1px solid rgba(124,58,237,0.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 13px; font-weight: 600; color: var(--purple);
+  }
+  .q-answer svg { width: 14px; height: 14px; }
+  .match-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px;
+  }
+  .match-item {
+    background: rgba(196,181,253,0.15);
+    border-radius: 10px; padding: 8px 10px;
+    font-size: 12px; font-weight: 500;
+    border: 1px solid rgba(167,139,250,0.2);
+  }
+  .match-word { color: var(--purple); font-weight: 700; }
+  .match-sep  { color: var(--text-muted); margin: 0 3px; }
+  .match-def  { color: var(--text); }
+  .phrasalverb-blank {
+    display: inline-block;
+    background: rgba(96,165,250,0.12);
+    border-bottom: 2px solid var(--blue);
+    padding: 1px 12px; border-radius: 4px;
+    color: #0369a1; font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* ── GRAMMAR SPECIAL ── */
+  .grammar-block {
+    background: linear-gradient(135deg, rgba(239,248,255,0.9), rgba(245,240,255,0.7));
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 16px; padding: 14px 16px; margin-bottom: 10px;
+  }
+  .grammar-tag {
+    display: inline-block;
+    background: rgba(96,165,250,0.15);
+    color: #0369a1;
+    border-radius: 6px; padding: 2px 8px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sentence-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .sentence-label { font-size: 10px; font-weight: 700; color: var(--text-muted); min-width: 36px; margin-top: 2px; }
+  .sentence-text  { font-size: 13px; line-height: 1.5; }
+  .highlight-word { color: var(--purple); font-weight: 700; border-bottom: 1px dashed var(--purple-mid); }
+
+  /* ── SPELLING ── */
+  .spelling-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
+  .spell-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(167,139,250,0.2);
+    border-radius: 12px; padding: 10px 12px;
+  }
+  .spell-chip svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .spell-word { font-size: 13px; font-weight: 600; }
+
+  /* ── REARRANGEMENT ── */
+  .rearr-box { margin-top: 8px; }
+  .rearr-sentences { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
+  .rearr-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: rgba(239,248,255,0.6);
+    border-radius: 10px; padding: 8px 10px;
+    border: 1px solid rgba(96,165,250,0.15);
+  }
+  .rearr-letter {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    color: var(--blue); min-width: 16px;
+  }
+  .rearr-text { font-size: 13px; }
+  .order-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .order-chip {
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: white; font-family: 'Space Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(124,58,237,0.25);
+  }
+  .order-arrow { color: var(--purple-mid); font-size: 14px; display: flex; align-items: center; }
+
+  /* ── FOOTER LINKS ── */
+  .footer-links {
+    padding: 24px 16px 12px;
+    max-width: 520px; margin: 0 auto;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .footer-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px; padding: 11px 12px;
+    text-decoration: none; color: var(--text);
+    font-size: 12px; font-weight: 500;
+    backdrop-filter: blur(8px);
+    transition: border-color .2s, transform .15s;
+  }
+  .footer-link:hover { border-color: var(--purple-mid); transform: translateY(-1px); }
+  .footer-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: linear-gradient(135deg, rgba(245,240,255,0.9), rgba(239,248,255,0.8));
+    border-top: 1px solid rgba(167,139,250,0.15);
+    padding: 20px 16px;
+    max-width: 520px; margin: 0 auto;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+  .footer-policy { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; margin-bottom: 12px; }
+  .footer-policy a { font-size: 11px; color: var(--text-muted); text-decoration: none; }
+  .footer-policy a:hover { color: var(--purple); }
+  .footer-copy { font-size: 11px; color: #9ca3af; }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero { animation: fadeUp .6s ease both; }
+  .analytics-section { animation: fadeUp .7s ease both .1s; }
+  .content-section { animation: fadeUp .7s ease both .15s; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167,139,250,0.25), transparent);
+    margin: 6px 16px 20px;
+    max-width: 488px;
+    margin-left: auto; margin-right: auto;
+  }
+</style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
 
-    <header class="header">
-        <div class="header-content">
-            <div class="badge">📅 11th May 2026 | Shift 1 | Day 1</div>
-            <h1>CUET UG English Paper Analysis</h1>
-            <p class="subtitle">Complete memory-based question bank with all questions from Reddit discussions</p>
-            <div class="author-tag">
-                <div class="avatar">WM</div>
-                <span>By Wondermayank • Thunderstudy</span>
-            </div>
-        </div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#f0f9ff" opacity=".25"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="#f0f9ff" opacity=".5"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#f0f9ff"></path>
-            </svg>
-        </div>
-    </header>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+    CUET UG 2026
+  </div>
+  <h1>English — 12 May<br>Morning Shift Paper</h1>
+  <p class="hero-sub">Complete paper analysis with answers · by Wondermayank</p>
+  <div class="hero-pills">
+    <span class="pill pill-purple">Vocabulary</span>
+    <span class="pill pill-blue">Grammar</span>
+    <span class="pill pill-purple">Phrasal Verbs</span>
+    <span class="pill pill-blue">Figures of Speech</span>
+    <span class="pill pill-purple">Rearrangement</span>
+    <span class="pill pill-blue">Spelling</span>
+  </div>
+</div>
 
-    <nav class="nav-bar">
-        <div class="nav-inner">
-            <div class="nav-logo">
-                <span>⚡</span> CUET Analysis
-            </div>
-            <div class="nav-links">
-                <a href="#overview" class="active">Overview</a>
-                <a href="#questions">All Questions</a>
-                <a href="#analysis">Analysis</a>
-                <a href="#memory">Memory-Based</a>
-                <a href="#resources">Resources</a>
-            </div>
-        </div>
-    </nav>
+<!-- QUICK LINKS -->
+<div class="quick-links">
+  <a class="ql-card" href="https://commercesehoga.github.io/cuet" target="_blank">
+    <div class="ql-icon ql-icon-purple">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+        <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+      </svg>
+    </div>
+    <span>Free Mock Tests</span>
+  </a>
+  <a class="ql-card" href="https://wondermayank.github.io" target="_blank">
+    <div class="ql-icon ql-icon-blue">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+        <circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/>
+      </svg>
+    </div>
+    <span>Wondermayank</span>
+  </a>
+  <a class="ql-card" href="https://commercesehoga.blogspot.com" target="_blank">
+    <div class="ql-icon ql-icon-green">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      </svg>
+    </div>
+    <span>Free Notes</span>
+  </a>
+</div>
 
-    <div class="container">
-        <!-- Summary Stats -->
-        <div class="summary-box" id="overview">
-            <h3>📊 Exam Summary</h3>
-            <div class="summary-grid">
-                <div class="summary-item">
-                    <div class="count">25+</div>
-                    <div class="label">Total Questions</div>
-                </div>
-                <div class="summary-item">
-                    <div class="count">Easy</div>
-                    <div class="label">Difficulty Level</div>
-                </div>
-                <div class="summary-item">
-                    <div class="count">2</div>
-                    <div class="label">Reading Comprehensions</div>
-                </div>
-                <div class="summary-item">
-                    <div class="count">5</div>
-                    <div class="label">Main Topics</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ALL QUESTIONS SECTION -->
-        <div class="section" id="questions">
-            <div class="section-header">
-                <div class="section-icon">📝</div>
-                <div>
-                    <div class="section-title">Complete Question Bank</div>
-                    <div class="section-desc">All questions from 11th May CUET English Shift 1 (with options where available)</div>
-                </div>
-            </div>
-
-            <div class="question-list">
-
-                <!-- ===== VOCABULARY / SYNONYMS / ANTONYMS ===== -->
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">1</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">CONCISE</span></div>
-                    <div class="options">
-                        <div class="option correct">(A) Short and clear ✓</div>
-                        <div class="option">(B) Long</div>
-                        <div class="option">(C) Confusing</div>
-                        <div class="option">(D) Incorrect</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">2</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">APLOMB</span></div>
-                    <div class="options">
-                        <div class="option correct">(A) Confidence ✓</div>
-                        <div class="option">(B) Doubt</div>
-                        <div class="option">(C) Anger</div>
-                        <div class="option">(D) Surprise</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">3</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">AMIABLE</span></div>
-                    <div class="options">
-                        <div class="option correct">(A) Friendly ✓</div>
-                        <div class="option">(B) Strict</div>
-                        <div class="option">(C) Aggressive</div>
-                        <div class="option">(D) Mysterious</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">4</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">RECONDITE</span></div>
-                    <div class="options">
-                        <div class="option correct">(A) Deep/obscure ✓</div>
-                        <div class="option">(B) Easy</div>
-                        <div class="option">(C) Popular</div>
-                        <div class="option">(D) Wrong</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">5</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">ABOLISH</span></div>
-                    <div class="options">
-                        <div class="option">(A) Establish</div>
-                        <div class="option correct">(B) Eradicate ✓</div>
-                        <div class="option">(C) Support</div>
-                        <div class="option">(D) Delay</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">6</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">DILIGENT</span></div>
-                    <div class="options">
-                        <div class="option">(A) Lazy</div>
-                        <div class="option correct">(B) Careful and hardworking ✓</div>
-                        <div class="option">(C) Fast</div>
-                        <div class="option">(D) Uncertain</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">7</div>
-                    <div class="question-text">Choose the synonym of the word: <span class="word">IMMENSE</span></div>
-                    <div class="options">
-                        <div class="option">(A) Tiny</div>
-                        <div class="option correct">(B) Huge ✓</div>
-                        <div class="option">(C) Slow</div>
-                        <div class="option">(D) Unknown</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">8</div>
-                    <div class="question-text">Choose the <strong>antonym</strong> of the word: <span class="word">OSTENTATIOUS</span></div>
-                    <div class="options">
-                        <div class="option">(A) Grand</div>
-                        <div class="option">(B) Magnificent</div>
-                        <div class="option correct">(C) Unobtrusive ✓</div>
-                        <div class="option">(D) Lofty</div>
-                    </div>
-                    <div class="answer-note">💡 Answer: Unobtrusive (modest, not showy)</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">9</div>
-                    <div class="question-text">Choose the <strong>antonym</strong> of the word: <span class="word">BRITTLE</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Answer: Flexible / Ductile / Resilient</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">10</div>
-                    <div class="question-text">What is the meaning / correct usage of the word: <span class="word">RATTLE</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">11</div>
-                    <div class="question-text">What is the meaning / correct usage of the word: <span class="word">WREATH</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">12</div>
-                    <div class="question-text">What is the meaning / correct usage of the word: <span class="word">WRATH</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">13</div>
-                    <div class="question-text">What is the meaning of the word: <span class="word">BENEVOLENT</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Meaning: Kind, generous, well-meaning</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">14</div>
-                    <div class="question-text">Choose the correct <strong>usage</strong> of the word: <span class="word">EBULLIENT</span> <br><em>(Question was related to the Director of a company)</em></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Meaning: Cheerful, full of energy, enthusiastic</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">15</div>
-                    <div class="question-text">Choose the correct <strong>usage</strong> of the word: <span class="word">FLIPPANT</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Meaning: Not showing serious or respectful attitude</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">16</div>
-                    <div class="question-text">Choose the <strong>synonym</strong> of the word: <span class="word">MORTIFY</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Synonyms: Embarrass, humiliate, shame</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">Vocabulary</span>
-                    <div class="question-number">17</div>
-                    <div class="question-text">Choose the correct <strong>antonym/synonym combination</strong> for: <span class="word">FRISKY / FECUND / BARREN</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Frisky = Playful | Fecund = Fertile | Barren = Infertile (Antonym of Fecund)</div>
-                </div>
-
-                <!-- ===== IDIOMS & PHRASES ===== -->
-
-                <div class="question-card">
-                    <span class="category-badge badge-idiom">Idioms</span>
-                    <div class="question-number">18</div>
-                    <div class="question-text"><span class="word">To throw light on</span> means:</div>
-                    <div class="options">
-                        <div class="option">(A) To shine a torch</div>
-                        <div class="option correct">(B) To explain clearly ✓</div>
-                        <div class="option">(C) To burn something</div>
-                        <div class="option">(D) To expose to sunlight</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-idiom">Idioms</span>
-                    <div class="question-number">19</div>
-                    <div class="question-text"><span class="word">By leaps and bounds</span> means:</div>
-                    <div class="options">
-                        <div class="option">(A) Slowly</div>
-                        <div class="option correct">(B) Very fast ✓</div>
-                        <div class="option">(C) In small steps</div>
-                        <div class="option">(D) Without interest</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-idiom">Idioms</span>
-                    <div class="question-number">20</div>
-                    <div class="question-text"><span class="word">Burn the midnight oil</span> means:</div>
-                    <div class="options">
-                        <div class="option">(A) Waste time</div>
-                        <div class="option correct">(B) Work late at night ✓</div>
-                        <div class="option">(C) Sleep early</div>
-                        <div class="option">(D) Burn lamps</div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-idiom">Idioms</span>
-                    <div class="question-number">21</div>
-                    <div class="question-text">What does the idiom <span class="word">"Black and blue"</span> mean?</div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Meaning: Badly bruised / beaten</div>
-                </div>
-
-                <!-- ===== GRAMMAR ===== -->
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">22</div>
-                    <div class="question-text"><strong>Voice Change:</strong> "Every Monday, she paid him rent" — Change to <strong>passive voice</strong></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Answer: "Every Monday, he was paid rent by her." OR "Every Monday, rent was paid to him by her."</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">23</div>
-                    <div class="question-text"><strong>Narration:</strong> Direct to Indirect speech conversion question</div>
-                    <div class="no-options">Sentence & options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">24</div>
-                    <div class="question-text"><strong>Phrasal Verbs:</strong> Match the following — Phrasal verbs of <span class="word">"cut"</span> and <span class="word">"break"</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">25</div>
-                    <div class="question-text"><strong>Phrasal Verbs:</strong> "His folly will ______ his ruin."</div>
-                    <div class="options">
-                        <div class="option">(A) bring in</div>
-                        <div class="option">(B) bring out</div>
-                        <div class="option correct">(C) bring about ✓</div>
-                        <div class="option">(D) bring up</div>
-                    </div>
-                    <div class="answer-note">💡 "Bring about" = to cause something to happen</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">26</div>
-                    <div class="question-text"><strong>Phrasal Verbs:</strong> Choose the correct usage — <span class="word">laid off, laid down, lay up, laid out</span></div>
-                    <div class="no-options">Sentence & options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">27</div>
-                    <div class="question-text"><strong>Preposition:</strong> Quarrel ______ (over / for / in / about)</div>
-                    <div class="options">
-                        <div class="option">(A) over</div>
-                        <div class="option">(B) for</div>
-                        <div class="option">(C) in</div>
-                        <div class="option correct">(D) about ✓</div>
-                    </div>
-                    <div class="answer-note">💡 "Quarrel about" or "Quarrel over" — both are correct, but "about" is most commonly used in standard tests.</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">28</div>
-                    <div class="question-text"><strong>Spelling:</strong> Choose the correct spelling of <span class="word">"ingredients"</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-grammar">Grammar</span>
-                    <div class="question-number">29</div>
-                    <div class="question-text"><strong>Word Form:</strong> "I am ______ to complete my work today." <br>(determine / determined / determination)</div>
-                    <div class="options">
-                        <div class="option">(A) determine</div>
-                        <div class="option correct">(B) determined ✓</div>
-                        <div class="option">(C) determination</div>
-                    </div>
-                </div>
-
-                <!-- ===== ONE-WORD SUBSTITUTION ===== -->
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">One-Word</span>
-                    <div class="question-number">30</div>
-                    <div class="question-text">What is the meaning of <span class="word">PHILOLOGY</span>? <br><em>"Study of history and languages"</em></div>
-                    <div class="no-options">Options not recalled by students</div>
-                    <div class="answer-note">💡 Philology = The study of language in written historical sources</div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-vocab">One-Word</span>
-                    <div class="question-number">31</div>
-                    <div class="question-text">Question related to the word: <span class="word">AFFILIATELY</span></div>
-                    <div class="no-options">Options not recalled by students</div>
-                </div>
-
-                <!-- ===== READING COMPREHENSION ===== -->
-
-                <div class="question-card">
-                    <span class="category-badge badge-rc">Reading Comp.</span>
-                    <div class="question-number">32</div>
-                    <div class="question-text"><strong>Passage 1:</strong> Unseen passage about <span class="word">Sambalpur's weaving</span>, handloom, animal, ikat work, Hirakud Dam</div>
-                    <div class="no-options" style="margin-top:0.8rem; background: #fdf4ff; border-color: #e879f9;">Sub-questions from this passage:</div>
-                    <div style="margin-top:0.8rem; display:flex; flex-direction:column; gap:0.5rem;">
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> "bats hanging like dark fruits" — identify the literary device <br>
-                            <em>(hyperbole / alliteration / simile / personification)</em>
-                            <div class="answer-note" style="margin-top:0.5rem;">💡 Answer: <strong>Simile</strong> (uses "like")</div>
-                        </div>
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> What attracts the tourists? <br>
-                            <em>(the people that let it thrive)</em>
-                        </div>
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> Main occupation of Sambalpur people? <br>
-                            <em>(weaving & textile / rearing)</em>
-                            <div class="answer-note" style="margin-top:0.5rem;">💡 Answer: <strong>Weaving & textile</strong></div>
-                        </div>
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> Which river flows there? <br>
-                            <div class="answer-note" style="margin-top:0.5rem;">💡 Answer: <strong>Mahanadi</strong></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-rc">Reading Comp.</span>
-                    <div class="question-number">33</div>
-                    <div class="question-text"><strong>Passage 2:</strong> Unseen passage about an <span class="word">85-year-old brother</span> and narrator's conversation about his historical building-like house</div>
-                    <div class="no-options" style="margin-top:0.8rem; background: #fdf4ff; border-color: #e879f9;">Sub-questions from this passage:</div>
-                    <div style="margin-top:0.8rem; display:flex; flex-direction:column; gap:0.5rem;">
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> What was <strong>NOT</strong> in the conversation? <br>
-                            <em>(building a new house)</em>
-                        </div>
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> Why did the friend refuse to demolish the building? <br>
-                            <em>(because it was a historical building)</em>
-                        </div>
-                        <div style="background:white; padding:0.7rem 1rem; border-radius:10px; border-left:3px solid #c026d3; font-size:0.92rem;">
-                            <strong>Q:</strong> From this, the friend can be called as an ______ <br>
-                            <em>(antiquist)</em>
-                            <div class="answer-note" style="margin-top:0.5rem;">💡 Answer: <strong>Antiquist</strong> (one who studies/values antiquities)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question-card">
-                    <span class="category-badge badge-rc">Reading Comp.</span>
-                    <div class="question-number">34</div>
-                    <div class="question-text"><strong>Passage 3:</strong> <span class="word">Charles Darwin</span> related question — Arrange the sentences</div>
-                    <div class="no-options">Options (sentences) not recalled by students</div>
-                </div>
-
-                <!-- ===== LITERARY DEVICES ===== -->
-
-                <div class="question-card">
-                    <span class="category-badge badge-lit">Literary Devices</span>
-                    <div class="question-number">35</div>
-                    <div class="question-text"><strong>Match the following:</strong> Match examples with literary devices <br><em>(mainly — hyperbole / alliteration / personification / simile)</em></div>
-                    <div class="no-options">2-3 questions of this type were asked. Specific examples not recalled.</div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ANALYSIS SECTION -->
-        <div class="section" id="analysis">
-            <div class="section-header">
-                <div class="section-icon">📊</div>
-                <div>
-                    <div class="section-title">Topic-wise Analysis</div>
-                    <div class="section-desc">Breakdown of all 35 questions by category</div>
-                </div>
-            </div>
-
-            <div class="analysis-grid">
-                <div class="analysis-card">
-                    <h3>📚 Vocabulary (Synonyms/Antonyms)</h3>
-                    <div>
-                        <span class="topic-tag vocab">Concise</span>
-                        <span class="topic-tag vocab">Aplomb</span>
-                        <span class="topic-tag vocab">Amiable</span>
-                        <span class="topic-tag vocab">Recondite</span>
-                        <span class="topic-tag vocab">Abolish</span>
-                        <span class="topic-tag vocab">Diligent</span>
-                        <span class="topic-tag vocab">Immense</span>
-                        <span class="topic-tag vocab">Ostentatious</span>
-                        <span class="topic-tag vocab">Brittle</span>
-                        <span class="topic-tag vocab">Rattle</span>
-                        <span class="topic-tag vocab">Wreath</span>
-                        <span class="topic-tag vocab">Wrath</span>
-                        <span class="topic-tag vocab">Benevolent</span>
-                        <span class="topic-tag vocab">Ebullient</span>
-                        <span class="topic-tag vocab">Flippant</span>
-                        <span class="topic-tag vocab">Mortify</span>
-                        <span class="topic-tag vocab">Frisky/Fecund/Barren</span>
-                    </div>
-                </div>
-
-                <div class="analysis-card">
-                    <h3>💬 Idioms & Phrases</h3>
-                    <div>
-                        <span class="topic-tag idiom">Throw light on</span>
-                        <span class="topic-tag idiom">By leaps and bounds</span>
-                        <span class="topic-tag idiom">Burn the midnight oil</span>
-                        <span class="topic-tag idiom">Black and blue</span>
-                    </div>
-                </div>
-
-                <div class="analysis-card">
-                    <h3>✍️ Grammar</h3>
-                    <div>
-                        <span class="topic-tag grammar">Voice (Active/Passive)</span>
-                        <span class="topic-tag grammar">Narration</span>
-                        <span class="topic-tag grammar">Phrasal Verbs (cut/break)</span>
-                        <span class="topic-tag grammar">Phrasal Verbs (bring about)</span>
-                        <span class="topic-tag grammar">Phrasal Verbs (laid off/down/up/out)</span>
-                        <span class="topic-tag grammar">Prepositions (quarrel)</span>
-                        <span class="topic-tag grammar">Spelling (ingredients)</span>
-                        <span class="topic-tag grammar">Word Form (determined)</span>
-                    </div>
-                </div>
-
-                <div class="analysis-card">
-                    <h3>📖 Reading Comprehension</h3>
-                    <div>
-                        <span class="topic-tag rc">Sambalpur Weaving</span>
-                        <span class="topic-tag rc">85-year-old Brother</span>
-                        <span class="topic-tag rc">Charles Darwin</span>
-                        <span class="topic-tag rc">Literary Devices</span>
-                    </div>
-                </div>
-
-                <div class="analysis-card">
-                    <h3>🔤 One-Word Substitution</h3>
-                    <div>
-                        <span class="topic-tag vocab">Philology</span>
-                        <span class="topic-tag vocab">Affiliately</span>
-                        <span class="topic-tag vocab">Antiquist</span>
-                    </div>
-                </div>
-
-                <div class="analysis-card">
-                    <h3>🎭 Literary Devices</h3>
-                    <div>
-                        <span class="topic-tag literary">Hyperbole</span>
-                        <span class="topic-tag literary">Alliteration</span>
-                        <span class="topic-tag literary">Simile</span>
-                        <span class="topic-tag literary">Personification</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MEMORY-BASED NOTES -->
-        <div class="section" id="memory">
-            <div class="section-header">
-                <div class="section-icon">🧠</div>
-                <div>
-                    <div class="section-title">Student Feedback & Memory Notes</div>
-                    <div class="section-desc">Key takeaways from student discussions on Reddit</div>
-                </div>
-            </div>
-
-            <div class="memory-section">
-                <h4>📋 Paper Overview</h4>
-                <div class="memory-item">• Different sets were there today (multiple question sets)</div>
-                <div class="memory-item">• Overall paper was <strong>easy</strong></div>
-                <div class="memory-item">• Grammar was <strong>easy</strong></div>
-                <div class="memory-item">• <strong>2 RCs</strong> were there</div>
-            </div>
-
-            <div class="memory-section" style="margin-top: 1rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-color: #93c5fd;">
-                <h4 style="color: #1e40af;">💡 Student Tips</h4>
-                <div class="memory-item" style="border-left-color: #3b82f6;">• Questions were good, especially for students from <strong>10th ICSE / 12th State Board</strong> background</div>
-                <div class="memory-item" style="border-left-color: #3b82f6;">• Ample amount of grammar practice (from 10th grade) helped a lot</div>
-                <div class="memory-item" style="border-left-color: #3b82f6;">• Literary devices were manageable if you've studied <strong>Merchant of Venice</strong> and <strong>Treasure Trove</strong></div>
-            </div>
-        </div>
-
-        <!-- RESOURCES -->
-        <div class="section" id="resources">
-            <div class="section-header">
-                <div class="section-icon">🚀</div>
-                <div>
-                    <div class="section-title">Study Resources & Free Mocks</div>
-                    <div class="section-desc">Best platforms for CUET preparation</div>
-                </div>
-            </div>
-
-            <div class="links-section">
-                <div class="link-card">
-                    <div class="link-icon">🌐</div>
-                    <h3>Wondermayank</h3>
-                    <p>Visit the main website for comprehensive CUET study materials, notes, and resources curated by Wondermayank.</p>
-                    <a href="https://wondermayank.github.io" target="_blank" class="link-btn">Visit Website →</a>
-                </div>
-
-                <div class="link-card">
-                    <div class="link-icon">📝</div>
-                    <h3>Free CUET Mocks</h3>
-                    <p>Practice with free mock tests for Commerce stream. Test your preparation with exam-like questions.</p>
-                    <a href="https://commercesehoga.github.io/cuet" target="_blank" class="link-btn">Take Free Mocks →</a>
-                </div>
-            </div>
-        </div>
+<!-- ANALYTICS -->
+<div class="analytics-section">
+  <p class="section-label">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+    Paper Analysis
+  </p>
+  <div class="analytics-card">
+    <div class="analytics-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      How Was The Paper?
     </div>
 
-    <footer class="footer">
-        <h3>⚡ Thunderstudy</h3>
-        <p>By Wondermayank | CUET UG 2026 English Paper Analysis</p>
-        <p style="font-size: 0.85rem; opacity: 0.6;">11th May 2026 | Shift 1 | Memory-Based Analysis</p>
-        <div class="footer-links">
-            <a href="https://wondermayank.github.io" target="_blank">Wondermayank</a>
-            <a href="https://commercesehoga.github.io/cuet" target="_blank">Free Mocks</a>
-            <a href="#questions">Questions</a>
-            <a href="#analysis">Analysis</a>
-        </div>
-        <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">© 2026 Wondermayank • Thunderstudy. All rights reserved.</p>
-    </footer>
+    <!-- Verdict -->
+    <div class="overall-verdict">
+      <svg class="verdict-icon" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="38" fill="url(#vg)" opacity="0.15"/>
+        <circle cx="40" cy="40" r="28" fill="url(#vg)" opacity="0.25"/>
+        <path d="M26 42l8 8 20-20" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="vg" x1="0" y1="0" x2="80" y2="80">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="100%" stop-color="#60A5FA"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="verdict-text">
+        <strong>Overall: Moderate–Easy</strong><br>
+        Grammar was heavy but manageable. Vocabulary was basic. RC passages were easy. Focus on basics to score well.
+      </div>
+    </div>
 
-    <a href="#overview" class="fab">↑</a>
+    <!-- Difficulty count -->
+    <div class="diff-grid">
+      <div class="diff-box diff-easy">
+        <span class="val">60%</span>
+        <span class="lbl">Easy</span>
+      </div>
+      <div class="diff-box diff-medium">
+        <span class="val">30%</span>
+        <span class="lbl">Moderate</span>
+      </div>
+    </div>
+    <div style="margin-bottom:14px;" class="diff-grid" style="grid-template-columns:1fr;">
+      <div class="diff-box diff-hard" style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;">
+        <span class="lbl" style="text-align:left;">Tricky / Hard</span>
+        <span class="val" style="font-size:22px;">10%</span>
+      </div>
+    </div>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+    <!-- Bar chart by section -->
+    <div class="bar-chart">
+      <div class="section-label" style="margin-bottom:10px;">Section-wise Difficulty</div>
+      <div class="bar-row">
+        <span class="bar-label">Vocabulary</span>
+        <div class="bar-track"><div class="bar-fill bar-easy" style="width:80%"></div></div>
+        <span class="bar-val">Easy</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">RC Passages</span>
+        <div class="bar-track"><div class="bar-fill bar-easy" style="width:85%"></div></div>
+        <span class="bar-val">Easy</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Rearrangement</span>
+        <div class="bar-track"><div class="bar-fill bar-easy" style="width:75%"></div></div>
+        <span class="bar-val">Easy</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Phrasal Verbs</span>
+        <div class="bar-track"><div class="bar-fill bar-medium" style="width:55%"></div></div>
+        <span class="bar-val">Mod.</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Grammar</span>
+        <div class="bar-track"><div class="bar-fill bar-medium" style="width:48%"></div></div>
+        <span class="bar-val">Mod.</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Poetic Devices</span>
+        <div class="bar-track"><div class="bar-fill bar-hard" style="width:28%"></div></div>
+        <span class="bar-val">Hard</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Phobias</span>
+        <div class="bar-track"><div class="bar-fill bar-mixed" style="width:65%"></div></div>
+        <span class="bar-val">Mix</span>
+      </div>
+    </div>
 
-        const sections = document.querySelectorAll('.section, .summary-box');
-        const navLinks = document.querySelectorAll('.nav-links a');
+    <!-- Key takeaways -->
+    <div style="margin-top:16px; background:rgba(124,58,237,0.06); border-radius:12px; padding:12px 14px; border:1px solid rgba(124,58,237,0.1);">
+      <div style="font-size:12px; font-weight:700; color:var(--purple); margin-bottom:8px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Key Observations
+      </div>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:6px;">
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          RC passages easy — factual + narrative, answers identifiable
+        </li>
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          Grammar heavy — prepositions, voice, tenses, question tags
+        </li>
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          Poetic devices had one tricky question
+        </li>
+        <li style="font-size:12px; color:var(--text-muted); display:flex; gap:7px; align-items:flex-start;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+          Vocabulary basic — taciturn, sporadic, dipsomaniac
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+<div class="divider"></div>
+
+<!-- VOCABULARY -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#C4B5FD,#A78BFA)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+    </div>
+    <h2>Vocabulary Questions</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">What is the meaning of <strong>"Taciturn"</strong>?</div>
+    <span class="q-answer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+      Silent by nature
+    </span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">What is the meaning of <strong>"Sporadic"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Occasional</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 03</div>
+    <div class="q-text">What is the meaning of <strong>"Tumultuous"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Noisy and chaotic</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 04</div>
+    <div class="q-text">What is the meaning of <strong>"Ostentatious"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Showy</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 05</div>
+    <div class="q-text">What is the meaning of <strong>"Nefarious"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Wicked</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 06</div>
+    <div class="q-text">What is a <strong>"Pangram"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>A sentence with every letter of the alphabet</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 07</div>
+    <div class="q-text">What is the meaning of <strong>"Anonymous"</strong>?</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Unknown</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MATCH THE FOLLOWING -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#B9D9DC,#60A5FA)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+    </div>
+    <h2>Match the Following</h2>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">Match words with their meanings</div>
+    <div class="match-grid">
+      <div class="match-item"><span class="match-word">Taciturn</span><span class="match-sep">—</span><span class="match-def">Silent</span></div>
+      <div class="match-item"><span class="match-word">Sporadic</span><span class="match-sep">—</span><span class="match-def">Occasional</span></div>
+      <div class="match-item"><span class="match-word">Ostentatious</span><span class="match-sep">—</span><span class="match-def">Showy</span></div>
+      <div class="match-item"><span class="match-word">Nefarious</span><span class="match-sep">—</span><span class="match-def">Evil</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PHRASAL VERBS -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#fde68a,#fbbf24)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <h2>Phrasal Verb Questions</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">The meeting was <span class="phrasalverb-blank">called off</span> due to heavy rain.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Called off</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">We should not <span class="phrasalverb-blank">leave out</span> important details while writing notes.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Leave out</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 03</div>
+    <div class="q-text">The issue suddenly <span class="phrasalverb-blank">cropped up</span> during the discussion.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Cropped up</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 04</div>
+    <div class="q-text">She finally <span class="phrasalverb-blank">got over</span> her fear of public speaking.</div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Got over</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FIGURES OF SPEECH -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#fca5a5,#f87171)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <h2>Figures of Speech</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">Identify the figure of speech: <em>"Her smile was like sunshine."</em></div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Simile</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">Identify the figure of speech: <em>"Time is a thief."</em></div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Metaphor</span>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 03</div>
+    <div class="q-text">Identify the figure of speech: <em>"The stars danced in the sky."</em></div>
+    <span class="q-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Personification</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- REARRANGEMENT -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#6ee7b7,#34d399)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+    </div>
+    <h2>Rearrangement</h2>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 01</div>
+    <div class="q-text">Rearrange in correct order:</div>
+    <div class="rearr-box">
+      <div class="rearr-sentences">
+        <div class="rearr-item"><span class="rearr-letter">P.</span><span class="rearr-text">He opened the letter carefully.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">Q.</span><span class="rearr-text">He smiled after reading it.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">R.</span><span class="rearr-text">The postman arrived early morning.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">S.</span><span class="rearr-text">Ravi waited anxiously.</span></div>
+      </div>
+      <div class="order-chips">
+        <div class="order-chip">R</div><span class="order-arrow">›</span>
+        <div class="order-chip">S</div><span class="order-arrow">›</span>
+        <div class="order-chip">P</div><span class="order-arrow">›</span>
+        <div class="order-chip">Q</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q 02</div>
+    <div class="q-text">Rearrange in correct order:</div>
+    <div class="rearr-box">
+      <div class="rearr-sentences">
+        <div class="rearr-item"><span class="rearr-letter">P.</span><span class="rearr-text">The teacher entered the class.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">Q.</span><span class="rearr-text">Students stood up immediately.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">R.</span><span class="rearr-text">The bell rang loudly.</span></div>
+        <div class="rearr-item"><span class="rearr-letter">S.</span><span class="rearr-text">Silence spread everywhere.</span></div>
+      </div>
+      <div class="order-chips">
+        <div class="order-chip">R</div><span class="order-arrow">›</span>
+        <div class="order-chip">P</div><span class="order-arrow">›</span>
+        <div class="order-chip">Q</div><span class="order-arrow">›</span>
+        <div class="order-chip">S</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- GRAMMAR -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#A78BFA,#7C3AED)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+    </div>
+    <h2>Grammar</h2>
+  </div>
+
+  <div class="grammar-block">
+    <div class="grammar-tag">Adjective Order · OSASCOMP</div>
+    <div class="q-num" style="margin-bottom:6px;">Q 01 — Choose the correct sentence</div>
+    <div class="sentence-row">
+      <span class="sentence-label">Ans:</span>
+      <span class="sentence-text">She bought a <span class="highlight-word">beautiful small red</span> bag.</span>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Opinion → Size → Colour is the correct adjective order</div>
+  </div>
+
+  <div class="grammar-block">
+    <div class="grammar-tag">Active & Passive Voice</div>
+    <div class="q-num" style="margin-bottom:8px;">Q 01 — Change to Passive</div>
+    <div class="sentence-row">
+      <span class="sentence-label">Active:</span>
+      <span class="sentence-text">They completed the project.</span>
+    </div>
+    <div class="sentence-row">
+      <span class="sentence-label">Passive:</span>
+      <span class="sentence-text"><span class="highlight-word">The project was completed by them.</span></span>
+    </div>
+    <div style="margin-top:12px;" class="q-num">Q 02 — Change to Active</div>
+    <div class="sentence-row" style="margin-top:6px;">
+      <span class="sentence-label">Passive:</span>
+      <span class="sentence-text">The song was sung by Arijit.</span>
+    </div>
+    <div class="sentence-row">
+      <span class="sentence-label">Active:</span>
+      <span class="sentence-text"><span class="highlight-word">Arijit sang the song.</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SPELLING -->
+<div class="content-section">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#B9D9DC,#60A5FA)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    </div>
+    <h2>Spelling Error Questions</h2>
+  </div>
+  <div class="q-card">
+    <div class="q-num">Q 01 · Q 02 · Q 03 — Identify correct spelling</div>
+    <div class="spelling-grid">
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Depreciation</span>
+      </div>
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Aggregate</span>
+      </div>
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Notorious</span>
+      </div>
+      <div class="spell-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+        <span class="spell-word">Manoeuvre</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- QUICK RESOURCE LINKS -->
+<div class="footer-links">
+  <p class="section-label">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    Useful Resources
+  </p>
+  <div class="footer-grid">
+    <a class="footer-link" href="https://commercesehoga.github.io/cuet" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.2"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>
+      Free Mock Tests
+    </a>
+    <a class="footer-link" href="https://wondermayank.github.io" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+      Wondermayank
+    </a>
+    <a class="footer-link" href="https://commercesehoga.blogspot.com" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Free Notes Blog
+    </a>
+    <a class="footer-link" href="https://wondermayank.github.io/help" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      Support / Donate
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">by Wondermayank · ThunderStudy</div>
+  <div class="footer-policy">
+    <a href="https://wondermayank.github.io/terms" target="_blank">Terms</a>
+    <a href="https://wondermayank.github.io/privacy" target="_blank">Privacy</a>
+    <a href="https://wondermayank.github.io/disclaimer" target="_blank">Disclaimer</a>
+    <a href="https://wondermayank.github.io/help" target="_blank">Help & Donate</a>
+  </div>
+  <div class="footer-copy">CUET English 12 May 2026 · Morning Shift Analysis · Not an official NTA resource</div>
+</footer>
+
 </body>
 </html>
