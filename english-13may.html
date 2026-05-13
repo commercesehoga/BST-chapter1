@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUET English 13 May Paper — by Wondermayank</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple:#7C3AED; --pm:#A78BFA; --pl:#C4B5FD; --pbg:#F5F0FF;
+    --blue:#60A5FA; --bl:#B9D9DC; --bbg:#EFF8FF;
+    --white:#FFFFFF;
+    --glass:rgba(255,255,255,0.74); --gb:rgba(167,139,250,0.18);
+    --text:#1e1b4b; --muted:#6b7280;
+    --sh:0 8px 32px rgba(124,58,237,0.10);
+    --shc:0 4px 24px rgba(96,165,250,0.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#f8f5ff 0%,#eff8ff 55%,#f0f7ff 100%);min-height:100vh;color:var(--text);overflow-x:hidden}
+
+  /* HERO */
+  .hero{position:relative;padding:52px 20px 36px;text-align:center;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:560px;height:320px;background:radial-gradient(ellipse,rgba(167,139,250,.2) 0%,transparent 70%);pointer-events:none}
+  .badge{display:inline-flex;align-items:center;gap:7px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.18);border-radius:100px;padding:5px 16px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--purple);text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(24px,6vw,46px);font-weight:800;line-height:1.15;background:linear-gradient(135deg,#7C3AED,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+  .hero-sub{font-size:14px;color:var(--muted);margin-bottom:24px}
+  .pills{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:28px}
+  .pill{padding:4px 13px;border-radius:100px;font-size:11px;font-weight:500;backdrop-filter:blur(8px)}
+  .pp{background:rgba(196,181,253,.3);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
+  .pb{background:rgba(185,217,220,.3);color:#0369a1;border:1px solid rgba(96,165,250,.3)}
+
+  /* QUICK LINKS */
+  .ql{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:460px;margin:0 auto 32px;padding:0 14px}
+  .ql-c{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:13px 8px;text-align:center;text-decoration:none;backdrop-filter:blur(12px);box-shadow:var(--shc);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;align-items:center;gap:7px}
+  .ql-c:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(124,58,237,.15)}
+  .ql-i{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ipu{background:linear-gradient(135deg,#C4B5FD,#A78BFA)}
+  .ibl{background:linear-gradient(135deg,#B9D9DC,#60A5FA)}
+  .ign{background:linear-gradient(135deg,#bbf7d0,#34d399)}
+  .ql-c span{font-size:11px;font-weight:600;color:var(--text);line-height:1.2}
+
+  /* ANALYTICS */
+  .sec{padding:0 16px 8px;max-width:520px;margin:0 auto}
+  .slbl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--pm);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+  .acard{background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(239,248,255,.78));border:1px solid rgba(96,165,250,.2);border-radius:22px;padding:22px 20px;backdrop-filter:blur(16px);box-shadow:0 4px 28px rgba(96,165,250,.12);margin-bottom:14px}
+  .atitle{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .dg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+  .db{border-radius:12px;padding:12px 8px;text-align:center}
+  .de{background:rgba(187,247,208,.4);border:1px solid rgba(52,211,153,.3)}
+  .dm{background:rgba(254,243,199,.5);border:1px solid rgba(251,191,36,.3)}
+  .dh{background:rgba(254,202,202,.4);border:1px solid rgba(248,113,113,.3)}
+  .db .v{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;display:block}
+  .de .v{color:#059669}.dm .v{color:#d97706}.dh .v{color:#dc2626}
+  .db .l{font-size:10px;font-weight:500;color:var(--muted)}
+  .verdict{background:linear-gradient(135deg,rgba(124,58,237,.07),rgba(96,165,250,.07));border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:11px;margin-bottom:16px}
+  .vi{width:38px;height:38px;flex-shrink:0}
+  .vt{font-size:12px;font-weight:500;line-height:1.5}
+  .vt strong{color:var(--purple)}
+  /* bars */
+  .br{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+  .bl2{font-size:11px;width:86px;flex-shrink:0;color:var(--muted);font-weight:500}
+  .bt{flex:1;height:9px;background:rgba(167,139,250,.1);border-radius:100px;overflow:hidden}
+  .bf{height:100%;border-radius:100px}
+  .be{background:linear-gradient(90deg,#34d399,#6ee7b7)}
+  .bm{background:linear-gradient(90deg,#fbbf24,#fde68a)}
+  .bh{background:linear-gradient(90deg,#f87171,#fca5a5)}
+  .bmx{background:linear-gradient(90deg,#a78bfa,#c4b5fd)}
+  .bv{font-size:10px;font-weight:600;width:24px;text-align:right;color:var(--text)}
+  /* takeaways */
+  .tw{margin-top:14px;background:rgba(124,58,237,.05);border-radius:11px;padding:11px 13px;border:1px solid rgba(124,58,237,.1)}
+  .tw-t{font-size:11px;font-weight:700;color:var(--purple);margin-bottom:7px;display:flex;align-items:center;gap:5px}
+  .tw li{font-size:11px;color:var(--muted);display:flex;gap:6px;align-items:flex-start;margin-bottom:5px;list-style:none}
+
+  /* QUESTION CARDS */
+  .sh{display:flex;align-items:center;gap:9px;margin-bottom:12px;margin-top:22px}
+  .si{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .sh h2{font-family:'Syne',sans-serif;font-size:15px;font-weight:700}
+  .qc{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:14px 15px;margin-bottom:9px;backdrop-filter:blur(10px);box-shadow:0 2px 10px rgba(124,58,237,.05)}
+  .qn{font-family:'Space Mono',monospace;font-size:10px;color:var(--pm);letter-spacing:1px;margin-bottom:5px}
+  .qt{font-size:13px;font-weight:500;margin-bottom:9px;line-height:1.5;color:var(--text)}
+  .qa{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,rgba(124,58,237,.07),rgba(96,165,250,.07));border:1px solid rgba(124,58,237,.12);border-radius:100px;padding:4px 13px;font-size:12px;font-weight:600;color:var(--purple)}
+  .qa svg{width:13px;height:13px}
+  /* MCQ options */
+  .opts{display:flex;flex-direction:column;gap:5px;margin-bottom:9px}
+  .opt{display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:10px;font-size:12px;border:1px solid rgba(167,139,250,.15);background:rgba(255,255,255,.6)}
+  .opt.correct{background:rgba(187,247,208,.35);border-color:rgba(52,211,153,.4);color:#065f46;font-weight:600}
+  .opt-lbl{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;min-width:16px;color:var(--pm)}
+  .opt.correct .opt-lbl{color:#059669}
+  /* Match grid */
+  .mg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
+  .mi{background:rgba(196,181,253,.14);border-radius:9px;padding:7px 9px;font-size:11px;font-weight:500;border:1px solid rgba(167,139,250,.18)}
+  .mw{color:var(--purple);font-weight:700}.ms{color:var(--muted);margin:0 3px}.md{color:var(--text)}
+  /* phrasal blank */
+  .blank{display:inline-block;background:rgba(96,165,250,.12);border-bottom:2px solid var(--blue);padding:1px 10px;border-radius:3px;color:#0369a1;font-weight:700;font-size:12px}
+  /* grammar */
+  .gb2{background:linear-gradient(135deg,rgba(239,248,255,.9),rgba(245,240,255,.7));border:1px solid rgba(96,165,250,.2);border-radius:14px;padding:13px 14px;margin-bottom:9px}
+  .gtag{display:inline-block;background:rgba(96,165,250,.15);color:#0369a1;border-radius:5px;padding:2px 7px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px}
+  .sr{display:flex;align-items:flex-start;gap:9px;margin-bottom:7px}
+  .sl2{font-size:10px;font-weight:700;color:var(--muted);min-width:34px;margin-top:1px}
+  .st{font-size:12px;line-height:1.5}.hw{color:var(--purple);font-weight:700;border-bottom:1px dashed var(--pm)}
+  /* spelling */
+  .spg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:6px}
+  .sp{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.8);border:1px solid rgba(167,139,250,.2);border-radius:11px;padding:9px 11px}
+  .sp svg{width:15px;height:15px;flex-shrink:0}
+  .spw{font-size:12px;font-weight:600}
+  /* rearrangement */
+  .rs{display:flex;flex-direction:column;gap:4px;margin-bottom:9px}
+  .ri{display:flex;align-items:flex-start;gap:7px;background:rgba(239,248,255,.6);border-radius:9px;padding:7px 9px;border:1px solid rgba(96,165,250,.14)}
+  .rl{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--blue);min-width:14px}
+  .rt{font-size:12px}
+  .ocs{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+  .oc{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--blue));color:white;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(124,58,237,.25)}
+  .oa{color:var(--pm);font-size:13px;display:flex;align-items:center}
+  /* sub-section for Q10 matching */
+  .ph-match{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+  .phm-row{display:flex;flex-direction:column;gap:4px;background:rgba(239,248,255,.6);border-radius:9px;padding:8px;border:1px solid rgba(96,165,250,.14)}
+  .phm-key{font-size:11px;font-weight:700;color:var(--purple)}
+  .phm-val{font-size:11px;color:var(--muted)}
+
+  /* FOOTER */
+  .fl{padding:20px 16px 10px;max-width:520px;margin:0 auto}
+  .fg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
+  .fa{display:flex;align-items:center;gap:7px;background:var(--glass);border:1px solid var(--gb);border-radius:11px;padding:10px 11px;text-decoration:none;color:var(--text);font-size:11px;font-weight:500;backdrop-filter:blur(8px);transition:border-color .2s,transform .15s}
+  .fa:hover{border-color:var(--pm);transform:translateY(-1px)}
+  .fa svg{width:14px;height:14px;flex-shrink:0}
+  footer{background:linear-gradient(135deg,rgba(245,240,255,.9),rgba(239,248,255,.8));border-top:1px solid rgba(167,139,250,.15);padding:18px 16px;max-width:520px;margin:0 auto;text-align:center}
+  .fb{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:9px}
+  .fp{display:flex;flex-wrap:wrap;justify-content:center;gap:7px 13px;margin-bottom:10px}
+  .fp a{font-size:10px;color:var(--muted);text-decoration:none}.fp a:hover{color:var(--purple)}
+  .fc{font-size:10px;color:#9ca3af}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,250,.22),transparent);margin:4px auto 18px;max-width:488px}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .hero{animation:fadeUp .55s ease both}
+  .sec{animation:fadeUp .65s ease both .1s}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    CUET UG 2026 · Day 3
+  </div>
+  <h1>English — 13 May<br>Shift 1 Paper</h1>
+  <p class="hero-sub">Memory-based questions with answers · by Wondermayank</p>
+  <div class="pills">
+    <span class="pill pp">Vocabulary</span>
+    <span class="pill pb">Grammar</span>
+    <span class="pill pp">Phrasal Verbs</span>
+    <span class="pill pb">Figures of Speech</span>
+    <span class="pill pp">Rearrangement</span>
+    <span class="pill pb">One-Word Sub.</span>
+    <span class="pill pp">Narration</span>
+    <span class="pill pb">Homophones</span>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="ql">
+  <a class="ql-c" href="https://commercesehoga.github.io/cuet" target="_blank">
+    <div class="ql-i ipu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg></div>
+    <span>Free Mock Tests</span>
+  </a>
+  <a class="ql-c" href="https://wondermayank.github.io" target="_blank">
+    <div class="ql-i ibl"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg></div>
+    <span>Wondermayank</span>
+  </a>
+  <a class="ql-c" href="https://commercesehoga.blogspot.com" target="_blank">
+    <div class="ql-i ign"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+    <span>Free Notes</span>
+  </a>
+</div>
+
+<!-- ANALYTICS -->
+<div class="sec">
+  <p class="slbl">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+    Paper Analysis
+  </p>
+  <div class="acard">
+    <div class="atitle">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      How Was The Paper?
+    </div>
+    <div class="verdict">
+      <svg class="vi" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="38" fill="url(#vg2)" opacity=".15"/>
+        <circle cx="40" cy="40" r="26" fill="url(#vg2)" opacity=".22"/>
+        <path d="M26 42l8 8 20-20" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="vg2" x1="0" y1="0" x2="80" y2="80"><stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient></defs>
+      </svg>
+      <div class="vt"><strong>Overall: Easy to Moderate</strong><br>Reading comprehension and vocabulary were easy. Grammar and idioms needed practice. English questions based on RC, grammar, phrasal verbs, and vocabulary.</div>
+    </div>
+    <div class="dg">
+      <div class="db de"><span class="v">55%</span><span class="l">Easy</span></div>
+      <div class="db dm"><span class="v">35%</span><span class="l">Moderate</span></div>
+      <div class="db dh"><span class="v">10%</span><span class="l">Hard</span></div>
+    </div>
+    <div class="slbl" style="margin-bottom:9px;">Section-wise Difficulty</div>
+    <div class="br"><span class="bl2">Vocabulary</span><div class="bt"><div class="bf be" style="width:82%"></div></div><span class="bv">Easy</span></div>
+    <div class="br"><span class="bl2">RC Passages</span><div class="bt"><div class="bf be" style="width:80%"></div></div><span class="bv">Easy</span></div>
+    <div class="br"><span class="bl2">One-Word Sub.</span><div class="bt"><div class="bf be" style="width:78%"></div></div><span class="bv">Easy</span></div>
+    <div class="br"><span class="bl2">Rearrangement</span><div class="bt"><div class="bf bm" style="width:55%"></div></div><span class="bv">Mod.</span></div>
+    <div class="br"><span class="bl2">Grammar</span><div class="bt"><div class="bf bm" style="width:50%"></div></div><span class="bv">Mod.</span></div>
+    <div class="br"><span class="bl2">Narration</span><div class="bt"><div class="bf bm" style="width:48%"></div></div><span class="bv">Mod.</span></div>
+    <div class="br"><span class="bl2">Idioms/Phrasal</span><div class="bt"><div class="bf bmx" style="width:60%"></div></div><span class="bv">Mix</span></div>
+    <div class="tw">
+      <div class="tw-t">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Key Observations
+      </div>
+      <ul>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Reading comprehension passages: narrative + factual, easy to identify answers</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Vocabulary was contextual and direct — glutton, petulant, grisly, insinuate</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Grammar: tenses, active-passive, narration required careful reading</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Sentence rearrangement: moderate, logic-based ordering needed</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" style="margin-top:1px;flex-shrink:0"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Tea vocabulary (slurp/sip/gulp) — unique topic, first time appeared</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION: VOCABULARY FROM PDF -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#C4B5FD,#A78BFA)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+    </div>
+    <h2>Vocabulary — Official Questions (PDF)</h2>
+  </div>
+
+  <!-- Q1 -->
+  <div class="qc">
+    <div class="qn">Q 01 · One-Word Substitution</div>
+    <div class="qt">A person who eats too much is a/an ______.</div>
+    <div class="opts">
+      <div class="opt correct"><span class="opt-lbl">A</span> Glutton</div>
+      <div class="opt"><span class="opt-lbl">B</span> Epicure</div>
+      <div class="opt"><span class="opt-lbl">C</span> Gourmand</div>
+      <div class="opt"><span class="opt-lbl">D</span> Pagan</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(A) Glutton</span>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qc">
+    <div class="qn">Q 02 · Fill in the Blank</div>
+    <div class="qt">The unprecedented display of remarkable innovation and creativity ______ him into an enviable position.</div>
+    <div class="opts">
+      <div class="opt correct"><span class="opt-lbl">A</span> Catapulted</div>
+      <div class="opt"><span class="opt-lbl">B</span> Capsized</div>
+      <div class="opt"><span class="opt-lbl">C</span> Condemned</div>
+      <div class="opt"><span class="opt-lbl">D</span> Commemorated</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(A) Catapulted</span>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qc">
+    <div class="qn">Q 03 · Synonym</div>
+    <div class="qt">Identify the word closest in meaning to the underlined word: What are you trying to <u>'insinuate'</u> through this message?</div>
+    <div class="opts">
+      <div class="opt"><span class="opt-lbl">A</span> Express</div>
+      <div class="opt"><span class="opt-lbl">B</span> Affirm</div>
+      <div class="opt correct"><span class="opt-lbl">C</span> Allude</div>
+      <div class="opt"><span class="opt-lbl">D</span> Propagate</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(C) Allude</span>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qc">
+    <div class="qn">Q 05 · Synonym</div>
+    <div class="qt">Select the word closest in meaning to: <strong>Petulant</strong></div>
+    <div class="opts">
+      <div class="opt"><span class="opt-lbl">A</span> Placid</div>
+      <div class="opt"><span class="opt-lbl">B</span> Patient</div>
+      <div class="opt correct"><span class="opt-lbl">C</span> Irritable</div>
+      <div class="opt"><span class="opt-lbl">D</span> Insignificant</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(C) Irritable</span>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qc">
+    <div class="qn">Q 08 · Meaning</div>
+    <div class="qt">Choose the word that best expresses the meaning of: <strong>Grisly</strong></div>
+    <div class="opts">
+      <div class="opt"><span class="opt-lbl">A</span> Gloomy</div>
+      <div class="opt"><span class="opt-lbl">B</span> Greasy</div>
+      <div class="opt correct"><span class="opt-lbl">C</span> Disgusting</div>
+      <div class="opt"><span class="opt-lbl">D</span> Boorish</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(C) Disgusting</span>
+  </div>
+
+  <!-- Q9 -->
+  <div class="qc">
+    <div class="qn">Q 09 · One-Word Substitution</div>
+    <div class="qt">Choose the correct word to substitute: A careful <em>'preservation and protection'</em> of flora and fauna is the need of the hour.</div>
+    <div class="opts">
+      <div class="opt correct"><span class="opt-lbl">A</span> Conservation</div>
+      <div class="opt"><span class="opt-lbl">B</span> Promotion</div>
+      <div class="opt"><span class="opt-lbl">C</span> Enhancement</div>
+      <div class="opt"><span class="opt-lbl">D</span> Management</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(A) Conservation</span>
+  </div>
+
+  <!-- Additional vocab -->
+  <div class="qc">
+    <div class="qn">Q · Synonym</div>
+    <div class="qt">Choose the meaning of <strong>"Diligent"</strong></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Hardworking</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q · Synonym</div>
+    <div class="qt">Choose the meaning of <strong>"Pertinent"</strong></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Relevant</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q · Synonym</div>
+    <div class="qt">Choose the synonym of <strong>"Unsympathetic"</strong></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Unkind</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- REARRANGEMENT FROM PDF -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#6ee7b7,#34d399)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+    </div>
+    <h2>Sentence Rearrangement</h2>
+  </div>
+
+  <!-- Q4 PDF -->
+  <div class="qc">
+    <div class="qn">Q 04 · Para Jumble — Arctic Foxes</div>
+    <div class="qt">Rearrange (A)(B)(C)(D) to form a meaningful sentence:</div>
+    <div class="rs">
+      <div class="ri"><span class="rl">A.</span><span class="rt">while their white coats provide camouflage from</span></div>
+      <div class="ri"><span class="rl">B.</span><span class="rt">predators and help them silently approach prey</span></div>
+      <div class="ri"><span class="rl">C.</span><span class="rt">stay warm with thick fur, insulated feet, and fluffy tails,</span></div>
+      <div class="ri"><span class="rl">D.</span><span class="rt">arctic foxes, adapted to the harsh Arctic winter,</span></div>
+    </div>
+    <div class="opts" style="margin-bottom:9px">
+      <div class="opt"><span class="opt-lbl">A</span> (A),(D),(C),(B)</div>
+      <div class="opt correct"><span class="opt-lbl">B</span> (D),(C),(A),(B) ✓</div>
+      <div class="opt"><span class="opt-lbl">C</span> (D),(A),(C),(B)</div>
+      <div class="opt"><span class="opt-lbl">D</span> (C),(B),(D),(A)</div>
+    </div>
+    <div class="ocs">
+      <div class="oc">D</div><span class="oa">›</span>
+      <div class="oc">C</div><span class="oa">›</span>
+      <div class="oc">A</div><span class="oa">›</span>
+      <div class="oc">B</div>
+    </div>
+  </div>
+
+  <!-- Q7 PDF -->
+  <div class="qc">
+    <div class="qn">Q 07 · Para Jumble — Epic of Gilgamesh</div>
+    <div class="qt">Rearrange the following to form a meaningful sentence:</div>
+    <div class="rs">
+      <div class="ri"><span class="rl">A.</span><span class="rt">surviving written literature from ancient Mesopotamia because of</span></div>
+      <div class="ri"><span class="rl">B.</span><span class="rt">through the ages, including the Iliad and the Odyssey</span></div>
+      <div class="ri"><span class="rl">C.</span><span class="rt">the Epic of Gilgamesh is often cited as the earliest</span></div>
+      <div class="ri"><span class="rl">D.</span><span class="rt">its significantly enduring impact on ancient literary works</span></div>
+    </div>
+    <div class="opts" style="margin-bottom:9px">
+      <div class="opt correct"><span class="opt-lbl">A</span> (C),(A),(D),(B) ✓</div>
+      <div class="opt"><span class="opt-lbl">B</span> (B),(D),(A),(C)</div>
+      <div class="opt"><span class="opt-lbl">C</span> (C),(A),(B),(D)</div>
+      <div class="opt"><span class="opt-lbl">D</span> (B),(C),(A),(D)</div>
+    </div>
+    <div class="ocs">
+      <div class="oc">C</div><span class="oa">›</span>
+      <div class="oc">A</div><span class="oa">›</span>
+      <div class="oc">D</div><span class="oa">›</span>
+      <div class="oc">B</div>
+    </div>
+  </div>
+
+  <!-- Additional rearrangement -->
+  <div class="qc">
+    <div class="qn">Q · Sentence Order</div>
+    <div class="qt">Arrange in correct order:</div>
+    <div class="rs">
+      <div class="ri"><span class="rl">A.</span><span class="rt">He entered the room quietly.</span></div>
+      <div class="ri"><span class="rl">B.</span><span class="rt">Everyone looked at him.</span></div>
+      <div class="ri"><span class="rl">C.</span><span class="rt">The meeting had already begun.</span></div>
+      <div class="ri"><span class="rl">D.</span><span class="rt">He apologized for being late.</span></div>
+    </div>
+    <div class="ocs">
+      <div class="oc">C</div><span class="oa">›</span>
+      <div class="oc">A</div><span class="oa">›</span>
+      <div class="oc">B</div><span class="oa">›</span>
+      <div class="oc">D</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- GRAMMAR & TENSES -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#A78BFA,#7C3AED)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+    </div>
+    <h2>Grammar</h2>
+  </div>
+
+  <!-- Q6 PDF Tense -->
+  <div class="gb2">
+    <div class="gtag">Tense · Fill in Blank</div>
+    <div class="qn" style="margin-bottom:6px;">Q 06 — Choose correct tense</div>
+    <div class="qt">Once you ______ into the routine, you will find the work is quite easy.</div>
+    <div class="opts" style="margin-bottom:7px">
+      <div class="opt correct"><span class="opt-lbl">A</span> are settled ✓</div>
+      <div class="opt"><span class="opt-lbl">B</span> had settled</div>
+      <div class="opt"><span class="opt-lbl">C</span> settled</div>
+      <div class="opt"><span class="opt-lbl">D</span> will settle</div>
+    </div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(A) are settled</span>
+  </div>
+
+  <div class="gb2">
+    <div class="gtag">Active &amp; Passive Voice</div>
+    <div class="qn" style="margin-bottom:7px;">Q — Change to Passive &amp; Active</div>
+    <div class="sr">
+      <span class="sl2">Active:</span><span class="st">They completed the project yesterday.</span>
+    </div>
+    <div class="sr">
+      <span class="sl2">Passive:</span><span class="st"><span class="hw">The project was completed yesterday.</span></span>
+    </div>
+    <div style="height:8px"></div>
+    <div class="sr">
+      <span class="sl2">Passive:</span><span class="st">The speech was delivered by the principal.</span>
+    </div>
+    <div class="sr">
+      <span class="sl2">Active:</span><span class="st"><span class="hw">The principal delivered the speech.</span></span>
+    </div>
+  </div>
+
+  <div class="gb2">
+    <div class="gtag">Adjective Usage</div>
+    <div class="qn" style="margin-bottom:7px;">Q — Choose correct adjective</div>
+    <div class="sr"><span class="sl2">Q1:</span><span class="st">There are _____ students in the hall today.</span></div>
+    <div class="sr"><span class="sl2">Ans:</span><span class="st"><span class="hw">Fewer</span> (countable noun → fewer, not less)</span></div>
+    <div style="height:6px"></div>
+    <div class="sr"><span class="sl2">Q2:</span><span class="st">Select the correct sentence about water in bottle.</span></div>
+    <div class="sr"><span class="sl2">Ans:</span><span class="st"><span class="hw">She has less water in the bottle.</span></span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- NARRATION -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#fde68a,#fbbf24)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <h2>Narration (Reported Speech)</h2>
+  </div>
+
+  <div class="qc">
+    <div class="qn">Q 01</div>
+    <div class="qt">She said, "I am preparing for CUET."</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>She said that she was preparing for CUET.</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 02</div>
+    <div class="qt">Rahul said, "Will you help me?"</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Rahul asked if I would help him.</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PHRASAL VERBS / MATCH Q10 -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#B9D9DC,#60A5FA)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+    </div>
+    <h2>Phrasal Verbs — Match the Following</h2>
+  </div>
+
+  <div class="qc">
+    <div class="qn">Q 10 (Official PDF) · Match List-I with List-II</div>
+    <div class="mg">
+      <div class="mi"><span class="mw">Nod off</span><span class="ms">—</span><span class="md">Fall asleep</span></div>
+      <div class="mi"><span class="mw">Jack up</span><span class="ms">—</span><span class="md">Raise prices</span></div>
+      <div class="mi"><span class="mw">Look up to</span><span class="ms">—</span><span class="md">To respect</span></div>
+      <div class="mi"><span class="mw">Wrap up</span><span class="ms">—</span><span class="md">Finish something</span></div>
+    </div>
+    <div style="margin-top:9px">
+      <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>(A) A-(i), B-(ii), C-(iv), D-(iii)</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FIGURES OF SPEECH -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#fca5a5,#f87171)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <h2>Figures of Speech</h2>
+  </div>
+
+  <div class="qc">
+    <div class="qn">Q 01</div>
+    <div class="qt"><em>"The pen is mightier than the sword."</em></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Metonymy</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 02</div>
+    <div class="qt"><em>"The classroom was a zoo."</em></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Metaphor</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 03</div>
+    <div class="qt"><em>"Time flies."</em></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Personification</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ONE-WORD SUBSTITUTION -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#6ee7b7,#059669)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    </div>
+    <h2>One-Word Substitution</h2>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 01</div>
+    <div class="qt">Government ruled by the rich</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Plutocracy</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 02</div>
+    <div class="qt">One who loves books</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Bibliophile</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HOMOPHONES -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#C4B5FD,#7C3AED)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </div>
+    <h2>Homophones</h2>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 01</div>
+    <div class="qt">I saw a wild <span class="blank">boar</span> in the forest. &nbsp;<em>(bore / boar)</em></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Boar (wild pig)</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 02</div>
+    <div class="qt">He could not <span class="blank">bear</span> the pain. &nbsp;<em>(bear / bare)</em></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Bear (endure)</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 03</div>
+    <div class="qt">They ordered root <span class="blank">beer</span> at the café. &nbsp;<em>(beer / bear)</em></div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Beer (root beer drink)</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TEA VOCABULARY — UNIQUE TOPIC -->
+<div class="sec">
+  <div class="sh">
+    <div class="si" style="background:linear-gradient(135deg,#fbbf24,#f59e0b)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+    </div>
+    <h2>Tea-Related Vocabulary</h2>
+  </div>
+  <div style="background:rgba(254,243,199,.5);border:1px solid rgba(251,191,36,.3);border-radius:12px;padding:10px 14px;margin-bottom:10px;font-size:11px;color:#92400e;font-weight:500;">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Unique topic — appeared for first time in CUET English. Easy if you know the words!
+  </div>
+  <div class="qc">
+    <div class="qn">Q 01</div>
+    <div class="qt">To drink tea noisily is called:</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Slurp</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 02</div>
+    <div class="qt">To drink slowly in small quantities is called:</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Sip</span>
+  </div>
+  <div class="qc">
+    <div class="qn">Q 03</div>
+    <div class="qt">To drink quickly is called:</div>
+    <span class="qa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Gulp</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- RESOURCES -->
+<div class="fl">
+  <p class="slbl" style="margin-left:2px">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    Useful Resources
+  </p>
+  <div class="fg">
+    <a class="fa" href="https://commercesehoga.github.io/cuet" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.2"><path d="M9 11l3 3 8-8"/><circle cx="12" cy="12" r="10"/></svg>Free Mock Tests
+    </a>
+    <a class="fa" href="https://wondermayank.github.io" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>Wondermayank
+    </a>
+    <a class="fa" href="https://commercesehoga.blogspot.com" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Free Notes Blog
+    </a>
+    <a class="fa" href="https://wondermayank.github.io/help" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Support / Donate
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="fb">by Wondermayank · ThunderStudy</div>
+  <div class="fp">
+    <a href="https://wondermayank.github.io/terms" target="_blank">Terms</a>
+    <a href="https://wondermayank.github.io/privacy" target="_blank">Privacy</a>
+    <a href="https://wondermayank.github.io/disclaimer" target="_blank">Disclaimer</a>
+    <a href="https://wondermayank.github.io/help" target="_blank">Help &amp; Donate</a>
+  </div>
+  <div class="fc">CUET English 13 May 2026 · Shift 1 · Memory-Based · Not an official NTA resource</div>
+</footer>
+
+</body>
+</html>
