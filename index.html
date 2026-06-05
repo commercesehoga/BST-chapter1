@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,6 +70,10 @@ body{
   font-size:38px;
   box-shadow:0 12px 40px rgba(33,150,243,0.4);
   animation:loaderPulse 1.4s ease-in-out infinite;
+  overflow:hidden;padding:0;
+}
+.loader-logo img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:22px;
 }
 @keyframes loaderPulse{0%,100%{box-shadow:0 12px 40px rgba(33,150,243,0.4);}50%{box-shadow:0 12px 60px rgba(33,150,243,0.7);transform:scale(1.05);}}
 .loader-title{font-family:var(--fnd);font-size:28px;font-weight:800;color:#0d47a1;letter-spacing:-0.5px;}
@@ -107,7 +112,10 @@ body{
 .nav-item.active{background:linear-gradient(135deg,rgba(33,150,243,0.15),rgba(0,188,212,0.1));color:var(--blue2);font-weight:700;}
 .nav-item.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;background:linear-gradient(180deg,#2196f3,#00bcd4);border-radius:0 4px 4px 0;}
 .nav-item{position:relative;}
-.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0;}
+.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.nav-icon svg{width:16px;height:16px;flex-shrink:0;}
+.nav-item:hover .nav-icon svg{stroke:#2196f3;}
+.nav-item.active .nav-icon svg{stroke:#1976d2;}
 .nav-badge{margin-left:auto;background:var(--blue);color:#fff;font-size:9px;font-weight:800;padding:2px 6px;border-radius:20px;}
 .nav-badge.teal{background:var(--accent);}
 .nav-badge.lock{background:rgba(244,63,94,.9);}
@@ -286,9 +294,11 @@ body{
   }
   
   .dock-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;position:relative;height:60px;-webkit-tap-highlight-color:transparent;}
-  .dock-icon{font-size:18px;line-height:1;}
+  .dock-icon{font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;}
+  .dock-icon svg{width:20px;height:20px;}
   .dock-label{font-size:8px;font-weight:700;color:var(--text3);}
   .dock-item.active .dock-label{color:var(--blue);}
+  .dock-item.active .dock-icon svg{stroke:var(--blue);}
   .dock-active-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);position:absolute;bottom:8px;display:none;}
   .dock-item.active .dock-active-dot{display:block;}
 }
@@ -356,13 +366,443 @@ body::before{
 .stagger > *:nth-child(5){animation-delay:.25s;}
 .stagger > *:nth-child(6){animation-delay:.3s;}
 .stagger > *:nth-child(n+7){animation-delay:.35s;}
+
+/* ── HERO LANDING ── */
+#hero-landing{
+  position:fixed;inset:0;z-index:9998;
+  background:#F3F3FB;
+  overflow-y:auto;overflow-x:hidden;
+  transition:opacity .7s ease, transform .7s ease;
+  scroll-snap-type:y mandatory;
+}
+#hero-landing.exit{opacity:0;transform:scale(1.04);pointer-events:none;}
+
+/* Scroll snap sections */
+.hl-section{
+  min-height:100vh;
+  scroll-snap-align:start;
+}
+
+/* ── NAV ── */
+.hl-nav{
+  position:fixed;top:0;left:0;right:0;height:72px;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 80px;
+  background:#fff;
+  border-bottom:1px solid #eeeef8;
+  box-shadow:0 1px 0 rgba(87,58,252,.06);
+}
+.hl-logo{display:flex;align-items:center;gap:10px;}
+.hl-logo-icon{
+  width:38px;height:38px;background:#573AFC;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:#fff;
+  box-shadow:0 4px 14px rgba(87,58,252,.35);
+}
+.hl-logo-text{font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:#101238;}
+.hl-logo-text span{color:#573AFC;}
+.hl-nav-links{display:flex;align-items:center;gap:36px;}
+.hl-nav-links a{
+  font-family:'Inter',sans-serif;font-size:15px;font-weight:400;
+  color:#101238;text-decoration:none;transition:color .15s;
+  position:relative;
+}
+.hl-nav-links a:hover{color:#573AFC;}
+.hl-nav-links a.active{font-weight:600;color:#573AFC;}
+.hl-nav-links a.active::after{
+  content:'';position:absolute;bottom:-26px;left:0;right:0;
+  height:2.5px;background:#573AFC;border-radius:1px;
+}
+.hl-nav-cta{display:flex;gap:10px;align-items:center;}
+
+/* Login btn */
+.hl-btn-login{
+  display:inline-flex;align-items:center;
+  height:36px;padding:0 22px;
+  background:#fff;border:1.5px solid #573AFC;border-radius:18px;
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#573AFC;
+  cursor:pointer;transition:all .18s;text-decoration:none;
+}
+.hl-btn-login:hover{background:#f5f2ff;}
+
+/* CTA btn */
+.hl-btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  height:36px;padding:0 22px;
+  background:#573AFC;border:none;border-radius:18px;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;
+  cursor:pointer;box-shadow:0 4px 14px rgba(87,58,252,.35);
+  transition:all .2s;text-decoration:none;
+}
+.hl-btn-primary:hover{background:#4a2fe8;transform:translateY(-1px);box-shadow:0 6px 20px rgba(87,58,252,.45);}
+.hl-btn-primary .arrow{transition:transform .2s;}
+.hl-btn-primary:hover .arrow{transform:translateX(3px);}
+
+/* ── HERO SECTION ── */
+.hl-hero-wrap{
+  display:flex;align-items:center;
+  min-height:100vh;padding-top:72px;
+  width:100%;max-width:1440px;margin:0 auto;
+  padding-left:80px;padding-right:80px;
+  gap:40px;
+}
+.hl-left{flex:1;min-width:0;animation:hlFadeIn .9s cubic-bezier(.34,1.4,.64,1) both .2s;}
+.hl-right{
+  width:440px;flex-shrink:0;
+  position:relative;
+  animation:hlFadeIn .9s cubic-bezier(.34,1.4,.64,1) both .4s;
+}
+@keyframes hlFadeIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+
+/* Badge */
+.hl-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#DDD2FF;border-radius:18px;
+  padding:9px 18px;margin-bottom:18px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#573AFC;
+}
+.hl-badge-star{font-size:15px;}
+
+/* Headline */
+.hl-h1{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(44px,5.5vw,68px);
+  font-weight:800;
+  line-height:1.21;
+  letter-spacing:-1.5px;
+  color:#101238;
+  margin-bottom:0;
+}
+.hl-h1 .accent{color:#573AFC;}
+
+/* Sub */
+.hl-sub{
+  font-family:'Inter',sans-serif;
+  font-size:17px;font-weight:400;
+  color:#616170;line-height:1.7;
+  max-width:560px;
+  margin:18px 0 32px;
+}
+
+/* Explore btn */
+.hl-btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  height:52px;padding:0 32px;
+  background:#fff;border:2px solid #573AFC;border-radius:26px;
+  font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#573AFC;
+  cursor:pointer;transition:all .2s;text-decoration:none;
+}
+.hl-btn-ghost:hover{background:#f5f2ff;transform:translateY(-2px);}
+
+/* Feature pills row */
+.hl-feats{display:flex;gap:24px;margin-top:46px;flex-wrap:wrap;}
+.hl-feat{display:flex;align-items:center;gap:10px;}
+.hl-feat-icon{
+  width:44px;height:44px;background:#DDD2FF;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+}
+.hl-feat-title{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:#101238;}
+.hl-feat-sub{font-family:'Inter',sans-serif;font-size:11px;color:#616170;}
+.hl-feat-divider{width:1.5px;height:44px;background:#E0E0F0;flex-shrink:0;}
+
+/* Right visual */
+.hl-visual-blob{
+  position:absolute;
+  width:500px;height:500px;
+  background:#E2DDF9;border-radius:50%;
+  top:50%;right:-60px;
+  transform:translateY(-50%);
+  z-index:0;
+}
+.hl-student-card{
+  position:relative;z-index:1;
+  width:320px;height:520px;
+  background:transparent;
+  overflow:visible;
+  margin:0 auto;
+}
+.hl-student-card img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:top center;
+  border-radius:0;
+  display:block;
+  position:relative;z-index:1;
+  filter:drop-shadow(0 20px 40px rgba(87,58,252,.15));
+}
+.hl-student-inner{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:80px;
+  background:linear-gradient(135deg,#EDE6FA 0%,#d6c8ff 100%);
+  border-radius:20px;
+}
+
+/* Goal card floating */
+.hl-goal-card{
+  position:absolute;bottom:40px;left:-80px;z-index:2;
+  background:#fff;
+  border-radius:20px;
+  padding:16px 18px;
+  width:240px;
+  box-shadow:0 8px 32px rgba(87,58,252,.18);
+  animation:fcFloat 7s ease-in-out infinite;
+}
+@keyframes fcFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.hl-goal-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#101238;margin-bottom:2px;}
+.hl-goal-sub{font-family:'Inter',sans-serif;font-size:12px;color:#616170;margin-bottom:8px;}
+.hl-goal-prog-bg{width:100%;height:6px;background:#E6E0F7;border-radius:4px;overflow:hidden;margin-bottom:10px;}
+.hl-goal-prog-fill{height:100%;width:67%;background:#573AFC;border-radius:4px;}
+.hl-goal-items{display:flex;flex-direction:column;gap:6px;}
+.hl-goal-item{display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:11.5px;color:#101238;}
+.hl-goal-dot{
+  width:15px;height:15px;border-radius:50%;background:#573AFC;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.hl-goal-dot svg{width:9px;height:9px;stroke:#fff;stroke-width:2.5;}
+.hl-goal-dot.empty{background:transparent;border:1.5px solid rgba(87,58,252,.3);}
+.hl-goal-count{font-family:'Inter',monospace;font-size:10px;color:#616170;margin-left:auto;}
+
+/* Streak card floating */
+.hl-streak-card{
+  position:absolute;top:30px;right:-40px;z-index:3;
+  background:#fff;border-radius:16px;
+  padding:14px 16px;
+  box-shadow:0 8px 28px rgba(87,58,252,.15);
+  animation:fcFloat 9s ease-in-out infinite 1.5s;
+  min-width:180px;
+}
+.hl-streak-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.hl-streak-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#f97316);display:flex;align-items:center;justify-content:center;font-size:18px;}
+.hl-streak-label{font-family:'Inter',sans-serif;font-size:13px;font-weight:800;color:#101238;}
+.hl-streak-sub{font-family:'Inter',sans-serif;font-size:10px;color:#616170;}
+.hl-streak-stats{display:flex;gap:6px;}
+.hl-streak-stat{flex:1;text-align:center;padding:8px 0;background:#f5f2ff;border-radius:10px;}
+.hl-streak-val{font-family:'Inter',monospace;font-size:15px;font-weight:700;color:#573AFC;}
+.hl-streak-key{font-size:9px;color:#616170;font-weight:600;margin-top:1px;}
+
+/* dashed connecting line */
+.hl-dash-line{
+  position:absolute;top:46%;left:-130px;width:120px;height:0;
+  border-top:2px dashed rgba(87,58,252,.5);z-index:1;
+  pointer-events:none;
+}
+
+/* dot grid */
+.hl-dots{position:absolute;display:grid;gap:14px;pointer-events:none;opacity:.5;}
+.hl-dot{width:5px;height:5px;border-radius:50%;background:#C4B5FD;}
+
+/* Stats row */
+.hl-stats{
+  display:flex;gap:0;margin-top:52px;
+  border-top:1px solid #eeeef8;padding-top:32px;
+  animation:hlFadeIn .8s ease both .95s;
+}
+.hl-stat{flex:1;text-align:center;}
+.hl-stat-val{font-family:'Inter',monospace;font-size:24px;font-weight:700;color:#573AFC;}
+.hl-stat-lbl{font-size:11px;color:#616170;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-top:3px;}
+.hl-stat-div{width:1px;background:#E0E0F0;align-self:stretch;}
+
+/* pills */
+.hl-pills{
+  display:flex;gap:9px;flex-wrap:wrap;
+  margin-top:28px;
+  animation:hlFadeIn .8s ease both 1.1s;
+}
+.hl-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid #e8e8f4;border-radius:20px;
+  padding:7px 14px;font-size:11.5px;font-weight:600;color:#444468;
+  font-family:'Inter',sans-serif;
+}
+
+@media(max-width:1100px){
+  .hl-hero-wrap{padding:80px 40px 40px;}
+  .hl-streak-card{right:-20px;}
+}
+@media(max-width:900px){
+  .hl-right{display:none;}
+  .hl-hero-wrap{justify-content:center;}
+  .hl-left{text-align:center;}
+  .hl-feats{justify-content:center;}
+  .hl-stats{justify-content:center;}
+}
+@media(max-width:600px){
+  .hl-nav-links{display:none;}
+  .hl-nav{padding:0 20px;}
+  .hl-hero-wrap{padding:80px 20px 40px;}
+  .hl-stat-div{display:none;}
+}
 </style>
 </head>
 <body>
 
+<!-- ── HERO LANDING ── -->
+<div id="hero-landing">
+
+  <!-- NAV -->
+  <div class="hl-nav">
+    <div class="hl-logo">
+      <div class="hl-logo-icon">⚡</div>
+      <div class="hl-logo-text">Thunder<span>study</span></div>
+    </div>
+    <div class="hl-nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#" onclick="enterDashboard();setTimeout(()=>goPage('mocks'),800);return false;">Mocks</a>
+      <a href="#" onclick="enterDashboard();setTimeout(()=>goPage('notes'),800);return false;">Notes</a>
+      <a href="#" onclick="enterDashboard();setTimeout(()=>goPage('pyqs'),800);return false;">PYQs</a>
+      <a href="https://wondermayank.github.io/about" target="_blank">About Us</a>
+    </div>
+    <div class="hl-nav-cta">
+      <a class="hl-btn-login" href="https://commercesehoga.github.io/login" target="_blank">Log in</a>
+      <button class="hl-btn-primary" onclick="enterDashboard()">Get Started</button>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div class="hl-section">
+    <div class="hl-hero-wrap">
+
+      <!-- LEFT -->
+      <div class="hl-left">
+        <!-- Badge -->
+        <div class="hl-badge">
+          <span class="hl-badge-star">☆</span>
+          Learn English. Unlock Opportunities.
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hl-h1">
+          Master English<br>
+          <span class="accent">Confidently.</span>
+        </h1>
+
+        <!-- Sub -->
+        <p class="hl-sub">
+          Interactive lessons, real-life practice, and expert guidance to help you speak, write and understand English better.
+        </p>
+
+        <!-- CTA -->
+        <button class="hl-btn-ghost" onclick="enterDashboard()">Explore Courses</button>
+
+        <!-- Feature pills -->
+        <div class="hl-feats">
+          <div class="hl-feat">
+            <div class="hl-feat-icon">📖</div>
+            <div>
+              <div class="hl-feat-title">Beginner to Advanced</div>
+              <div class="hl-feat-sub">Courses for all levels</div>
+            </div>
+          </div>
+          <div class="hl-feat-divider"></div>
+          <div class="hl-feat">
+            <div class="hl-feat-icon">📈</div>
+            <div>
+              <div class="hl-feat-title">Track Your Progress</div>
+              <div class="hl-feat-sub">Improve a little every day</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="hl-stats">
+          <div class="hl-stat">
+            <div class="hl-stat-val">150+</div>
+            <div class="hl-stat-lbl">Mock Tests</div>
+          </div>
+          <div class="hl-stat-div"></div>
+          <div class="hl-stat">
+            <div class="hl-stat-val">50</div>
+            <div class="hl-stat-lbl">Black Book</div>
+          </div>
+          <div class="hl-stat-div"></div>
+          <div class="hl-stat">
+            <div class="hl-stat-val">30</div>
+            <div class="hl-stat-lbl">Special Mocks</div>
+          </div>
+          <div class="hl-stat-div"></div>
+          <div class="hl-stat">
+            <div class="hl-stat-val">Free</div>
+            <div class="hl-stat-lbl">Core Access</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hl-right">
+        <!-- dot grid top-right -->
+        <div class="hl-dots" style="top:-30px;right:-40px;grid-template-columns:repeat(5,1fr);">
+          <div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div>
+          <div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div>
+          <div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div>
+          <div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div>
+          <div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div><div class="hl-dot"></div>
+        </div>
+
+        <!-- Purple blob -->
+        <div class="hl-visual-blob"></div>
+
+        <!-- Student card -->
+        <div class="hl-student-card">
+          <img src="https://commercesehoga.github.io/english/girl.png" alt="Student" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:28px;" onerror="this.parentElement.innerHTML='<div class=\'hl-student-inner\'>🎓</div>'">
+        </div>
+
+        <!-- Dashed line -->
+        <div class="hl-dash-line"></div>
+
+        <!-- Goal card (bottom-left) -->
+        <div class="hl-goal-card">
+          <div class="hl-goal-title">Today's Goal</div>
+          <div class="hl-goal-sub">Learn 15 new words</div>
+          <div class="hl-goal-prog-bg"><div class="hl-goal-prog-fill"></div></div>
+          <div class="hl-goal-items">
+            <div class="hl-goal-item">
+              <div class="hl-goal-dot">✓</div>
+              Study Vocabulary
+            </div>
+            <div class="hl-goal-item">
+              <div class="hl-goal-dot">✓</div>
+              Practice Speaking
+            </div>
+            <div class="hl-goal-item">
+              <div class="hl-goal-dot">✓</div>
+              Write Sentences
+              <span class="hl-goal-count">10/15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Streak card (top-right) -->
+        <div class="hl-streak-card">
+          <div class="hl-streak-top">
+            <div class="hl-streak-icon">🔥</div>
+            <div>
+              <div class="hl-streak-label">7 Day Streak</div>
+              <div class="hl-streak-sub">Keep it up!</div>
+            </div>
+          </div>
+          <div class="hl-streak-stats">
+            <div class="hl-streak-stat">
+              <div class="hl-streak-val">82%</div>
+              <div class="hl-streak-key">Accuracy</div>
+            </div>
+            <div class="hl-streak-stat">
+              <div class="hl-streak-val">12</div>
+              <div class="hl-streak-key">Mocks Done</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
 <!-- ── LOADING SCREEN ── -->
 <div id="loader">
-  <div class="loader-logo">📖</div>
+  <div class="loader-logo"><img src="https://commercesehoga.github.io/english/girl.png" alt="Student" onerror="this.parentElement.innerHTML='🎓'"></div>
   <div>
     <div class="loader-title">English<span style="color:#00bcd4">Study</span></div>
     <div class="loader-sub">by Thunderstudy</div>
@@ -389,13 +829,42 @@ body::before{
   </div>
   <div class="sb-nav">
     <div class="nav-sec">Main</div>
-    <div class="nav-item active" onclick="goPage('home')"><span class="nav-icon">🏠</span> Home</div>
-    <div class="nav-item" onclick="goPage('cuet')"><span class="nav-icon">📝</span> CUET Mocks<span class="nav-badge">ALL</span></div>
-    <div class="nav-item" onclick="goPage('blackbook')"><span class="nav-icon">📓</span> Black Book<span class="nav-badge teal">50</span></div>
-    <div class="nav-item" onclick="goPage('special')"><span class="nav-icon">⭐</span> Special Mocks<span class="nav-badge lock">PAID</span></div>
+    <div class="nav-item active" onclick="goPage('home')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span> Home
+    </div>
+    <div class="nav-item" onclick="goPage('cuet')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span> CUET Mocks<span class="nav-badge">ALL</span>
+    </div>
+    <div class="nav-item" onclick="goPage('blackbook')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span> Black Book<span class="nav-badge teal">50</span>
+    </div>
+    <div class="nav-item" onclick="goPage('special')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> Special Mocks<span class="nav-badge lock">PAID</span>
+    </div>
+    <div class="nav-sec" style="margin-top:8px;">Study</div>
+    <div class="nav-item" onclick="goPage('mocks')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span> Mocks
+    </div>
+    <div class="nav-item" onclick="goPage('notes')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span> Notes
+    </div>
+    <div class="nav-item" onclick="goPage('pyqs')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span> PYQs
+    </div>
     <div class="nav-sec" style="margin-top:8px;">Resources</div>
-    <div class="nav-item" onclick="goPage('books')"><span class="nav-icon">📚</span> Books & Material</div>
-    <div class="nav-item" onclick="goPage('leaderboard')"><span class="nav-icon">🏆</span> Leaderboard<span class="nav-badge teal">LIVE</span></div>
+    <div class="nav-item" onclick="goPage('books')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span> Books & Material
+    </div>
+    <div class="nav-item" onclick="goPage('leaderboard')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span> Leaderboard<span class="nav-badge teal">LIVE</span>
+    </div>
+    <div class="nav-sec" style="margin-top:8px;">Also</div>
+    <div class="nav-item" onclick="window.open('https://wondermayank.github.io/about','_blank')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span> About Us
+    </div>
+    <div class="nav-item" onclick="window.open('https://commercesehoga.github.io/login','_blank')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span> Login
+    </div>
   </div>
   <div class="sb-profile">
     <div class="sb-profile-inner">
@@ -628,33 +1097,128 @@ body::before{
     </div>
   </div>
 
+  <!-- MOCKS PAGE -->
+  <div class="page" id="page-mocks">
+    <div class="topbar">
+      <div>
+        <div class="page-title">🗂️ Mocks</div>
+        <div class="page-sub">All mock test series for CUET English</div>
+      </div>
+    </div>
+    <div class="glass-card card-p" style="margin-bottom:14px;">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;">📝 CUET Mock Tests</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;">
+        <div class="glass-card card-p" style="cursor:pointer;" onclick="goPage('cuet')">
+          <div style="font-size:22px;margin-bottom:6px;">📝</div>
+          <div style="font-size:13px;font-weight:700;">CUET Mocks</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">All series</div>
+        </div>
+        <div class="glass-card card-p" style="cursor:pointer;" onclick="goPage('blackbook')">
+          <div style="font-size:22px;margin-bottom:6px;">📓</div>
+          <div style="font-size:13px;font-weight:700;">Black Book</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">50 focused mocks</div>
+        </div>
+        <div class="glass-card card-p" style="cursor:pointer;" onclick="goPage('special')">
+          <div style="font-size:22px;margin-bottom:6px;">⭐</div>
+          <div style="font-size:13px;font-weight:700;">Special Mocks</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Premium series</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES PAGE -->
+  <div class="page" id="page-notes">
+    <div class="topbar">
+      <div>
+        <div class="page-title">📒 Notes</div>
+        <div class="page-sub">Free study notes for CUET English</div>
+      </div>
+    </div>
+    <div class="glass-card card-p">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;">📚 Study Notes</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
+        <a href="https://commercesehoga.github.io/english/notes/grammar.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">📖</div>
+          <div style="font-size:13px;font-weight:700;">Grammar</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Rules & concepts</div>
+        </a>
+        <a href="https://commercesehoga.github.io/english/notes/vocab.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">🔤</div>
+          <div style="font-size:13px;font-weight:700;">Vocabulary</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Word lists & meanings</div>
+        </a>
+        <a href="https://commercesehoga.github.io/english/notes/reading.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">🧩</div>
+          <div style="font-size:13px;font-weight:700;">Reading Comp.</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Passages & tips</div>
+        </a>
+        <a href="https://commercesehoga.github.io/english/notes/writing.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">✍️</div>
+          <div style="font-size:13px;font-weight:700;">Writing Skills</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Essays & formats</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQs PAGE -->
+  <div class="page" id="page-pyqs">
+    <div class="topbar">
+      <div>
+        <div class="page-title">🎯 PYQs</div>
+        <div class="page-sub">Previous Year Questions — CUET English</div>
+      </div>
+    </div>
+    <div class="glass-card card-p">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;">📅 Year-wise PYQs</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;">
+        <a href="https://commercesehoga.github.io/english/pyq/2024.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">📄</div>
+          <div style="font-size:13px;font-weight:700;">CUET 2024</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Latest paper</div>
+        </a>
+        <a href="https://commercesehoga.github.io/english/pyq/2023.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">📄</div>
+          <div style="font-size:13px;font-weight:700;">CUET 2023</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Previous year</div>
+        </a>
+        <a href="https://commercesehoga.github.io/english/pyq/2022.html" target="_blank" class="glass-card card-p" style="text-decoration:none;color:var(--text);cursor:pointer;">
+          <div style="font-size:22px;margin-bottom:6px;">📄</div>
+          <div style="font-size:13px;font-weight:700;">CUET 2022</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:2px;">First CUET paper</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /main -->
 
 <!-- ── MOBILE DOCK ── -->
 <nav class="mobile-dock">
   <div class="dock-item active" id="dock-home" onclick="goPage('home')">
-    <div class="dock-icon">🏠</div>
+    <div class="dock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
     <div class="dock-label">Home</div>
     <div class="dock-active-dot"></div>
   </div>
-  <div class="dock-item" id="dock-cuet" onclick="goPage('cuet')">
-    <div class="dock-icon">📝</div>
-    <div class="dock-label">CUET</div>
+  <div class="dock-item" id="dock-mocks" onclick="goPage('mocks')">
+    <div class="dock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+    <div class="dock-label">Mocks</div>
     <div class="dock-active-dot"></div>
   </div>
-  <div class="dock-item" id="dock-blackbook" onclick="goPage('blackbook')">
-    <div class="dock-icon">📓</div>
-    <div class="dock-label">Black Book</div>
+  <div class="dock-item" id="dock-notes" onclick="goPage('notes')">
+    <div class="dock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+    <div class="dock-label">Notes</div>
     <div class="dock-active-dot"></div>
   </div>
-  <div class="dock-item" id="dock-special" onclick="goPage('special')">
-    <div class="dock-icon">⭐</div>
-    <div class="dock-label">Special</div>
+  <div class="dock-item" id="dock-pyqs" onclick="goPage('pyqs')">
+    <div class="dock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+    <div class="dock-label">PYQs</div>
     <div class="dock-active-dot"></div>
   </div>
-  <div class="dock-item" id="dock-leaderboard" onclick="goPage('leaderboard')">
-    <div class="dock-icon">🏆</div>
-    <div class="dock-label">Rank</div>
+  <div class="dock-item" id="dock-also" onclick="window.open('https://wondermayank.github.io/about','_blank')">
+    <div class="dock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
+    <div class="dock-label">About</div>
     <div class="dock-active-dot"></div>
   </div>
 </nav>
@@ -1031,6 +1595,36 @@ function promptStudentID(){
   // Re-render special if on that page
   if(document.getElementById('page-special').classList.contains('active'))renderSpecial();
 }
+
+/* ════════════════════════════════
+   HERO LANDING → DASHBOARD
+════════════════════════════════ */
+function enterDashboard(){
+  const hero=document.getElementById('hero-landing');
+  if(!hero)return;
+  hero.classList.add('exit');
+  setTimeout(()=>hero.remove(),750);
+}
+
+// Auto-dismiss hero on scroll
+(function(){
+  let dismissed=false;
+  function onHeroScroll(){
+    if(dismissed)return;
+    const hero=document.getElementById('hero-landing');
+    if(!hero)return;
+    if(hero.scrollTop>60){
+      dismissed=true;
+      hero.removeEventListener('scroll',onHeroScroll);
+      enterDashboard();
+    }
+  }
+  // Attach after DOM ready
+  window.addEventListener('load',()=>{
+    const hero=document.getElementById('hero-landing');
+    if(hero) hero.addEventListener('scroll',onHeroScroll,{passive:true});
+  });
+})();
 
 /* ════════════════════════════════
    BOOT
